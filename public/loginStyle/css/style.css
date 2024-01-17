@@ -1706,7 +1706,7 @@ textarea.form-control {
   margin-bottom: 1rem; }
 
 .form-group button {
-  background-color: #007bff;
+  background-color: #13C5DD;
   color: white;
 }
 
@@ -8201,7 +8201,7 @@ h1, h2, h3, h4, h5,
       width: 100%; } }
 
 .text-wrap {
-  background-color: #007bff;
+  background-color: #13C5DD;
   color: #fff; }
   .text-wrap .text h2 {
     font-weight: 900;

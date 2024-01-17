@@ -9,7 +9,7 @@
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-	<link rel="stylesheet" href="login/css/style.css">
+	<link rel="stylesheet" href="{{asset('loginStyle/css/style.css')}}">
 
 	</head>
 	<body>
@@ -22,7 +22,7 @@
 							<div class="text w-100">
 								<h2>BEM-VINDO DE VOLTA</h2>
 								<p>Não tem uma conta?</p>
-								<a href="#" class="btn btn-white btn-outline-white">Sign Up</a>
+								<a href="{{route('user.profile')}}" class="btn btn-white btn-outline-white">Sign Up</a>
 							</div>
 			            </div>
                         <div class="login-wrap p-4 p-lg-5">
@@ -31,7 +31,7 @@
                                     <h3 class="mb-4">Login</h3>
                                 </div>
                             </div>
-                            <form action="#" class="signin-form">
+                            <form action="{{route('user.profile')}}" class="signin-form">
                                 <div class="form-group mb-3">
                                     <label class="label" for="name">Username</label>
                                     <input type="text" class="form-control" placeholder="Username" required>
@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="form-group d-md-flex">
                                     <div class="w-50 text-md-right">
-                                        <a href="#">Forgot Password</a>
+                                        <a href="{{route('user.profile')}}">Forgot Password</a>
                                     </div>
                                 </div>
                             </form>
@@ -56,10 +56,10 @@
 		</div>
 	</section>
 
-  <script src="login/js/jquery.min.js"></script>
-  <script src="login/js/popper.js"></script>
-  <script src="login/js/bootstrap.min.js"></script>
-  <script src="login/js/main.js"></script>
+  <script src="{{asset('loginStyle/js/jquery.min.js')}}"></script>
+  <script src="{{asset('loginStyle/js/popper.js')}}"></script>
+  <script src="{{asset('loginStyle/js/bootstrap.min.js')}}"></script>
+  <script src="{{asset('loginStyle/js/main.js')}}"></script>
 
 	</body>
 </html>
