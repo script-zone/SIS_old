@@ -59,36 +59,36 @@
         <div class="card mb-4 mb-lg-0">
           <div class="card-body p-0">
             <ul class="list-group list-group-flush rounded-3">
-              <li class="btn list-group-item d-flex justify-content-between align-items-center p-3">
-                <i class="fa fa-solid- fa-calendar-plus" style="color: #3b5998;"></i>
-                <p class="mb-0">AGENDAR</p>
+              <li class="btn list-group-item d-flex align-items-center p-3">
+                <i class="" style="color: #3b5998;"></i>
+                <p class="mb-0">MENU</p>
               </li>
-              <li class="btn list-group-item d-flex justify-content-between align-items-center p-3">
-                <i class="fa fa-solid fa-regular fa-clock" style="color: #3b5998;"></i>
+              <li class="btn list-group-item d-flex  align-items-center gap-3 ps-5">
+                <i class="fa fa-solid- fa-calendar-plus" style="color: #3b5998;"></i>
                 <p class="mb-0">PENDÊNCIAS</p>
               </li>
-              <li class="btn list-group-item d-flex justify-content-between align-items-center p-3">
-                <i class="fa fa-thin fa-bed-pulse" style="color: #3b5998;"></i>
+              <li class="btn list-group-item d-flex  align-items-center gap-3 ps-5">
+                <i class="fa fa-solid- fa-calendar-plus" style="color: #3b5998;"></i>
                 <p class="mb-0">AGENDAR PROCEDIMENTO</p>
               </li>
-              <li class="btn list-group-item d-flex justify-content-between align-items-center p-3">
-                <i class="fa fa-light fa-bed" style="color: #3b5998;"></i>
+              <li class="btn list-group-item d-flex  align-items-center gap-3 ps-5">
+                <i class="fa fa-solid- fa-calendar-plus" style="color: #3b5998;"></i>
                 <p class="mb-0">SOLICITAR INTERNAMENTO</p>
               </li>
-              <li class="btn list-group-item d-flex justify-content-between align-items-center p-3">
-                <i class="fa-solid fa-hospital-user" style="color: #3b5998;""></i>
+              <li class="btn list-group-item d-flex  align-items-center gap-3 ps-5">
+                <i class="fa fa-solid- fa-calendar-plus" style="color: #3b5998;"></i>
                 <p class="mb-0">VER PACIENTES</p>
               </li>
-              <li class="btn list-group-item d-flex justify-content-between align-items-center p-3">
-                <i class="fa fa-sharp fa-regular fa-paper-plane" style="color: #3b5998;"></i>
+              <li class="btn list-group-item d-flex  align-items-center gap-3 ps-5">
+                <i class="fa fa-solid- fa-calendar-plus" style="color: #3b5998;"></i>
                 <p class="mb-0">ENVIAR MENSAGEM</p>
               </li>
-              <li class="btn list-group-item d-flex justify-content-between align-items-center p-3">
-                <i class="fa fa-solid fa-hourglass-half" style="color: #3b5998;"></i>
+              <li class="btn list-group-item d-flex  align-items-center gap-3 ps-5">
+                <i class="fa fa-solid- fa-calendar-plus" style="color: #3b5998;"></i>
                 <p class="mb-0">DEFINIR HORÁRIOS</p>
               </li>
-              <li class="btn list-group-item d-flex justify-content-between align-items-center p-3">
-                <i class="fa fa-thin fa-bracket" style="color: #3b5998;"></i>
+              <li class="btn list-group-item d-flex  align-items-center gap-3 ps-5">
+                <i class="fa fa-solid- fa-calendar-plus" style="color: #3b5998;"></i>
                 <p class="mb-0">LOGOUT</p>
               </li>
             </ul>

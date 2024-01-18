@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/login', function () {
-    return view('login');
+    return view('Admin.index');
 })->name('login');
 
 Route::get('/user/profile', function () {
