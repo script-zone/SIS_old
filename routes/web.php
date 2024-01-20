@@ -18,8 +18,12 @@ Route::get('/', function () {
 });
 
 Route::get('/login', function () {
-    return view('Admin.index');
+    return view('Paciente.index');
 })->name('login');
+
+Route::get('/criar-conta', function () {
+    return view('createAccount');
+})->name('user.createAcount');
 
 Route::get('/user/profile', function () {
     return view('Profile.index');

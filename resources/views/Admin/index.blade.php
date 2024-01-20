@@ -15,29 +15,30 @@
     <link rel="stylesheet" href="{{asset('adminStyle/css/vertical-layout-light/style.css')}}">
     <!-- endinject -->
     <link rel="shortcut icon" href="{{asset('adminStyle/images/favicon.png')}}" />
+
+     <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
   </head>
   <body>
     <div class="container-scroller">
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo" href="#"><img src="{{asset('adminStyle/images/logo.svg')}}" alt="logo"/></a>
-          <a class="navbar-brand brand-logo-mini" href="#"><img src="{{asset('adminStyle/images/logo-mini.svg')}}" alt="logo"/></a>
+          <a href="#" class="navbar-brand brand-logo ms-1">
+            <h1 class="m-0 text-uppercase text-primary"><i class="fa fa-clinic-medical me-2"></i>MEDSIS</h1>
+          </a>
           <button class="navbar-toggler navbar-toggler align-self-center d-none d-lg-flex" type="button" data-toggle="minimize">
             <span class="typcn typcn-th-menu"></span>
           </button>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
           <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item d-none d-lg-flex  mr-2">
-              <a class="nav-link" href="#">
-                Help
-              </a>
-            </li>
+
             <li class="nav-item dropdown d-flex">
               <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
                 <i class="typcn typcn-message-typing"></i>
-                <span class="count bg-success">2</span>
+                <span class="count bg-success">4</span>
               </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
                 <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
@@ -214,7 +215,6 @@
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Listagem</a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Remarcar</a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Cancelados</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Resultado</a></li>
               </ul>
             </div>
           </li>
@@ -230,7 +230,6 @@
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Listagem</a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Remarcar</a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Cancelados</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Resultado</a></li>
               </ul>
             </div>
           </li>
@@ -289,6 +288,7 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Dados Pessoais</a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Inserir Notas de Evolução</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Adicionar Resultado de Exame</a></li>
               </ul>
             </div>
           </li>

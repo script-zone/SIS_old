@@ -85,6 +85,7 @@
                         <a href="#especialidades" class="nav-item nav-link">Especialidades</a>
                         <a href="#profissionais" class="nav-item nav-link">Profissionais</a>
                         <a href="#contato" class="nav-item nav-link">Contactos</a>
+                        <a href="{{route('user.createAcount')}}" class="nav-item nav-link text-primary">Criar Conta</a>
                         <div class="pt-3">
                             <a href="{{route('login')}}" class="btn btn-outline-primary rounded-pill py-md-2 px-md-5 mx-4">Login</a>
                         </div>
