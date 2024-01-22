@@ -102,6 +102,14 @@
                             <li><a href="#">Meus Pacientes</a></li>
                             <li><a href="{{route('admin.perfilDoctor')}}">Meu Perfil</a></li>
                           </ul>
+                          <li class="submenu">
+                          <a href="#"><i class="fa fa-user"></i> <span> Paciente </span> <span class="menu-arrow"></span></a>
+                          <ul style="display: none;">
+                            <li><a href="#">Marcação de Procedimento</a></li>
+                            <li><a href="#">Minha Agenda Médica</a></li>
+                            <li><a href="#">Meus Pacientes</a></li>
+                            <li><a href="#">Meu Perfil</a></li>
+                          </ul>
                         </li>
                         <li class="submenu">
                           <a href="#"><i class="fa fa-calendar"></i> <span> Marcação </span> <span class="menu-arrow"></span></a>

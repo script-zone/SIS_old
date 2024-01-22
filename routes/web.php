@@ -26,7 +26,7 @@ Route::get('/criar-conta', function () {
 })->name('user.createAcount');
 
 Route::get('/user/profile', function () {
-    return view('Profile.index');
+    return view('Paciente.index');
 })->name('user.profile');
 
 Route::get('/admin', function () {
