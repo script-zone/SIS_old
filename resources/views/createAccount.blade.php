@@ -1,99 +1,126 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+
+
+<!-- Mirrored from pixelwibes.com/template/ihealth/html/dist/ui-elements/auth-signup.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jan 2024 09:35:23 GMT -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up</title>
-
-        <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">  
-
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-
-    <!-- Font Icon -->
-    <link rel="stylesheet" href="{{asset('account/fonts/material-icon/css/material-design-iconic-font.min.css')}}">
-    <link rel="stylesheet" href="{{asset('account/vendor/jquery-ui/jquery-ui.min.css')}}">
-
-    <!-- Main css -->
-    <link rel="stylesheet" href="{{asset('account/css/style.css')}}">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>:: MedSIS - Criar Conta</title>
+    <link rel="icon" href="{{asset('Style/favicon.ico')}}" type="image/x-icon"> <!-- Favicon-->
+    <!-- project css file  -->
+    <link rel="stylesheet" href="{{asset('Style/css/ihealth.style.min.css')}}">
+    <!-- Google Code  -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-264428387-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-264428387-1');
+    </script>
 </head>
+
 <body>
 
-    <div class="main">
+<div id="ihealth-layout" class="theme-tradewind">
 
-        <section class="signup">
-                <a href="#" class="navbar-brand">
-                    <h1 class="display-1 m-0 text-uppercase text-primary">
-                        <i class="fa fa-clinic-medical me-2"></i>MEDSIS</h1>
-                </a>
-            <div class="container">
-                <div class="signup-content">
-                    <form method="POST" id="signup-form" class="signup-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="first_name">Nome</label>
-                                <input type="text" class="form-input" name="first_name" id="first_name" placeholder="Digite o seu nome"/>
+    <!-- main body area -->
+    <div class="main p-2 py-3 p-xl-5">
+        
+        <!-- Body: Body -->
+        <div class="body d-flex p-0 p-xl-5">
+            <div class="container-xxl">
+
+                <div class="row g-0">
+                    <div class="col-lg-6 d-none d-lg-flex justify-content-center align-items-center rounded-lg auth-h100">
+                        <div style="max-width: 25rem;">
+                            <div class="text-center mb-5">
+                                  <i class="icofont-heart-beat secondary-color" style="font-size: 90px;"></i>
                             </div>
-                            <div class="form-group">
-                                <label for="last_name">Sobrenome</label>
-                                <input type="text" class="form-input" name="last_name" id="last_name" placeholder="Digite o seu sobrenome"/>
+                            <div class="mb-5">
+                                <h2 class="color-900 text-center">MEDSIS, a melhor solução de cuidados de saúde!</h2>
+                            </div>
+                            <!-- Image block -->
+                            <div class="">
+                                <img src="{{asset('Style/images/login-img.svg')}}" alt="login-img">
                             </div>
                         </div>
-                        <div class="form-row">
-                            <div class="form-group form-icon">
-                                <label for="birth_date">Data Nascimento</label>
-                                <input type="text" class="form-input" name="birth_date" id="birth_date" placeholder="DD-MM-YYYY" />
-                            </div>
-                            <div class="form-radio">
-                                <label for="gender">Gênero</label>
-                                <div class="form-flex">
-                                    <input type="radio" name="gender" value="male" id="male" checked="checked" />
-                                    <label for="male">Masculino</label>
-    
-                                    <input type="radio" name="gender" value="female" id="female" />
-                                    <label for="female">Feminino</label>
+                    </div>
+
+                    <div class="col-lg-6 d-flex justify-content-center align-items-center border-0 rounded-lg auth-h100">
+                        <div class="w-100 p-3 p-md-5 card border-0 bg-dark text-light" style="max-width: 32rem;">
+                            <!-- Form -->
+                            <form class="row g-1 p-3 p-md-4">
+                                <div class="col-12 text-center mb-5">
+                                    <h3>Caro PACIENTE</h3>
+                                    <h1>Crie a sua conta</h1>
+                                    <span>Acesso gratuito ao painel de Paciente.</span>
                                 </div>
-                            </div>
+                                <div class="col-6">
+                                    <div class="mb-2">
+                                        <label class="form-label">Nome</label>
+                                        <input type="text" class="form-control form-control-lg" placeholder="Ex: Fridson">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="mb-2">
+                                        <label class="form-label">Sobrenome</label>
+                                        <input type="text" class="form-control form-control-lg" placeholder="Ex: Firmino">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-2">
+                                        <label class="form-label">E-mail</label>
+                                        <input type="email" class="form-control form-control-lg" placeholder="name@example.com">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-2">
+                                        <label class="form-label">Senha</label>
+                                        <input type="password" class="form-control form-control-lg" placeholder="8+ characters required">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-2">
+                                        <label class="form-label">Confirmar Senha</label>
+                                        <input type="password" class="form-control form-control-lg" placeholder="8+ characters required">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Eu aceito os <a href="#" title="Termos e as Condições">Termos e as Condições</a>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-center mt-4">
+                                    <a href="#" class="btn btn-lg btn-block btn-light lift text-uppercase" alt="CRIAR-CONTA">CRIAR CONTA</a>
+                                </div>
+                                <div class="col-12 text-center mt-4">
+                                    <span>Já tem uma conta? <a href="{{route('login')}}" title="Login" >Faça login aqui</a></span>
+                                </div>
+                            </form>
+                            <!-- End Form -->
+                            
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-input" name="email" id="email" require/>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-input" name="password" id="password" placeholder="Digite a password"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="re_password">Repete a Password</label>
-                                <input type="password" class="form-input" name="re_password" id="re_password" placeholder="Digite a password"/>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group ">
-                            <input type="submit" name="submit" id="submit" class="form-submit" value="Criar Conta"/>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                </div> <!-- End Row -->
+                
             </div>
-        </section>
+        </div>
 
     </div>
 
-    <!-- JS -->
-    <script src="{{asset('account/vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('account/vendor/jquery-ui/jquery-ui.min.js')}}"></script>
-    <script src="{{asset('account/vendor/jquery-validation/dist/jquery.validate.min.js')}}"></script>
-    <script src="{{asset('account/vendor/jquery-validation/dist/additional-methods.min.js')}}"></script>
-    <script src="{{asset('account/js/main.js')}}"></script>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</div>
+
+<!-- Jquery Core Js -->
+<script src="{{asset('Style/bundles/libscripts.bundle.js')}}"></script>
+
+</body>
+
+<!-- Mirrored from pixelwibes.com/template/ihealth/html/dist/ui-elements/auth-signup.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jan 2024 09:35:23 GMT -->
 </html>

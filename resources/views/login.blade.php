@@ -1,65 +1,109 @@
 <!doctype html>
-<html lang="en">
-  <head>
-  	<title>SIS-Login</title>
+<html class="no-js" lang="en" dir="ltr">
+
+
+<!-- Mirrored from pixelwibes.com/template/ihealth/html/dist/ui-elements/auth-signin.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jan 2024 09:35:21 GMT -->
+<head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>:: MedSIS - Login</title>
+    <link rel="icon" href="{{asset('Style/favicon.ico')}}" type="image/x-icon"> <!-- Favicon-->
+    <!-- project css file  -->
+    <link rel="stylesheet" href="{{asset('Style/css/ihealth.style.min.css')}}">
+    <!-- Google Code  -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-264428387-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-264428387-1');
+    </script>
+</head>
 
-	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+<body>
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-	<link rel="stylesheet" href="{{asset('loginStyle/css/style.css')}}">
+<div id="ihealth-layout" class="theme-tradewind">
 
-	</head>
-	<body>
-	<section class="ftco-section">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-12 col-lg-10">
-					<div class="wrap d-md-flex">
-						<div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
-							<div class="text w-100">
-								<h2>BEM-VINDO DE VOLTA</h2>
-								<p>Não tem uma conta?</p>
-								<a href="{{route('user.profile')}}" class="btn btn-white btn-outline-white">Sign Up</a>
-							</div>
-			            </div>
-                        <div class="login-wrap p-4 p-lg-5">
-                            <div class="d-flex">
-                                <div class="w-100">
-                                    <h3 class="mb-4">Login</h3>
-                                </div>
+    <!-- main body area -->
+    <div class="main p-2 py-3 p-xl-5 ">
+        
+        <!-- Body: Body -->
+        <div class="body d-flex p-0 p-xl-5">
+            <div class="container-xxl">
+
+                <div class="row g-0">
+                    <div class="col-lg-6 d-none d-lg-flex justify-content-center align-items-center rounded-lg auth-h100">
+                        <div style="max-width: 25rem;">
+                            <div class="text-center mb-5">
+                                <i class="icofont-heart-beat secondary-color" style="font-size: 90px;"></i>
                             </div>
-                            <form action="{{route('user.profile')}}" class="signin-form">
-                                <div class="form-group mb-3">
-                                    <label class="label" for="name">Username</label>
-                                    <input type="text" class="form-control" placeholder="Username" required>
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label class="label" for="password">Password</label>
-                                <input type="password" class="form-control" placeholder="Password" required>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="form-control btn btn-orange submit px-3">Sign In</button>
-                                </div>
-                                <div class="form-group d-md-flex">
-                                    <div class="w-50 text-md-right">
-                                        <a href="{{route('user.profile')}}">Forgot Password</a>
-                                    </div>
-                                </div>
-                            </form>
+                            <div class="mb-5">
+                                <h2 class="color-900 text-center">MEDSIS, a melhor solução de cuidados de saúde!</h2>
+                            </div>
+                            <!-- Image block -->
+                            <div class="">
+                                <img src="{{asset('Style/images/login-img.svg')}}" alt="login-img">
+                            </div>
                         </div>
                     </div>
-                </div>
+
+                    <div class="col-lg-6 d-flex justify-content-center align-items-center border-0 rounded-lg auth-h100">
+                        <div class="w-100 p-3 p-md-5 card border-0 bg-dark text-light" style="max-width: 32rem;">
+                            <!-- Form -->
+                            <form class="row g-1 p-3 p-md-4">
+                                <div class="col-12 text-center mb-2">
+                                    <h1>Login</h1>
+                                    <span>Seja Bem-Vindo de volta.</span>
+                                </div>
+                                <div class="text-center mb-4">
+                                    
+                                    <span class="dividers mt-4">---------</span>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-2">
+                                        <label class="form-label">E-mail</label>
+                                        <input type="email" class="form-control form-control-lg" placeholder="name@example.com">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-2">
+                                        <div class="form-label">
+                                            <span class="d-flex justify-content-between align-items-center">
+                                                Senha
+                                                <a  href="#">Esqueceu a senha?</a>
+                                            </span>
+                                        </div>
+                                        <input type="password" class="form-control form-control-lg" placeholder="***************">
+                                    </div>
+                                </div>
+                               
+                                <div class="col-12 text-center mt-4">
+                                    <a href="#" class="btn btn-lg btn-block btn-light lift text-uppercase" atl="entrar">ENTRAR</a>
+                                </div>
+                                <div class="col-12 text-center mt-4">
+                                    <span>Ainda não tem uma conta? <a href="{{route('paciente.createAcount')}}" >Crie uma aqui!</a></span>
+                                </div>
+                            </form>
+                            <!-- End Form -->
+                            
+                        </div>
+                    </div>
+                </div> <!-- End Row -->
+                
             </div>
-		</div>
-	</section>
+        </div>
 
-  <script src="{{asset('loginStyle/js/jquery.min.js')}}"></script>
-  <script src="{{asset('loginStyle/js/popper.js')}}"></script>
-  <script src="{{asset('loginStyle/js/bootstrap.min.js')}}"></script>
-  <script src="{{asset('loginStyle/js/main.js')}}"></script>
+    </div>
 
-	</body>
+</div>
+
+<!-- Jquery Core Js -->
+<script src="{{asset('Style/bundles/libscripts.bundle.js')}}"></script>
+
+</body>
+
+<!-- Mirrored from pixelwibes.com/template/ihealth/html/dist/ui-elements/auth-signin.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jan 2024 09:35:23 GMT -->
 </html>
