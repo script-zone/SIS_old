@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -18,9 +19,10 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'nome',
         'email',
         'password',
+        'tipo',
     ];
 
     /**
@@ -42,4 +44,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * Métodos do User, para controle de acesso;
+     */
+    public function roles () {
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function getActions () {
+        return $this->roles->map->actions->flatten()->pluck('name');
+    }
+
+    public static function getTipo ($user_email) {
+        return DB::select("SELECT tipo FROM users WHERE email = '$user_email'");
+    }
+
+    public static function getRoles ($user_id) {
+        return DB::select("SELECT r.name FROM roles r INNER JOIN role_user ru ON (ru.role_id=r.id) WHERE ru.user_id = $user_id");
+    }
 }

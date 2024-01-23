@@ -1,350 +1,295 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+
+
+<!-- Mirrored from pixelwibes.com/template/ihealth/html/dist/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jan 2024 09:33:29 GMT -->
+<head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Admin</title>
-    <!-- base:css -->
-    <link rel="stylesheet" href="{{asset('adminStyle/vendors/typicons.font/font/typicons.css')}}">
-    <link rel="stylesheet" href="{{asset('adminStyle/vendors/css/vendor.bundle.base.css')}}">
-    <!-- endinject --> 
-    <!-- plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <link rel="stylesheet" href="{{asset('adminStyle/css/vertical-layout-light/style.css')}}">
-    <!-- endinject -->
-    <link rel="shortcut icon" href="{{asset('adminStyle/images/favicon.png')}}" />
+    <title>:: MedSIS - Dashboard </title>
+    <link rel="icon" href="{{asset('favicon.ico')}}" type="image/x-icon"> <!-- Favicon-->
+    <!-- plugin css file  -->
+    <link rel="stylesheet" href="{{asset('Style/plugin/datatables/responsive.dataTables.min.css')}}">
+    <link rel="stylesheet" href="{{asset('Style/plugin/datatables/dataTables.bootstrap5.min.css')}}">
+    <!-- project css file  -->
+    <link rel="stylesheet" href="{{asset('Style/css/ihealth.style.min.css')}}">
+    <!-- Google Code  -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-264428387-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-264428387-1');
+    </script>
+</head>
+<body>
 
-     <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-  </head>
-  <body>
-    <div class="container-scroller">
-      <!-- partial:partials/_navbar.html -->
-      <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-          <a href="#" class="navbar-brand brand-logo ms-1">
-            <h1 class="m-0 text-uppercase text-primary"><i class="fa fa-clinic-medical me-2"></i>MEDSIS</h1>
-          </a>
-          <button class="navbar-toggler navbar-toggler align-self-center d-none d-lg-flex" type="button" data-toggle="minimize">
-            <span class="typcn typcn-th-menu"></span>
-          </button>
-        </div>
-        <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-          <ul class="navbar-nav navbar-nav-right">
+<div id="ihealth-layout" class="theme-tradewind">
+    
+    <!-- sidebar -->
+    <div class="sidebar px-4 py-4 py-md-5 me-0">
+        <div class="d-flex flex-column h-100">
+            <a href="#" class="mb-0 brand-icon">
+                <span class="logo-icon">
+                    <i class="icofont-heart-beat fs-2"></i>
+                </span>
+                <span class="logo-text">MEDSIS</span>
+            </a>
+            <!-- Menu: main ul -->
 
-            <li class="nav-item dropdown d-flex">
-              <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
-                <i class="typcn typcn-message-typing"></i>
-                <span class="count bg-success">4</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
-                <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <img src="images/faces/face4.jpg" alt="image" class="profile-pic">
-                  </div>
-                  <div class="preview-item-content flex-grow">
-                    <h6 class="preview-subject ellipsis font-weight-normal">David Grey
-                    </h6>
-                    <p class="font-weight-light small-text mb-0">
-                      The meeting is cancelled
-                    </p>
-                  </div>
-                </a>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <img src="images/faces/face2.jpg" alt="image" class="profile-pic">
-                  </div>
-                  <div class="preview-item-content flex-grow">
-                    <h6 class="preview-subject ellipsis font-weight-normal">Tim Cook
-                    </h6>
-                    <p class="font-weight-light small-text mb-0">
-                      New product launch
-                    </p>
-                  </div>
-                </a>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <img src="images/faces/face3.jpg" alt="image" class="profile-pic">
-                  </div>
-                  <div class="preview-item-content flex-grow">
-                    <h6 class="preview-subject ellipsis font-weight-normal"> Johnson
-                    </h6>
-                    <p class="font-weight-light small-text mb-0">
-                      Upcoming board meeting
-                    </p>
-                  </div>
-                </a>
-              </div>
-            </li>
-            <li class="nav-item dropdown  d-flex">
-              <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
-                <i class="typcn typcn-bell mr-0"></i>
-                <span class="count bg-danger">2</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-                <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-success">
-                      <i class="typcn typcn-info-large mx-0"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <h6 class="preview-subject font-weight-normal">Application Error</h6>
-                    <p class="font-weight-light small-text mb-0">
-                      Just now
-                    </p>
-                  </div>
-                </a>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-warning">
-                      <i class="typcn typcn-cog mx-0"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <h6 class="preview-subject font-weight-normal">Settings</h6>
-                    <p class="font-weight-light small-text mb-0">
-                      Private message
-                    </p>
-                  </div>
-                </a>
-                <a class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-info">
-                      <i class="typcn typcn-user-outline mx-0"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <h6 class="preview-subject font-weight-normal">New user registration</h6>
-                    <p class="font-weight-light small-text mb-0">
-                      2 days ago
-                    </p>
-                  </div>
-                </a>
-              </div>
-            </li>
-            <li class="nav-item nav-profile dropdown">
-              <a class="nav-link dropdown-toggle  pl-0 pr-0" href="#" data-toggle="dropdown" id="profileDropdown">
-                <i class="typcn typcn-user-outline mr-0"></i>
-                <span class="nav-profile-name">Fridson Firmino</span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                <a class="dropdown-item">
-                <i class="typcn typcn-cog text-primary"></i>
-                Settings
-                </a>
-                <a class="dropdown-item">
-                <i class="typcn typcn-power text-primary"></i>
-                Logout
-                </a>
-              </div>
-            </li>
-          </ul>
-          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-            <span class="typcn typcn-th-menu"></span>
-          </button>
-        </div>
-      </nav>
+            <ul class="menu-list flex-grow-1 mt-3">
+                <li class="collapsed">
+                <a class="m-link active" data-bs-toggle="collapse" data-bs-target="#dashboard" href="#">
+                <i class="icofont-ui-home fs-5"></i> <span>Menu Principal</span> <span class="ms-auto text-end fs-5"></span></a>
+                <!-- Menu: Sub menu ul -->
 
-      <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_settings-panel.html -->
-        
-        <!-- partial -->
-
-        <!-- partial:partials/_sidebar.html -->
-        <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
-          <li class="nav-item">
-            <div class="d-flex sidebar-profile">
-              <div class="sidebar-profile-image">
-                <img src="{{asset('adminStyle/images/faces/face29.png')}}" alt="image">
-                <span class="sidebar-status-indicator"></span>
-              </div>
-              <div class="sidebar-profile-name">
-                <p class="sidebar-name">
-                  Fridson Firmino
-                </p>
-                <p class="sidebar-designation">
-                  Bem-vindo
-                </p>
-              </div>
-            </div>
-            <div class="nav-search">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Type to search..." aria-label="search" aria-describedby="search">
-                <div class="input-group-append">
-                  <span class="input-group-text" id="search">
-                    <i class="typcn typcn-zoom"></i>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <p class="sidebar-menu-title">MENU GERAL</p>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <i class="typcn typcn-briefcase menu-icon"></i>
-              <span class="menu-title">Exame</span>
-              <i class="typcn typcn-chevron-right menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Marcar</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Listagem</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Remarcar</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Cancelados</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Resultado</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
-              <i class="typcn typcn-film menu-icon"></i>
-              <span class="menu-title">Consulta</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="form-elements">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Marcar</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Listagem</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Remarcar</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Cancelados</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#form-elements6" aria-expanded="false" aria-controls="form-elements6">
-              <i class="typcn typcn-film menu-icon"></i>
-              <span class="menu-title">Procedimentos</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="form-elements6">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Marcar</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Listagem</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Remarcar</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Cancelados</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#form-elements1" aria-expanded="false" aria-controls="form-elements1">
-              <i class="typcn typcn-film menu-icon"></i>
-              <span class="menu-title">RCU</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="form-elements1">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Consultar</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Inserir Dados</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Actualizar</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#form-elements3" aria-expanded="false" aria-controls="form-elements3">
-              <i class="typcn typcn-film menu-icon"></i>
-              <span class="menu-title">Estatistica</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="form-elements3">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Consultar</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Inserir Dados</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Actualizar</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#form-elements4" aria-expanded="false" aria-controls="form-elements4">
-              <i class="typcn typcn-film menu-icon"></i>
-              <span class="menu-title">Registro</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="form-elements4">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Pessoal Clínico</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Paciêntes</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Especialidades</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Listagem de Pessoal Clínico</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Listagem de Paciêntes</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Listagem de Especialidades</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#form-elements5" aria-expanded="false" aria-controls="form-elements5">
-              <i class="typcn typcn-film menu-icon"></i>
-              <span class="menu-title">Perfil Clínino</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="form-elements5">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Dados Pessoais</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Inserir Notas de Evolução</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Adicionar Resultado de Exame</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-        
-        
-      </nav>
-      
-        <!-- partial -->
-        <div class="main-panel">
-          <div class="content-wrapper">
-            <div class="row">
-              
-              <div class="col-sm-6">
+                </li>
+                <li class="collapsed">
+                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Doctor" href="#">
+                        <i class="icofont-doctor-alt fs-5"></i>  <span>Doctor</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                        <!-- Menu: Sub menu ul -->
+                        <ul class="sub-menu collapse" id="menu-Doctor">
+                            <li><a class="ms-link" href="{{route('admin.doctor.todosDoctores')}}">Todos os Doctores</a></li>
+                            <li><a class="ms-link" href="{{route('admin.doctor.agendarProcedimento')}}">Agendar Procedimento</a></li>
+                            <li><a class="ms-link" href="#">Procedimentos Agendados</a></li>
+                            <li><a class="ms-link" href="#">Agenda Médica</a></li>
+                            <li><a class="ms-link" href="#">Meus Pacientes</a></li>
+                            <li><a class="ms-link" href="#">Meu Perfil</a></li>
+                        </ul>
+                </li>
+                <li class="collapsed">
+                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Patient" href="#">
+                    <i class="icofont-blind fs-5"></i> <span>Paciente</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                    <!-- Menu: Sub menu ul -->
+                    <ul class="sub-menu collapse" id="menu-Patient">
+                        <li><a class="ms-link" href="patient-list.html">Meus Exames</a></li>
+                        <li><a class="ms-link" href="patient-list.html">Minhas Consultas</a></li>
+                        <li><a class="ms-link" href="patient-invoices.html">Minhas Facturas</a></li>
+                        <li><a class="ms-link" href="patient-profile.html">Meu Perfil</a></li>
+                    </ul>
+                </li>
+                <li class="collapsed">
+                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-lab" href="#">
+                    <i class="icofont-blood-test  fs-5"></i> <span>Laboratório</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                    <!-- Menu: Sub menu ul -->
+                    <ul class="sub-menu collapse" id="menu-lab">
+                        <li><a class="ms-link" href="patient-list.html">Exames Agendados</a></li>
+                        <li><a class="ms-link" href="patient-list.html">Lançar Resultados</a></li>
+                        <li><a class="ms-link" href="patient-profile.html">Meu Perfil</a></li>
+                    </ul>
+                </li>
+                <li><a class="m-link" href="department.html"><i class="icofont-hospital fs-5"></i> <span>Area</span></a></li>
+                <li class="collapsed">
+                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-cadastro" href="#">
+                    <i class="icofont-contact-add fs-5"></i> <span>Cadastro</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                    <!-- Menu: Sub menu ul -->
+                    <ul class="sub-menu collapse" id="menu-cadastro">
+                        <li><a class="ms-link" href="#">Pessoal Clinico</a></li>
+                        <li><a class="ms-link" href="#">Paciente</a></li>
+                        <li><a class="ms-link" href="#">Especialidades</a></li>
+                        <li><a class="ms-link" href="#">Funcionarios</a></li>
+                    </ul>
+                </li>
+                <li class="collapsed">
+                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-list" href="#">
+                    <i class="icofont-list fs-5"></i> <span>Listagem</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                    <!-- Menu: Sub menu ul -->
+                    <ul class="sub-menu collapse" id="menu-list">
+                        <li><a class="ms-link" href="#">Pessoal Clinico</a></li>
+                        <li><a class="ms-link" href="#">Paciente</a></li>
+                        <li><a class="ms-link" href="#">Especialidades</a></li>
+                        <li><a class="ms-link" href="#">Funcionarios</a></li>
+                    </ul>
+                </li>
                 
-              </div>
-
-            </div>
-
+            </ul>
             
-            
-            
-            
-          </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-          <footer class="footer">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="text-center text-sm-left d-block d-sm-inline-block">Copyright © <a href="" target="_blank">medsis.com</a> 2024</span>
-            </div>
-          </footer>
-          <!-- partial -->
+            <!-- Menu: menu collepce btn -->
+            <button type="button" class="btn btn-link sidebar-mini-btn text-light">
+                <span class="ms-2"><i class="icofont-bubble-right"></i></span>
+            </button>
         </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
     </div>
-    <!-- container-scroller -->
-    <!-- base:js -->
-    <script src="{{asset('adminStyle/vendors/js/vendor.bundle.base.js')}}"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page-->
-    <!-- End plugin js for this page-->
-    <!-- inject:js -->
-    <script src="{{asset('adminStyle/js/off-canvas.js')}}"></script>
-    <script src="{{asset('adminStyle/js/hoverable-collapse.js')}}"></script>
-    <script src="{{asset('adminStyle/js/template.js')}}"></script>
-    <script src="{{asset('adminStyle/js/settings.js')}}"></script>
-    <script src="{{asset('adminStyle/js/todolist.js')}}"></script>
-    <!-- endinject -->
-    <!-- plugin js for this page -->
-    <script src="{{asset('adminStyle/vendors/progressbar.js/progressbar.min.js')}}"></script>
-    <script src="{{asset('adminStyle/vendors/chart.js/Chart.min.js')}}"></script>
-    <!-- End plugin js for this page -->
-    <!-- Custom js for this page-->
-    <script src="{{asset('adminStyle/js/dashboard.js')}}"></script>
-    <!-- End custom js for this page-->
-  </body>
-</html>
+
+    <!-- main body area -->
+    <div class="main px-lg-4 px-md-4">
+
+        <!-- Body: Header -->
+        <div class="header">
+            <nav class="navbar py-4">
+                <div class="container-xxl">
+    
+                    <!-- header rightbar icon -->
+                    <div class="h-right d-flex align-items-center mr-5 mr-lg-0 order-1">
+                        <div class="d-flex">
+                            <a class="nav-link text-primary collapsed" href="help.html" title="Get Help">
+                                <i class="icofont-info-square fs-5"></i>
+                            </a>
+                        </div>
+                        <div class="dropdown notifications zindex-popover">
+                            <a class="nav-link dropdown-toggle pulse" href="#" role="button" data-bs-toggle="dropdown">
+                                <i class="icofont-alarm fs-5"></i>
+                                <span class="pulse-ring"></span>
+                            </a>
+                            <div id="NotificationsDiv" class="dropdown-menu rounded-lg shadow border-0 dropdown-animation dropdown-menu-sm-end p-0 m-0">
+                                <div class="card border-0 w380">
+                                    <div class="card-header border-0 p-3">
+                                        <h5 class="mb-0 font-weight-light d-flex justify-content-between">
+                                            <span>Notificações</span>
+                                            <span class="badge text-white">02</span>
+                                        </h5>
+                                    </div>
+                                    <div class="tab-content card-body">
+                                        <div class="tab-pane fade show active">
+                                            <ul class="list-unstyled list mb-0">
+                                                <li class="py-2 mb-1 border-bottom">
+                                                    <a href="javascript:void(0);" class="d-flex">
+                                                        <img class="avatar rounded-circle" src="{{asset('Style/images/xs/avatar1.jpg')}}" alt="">
+                                                        <div class="flex-fill ms-2">
+                                                            <p class="d-flex justify-content-between mb-0 "><span class="font-weight-bold">Fridson Firmino</span> <small>2MIN</small></p>
+                                                            <span class="">Agendou uma consulta 2021-06-19 <span class="badge bg-success">Book</span></span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                
+                                                <li class="py-2">
+                                                    <a href="javascript:void(0);" class="d-flex">
+                                                        <img class="avatar rounded-circle" src="{{asset('Style/images/xs/avatar7.jpg')}}" alt="">
+                                                        <div class="flex-fill ms-2">
+                                                            <p class="d-flex justify-content-between mb-0 "><span class="font-weight-bold">Benvindo Alves</span> <small class="">1DAY</small></p>
+                                                            <span class="">Agendou um Exame</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <a class="card-footer text-center border-top-0" href="#"> Ver todas as Notificações</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown user-profile ml-2 ml-sm-3 d-flex align-items-center zindex-popover">
+                            <div class="u-info me-2">
+                                <p class="mb-0 text-end line-height-sm "><span class="font-weight-bold">Fridson Firmino</span></p>
+                                <small>Admin</small>
+                            </div>
+                            <a class="nav-link dropdown-toggle pulse p-0" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static">
+                                <img class="avatar lg rounded-circle img-thumbnail" src="{{asset('Style/images/profile_av.png')}}" alt="perfil">
+                            </a>
+                            <div class="dropdown-menu rounded-lg shadow border-0 dropdown-animation dropdown-menu-end p-0 m-0">
+                                <div class="card border-0 w280">
+                                    <div class="card-body pb-0">
+                                        <div class="d-flex py-1">
+                                            <img class="avatar rounded-circle" src="{{asset('Style/images/profile_av.png')}}" alt="perfil">
+                                            <div class="flex-fill ms-3">
+                                                <p class="mb-0"><span class="font-weight-bold">Fridson Firmino</span></p>
+                                                <small class="">fridsoncmf@gmail.com</small>
+                                            </div>
+                                        </div>
+                                        
+                                        <div><hr class="dropdown-divider border-dark"></div>
+                                    </div>
+                                    <div class="list-group m-2 ">
+                                        <a href="#" class="list-group-item list-group-item-action border-0 "><i class="icofont-ui-video-chat fs-5 me-3"></i>Agenda Médica</a>
+                                        <a href="#" class="list-group-item list-group-item-action border-0 "><i class="icofont-dollar fs-5 me-3"></i>Perfil</a>
+                                        <a href="{{route('login')}}" class="list-group-item list-group-item-action border-0 "><i class="icofont-logout fs-6 me-3"></i>Terminar Secção</a>
+                                        <div><hr class="dropdown-divider border-dark"></div>
+                                        <a href="{{route('paciente.createAcount')}}" class="list-group-item list-group-item-action border-0 "><i class="icofont-contact-add fs-5 me-3"></i>Criar uma conta pessoal</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="setting ms-2">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#Settingmodal"><i class="icofont-gear-alt fs-5"></i></a>
+                        </div>
+                    </div>
+    
+                    <!-- menu toggler -->
+                    <button class="navbar-toggler p-0 border-0 menu-toggle order-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainHeader">
+                        <span class="fa fa-bars"></span>
+                    </button>
+    
+                    <!-- main menu Search-->
+                    <div class="order-0 col-lg-4 col-md-4 col-sm-12 col-12 mb-3 mb-md-0 ">
+                        <div class="input-group flex-nowrap input-group-lg">
+                        </div>
+                    </div>
+    
+                </div>
+            </nav>
+        </div>  
+
+        <!-- Body: Body -->
+             @yield('conteudo')
+      
+        <!-- Modal Custom Settings-->
+        <div class="modal fade right" id="Settingmodal" tabindex="-1"  aria-hidden="true">
+            <div class="modal-dialog  modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Definições</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body custom_setting">
+                        <!-- Settings: Color -->
+                        <div class="setting-theme pb-3">
+                            <h6 class="card-title mb-2 fs-6 d-flex align-items-center"><i class="icofont-color-bucket fs-4 me-2 text-primary"></i>Template Color Settings</h6>
+                            
+                        </div>
+                        <!-- Settings: Template dynamics -->
+                        <div class="dynamic-block py-3">
+                            <ul class="list-unstyled choose-skin mb-2 mt-1">
+                                <li data-theme="dynamic"><div class="dynamic"><i class="icofont-paint me-2"></i> Click to Dyanmic Setting</div></li>
+                            </ul>
+                            
+                        </div>
+                        <!-- Settings: Font -->
+                        <div class="setting-font py-3">
+                            <h6 class="card-title mb-2 fs-6 d-flex align-items-center"><i class="icofont-font fs-4 me-2 text-primary"></i> Font Settings</h6>
+                            
+                        </div>
+                        <!-- Settings: Light/dark -->
+                        <div class="setting-mode py-3">
+                            <h6 class="card-title mb-2 fs-6 d-flex align-items-center"><i class="icofont-layout fs-4 me-2 text-primary"></i>Contrast Layout</h6>
+                            
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-start">
+                        <button type="button" class="btn btn-white border lift" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary lift">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+  
+</div>
+
+<!-- Jquery Core Js -->
+<script src="{{asset('Style/bundles/libscripts.bundle.js')}}"></script>
+
+<!-- Plugin Js -->
+<script src="{{asset('Style/bundles/apexcharts.bundle.js')}}"></script>
+<script src="{{asset('Style/plugin/jqueryuicalandar/jquery-ui.min.js')}}"></script>
+<script src="{{asset('Style/plugin/owlcarousel/owl.carousel.js')}}"></script>
+<script src="{{asset('Style/bundles/dataTables.bundle.js')}}"></script>      
+
+<!-- Jquery Page Js -->
+<script src="{{asset('Style/js/template.js')}}"></script>
+<script src="{{asset('Style/js/page/index.js')}}"></script>
+ <script>
+      $('#myDataTable')
+      .addClass( 'nowrap' )
+      .dataTable( {
+          responsive: true,
+          columnDefs: [
+              { targets: [-1, -3], className: 'dt-body-right' }
+          ]
+      });
+ </script>
+</body>
+
+<!-- Mirrored from pixelwibes.com/template/ihealth/html/dist/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jan 2024 09:34:07 GMT -->
+</html> 

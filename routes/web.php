@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SiteController;
+use App\Http\Controllers\PacienteController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,18 +16,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+Route::get('/', [SiteController::class, 'index'])->name('index');
+
+Route::get('/login', [SiteController::class, 'login'])->name('login');
+
+Route::post('/login/autenticacao', [SiteController::class, 'authLogin'])->name('login_auth');
+
+Route::post('/paciente/sign_up', [UserController::class, 'createAccountPaciente'])->name('paciente.criar_conta');
+
+Route::get('/criar-conta',[SiteController::class, 'createAccount'])->name('paciente.createAcount');
+
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/admin', function () {
+        return view('Admin.dashboard');
+    })->name('dashboard');
+
+
+    //////////
+
+    Route::get('/admin/listar-doctores', function () {
+        return view('Admin.Doctor.todosDotores');
+    })->name('admin.doctor.todosDoctores');
+
+    Route::get('/admin/agendar-procedimento', function () {
+        return view('Admin.Doctor.agendarProcedimento');
+    })->name('admin.doctor.agendarProcedimento');
 });
-
-Route::get('/login', function () {
-    return view('Paciente.index');
-})->name('login');
-
-Route::get('/criar-conta', function () {
-    return view('createAccount');
-})->name('user.createAcount');
-
-Route::get('/user/profile', function () {
-    return view('Profile.index');
-})->name('user.profile');
