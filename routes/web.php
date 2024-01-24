@@ -17,13 +17,9 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', [SiteController::class, 'index'])->name('index');
-
 Route::get('/login', [SiteController::class, 'login'])->name('login');
-
 Route::post('/login/autenticacao', [SiteController::class, 'authLogin'])->name('login_auth');
-
 Route::post('/paciente/sign_up', [UserController::class, 'createAccountPaciente'])->name('paciente.criar_conta');
-
 Route::get('/criar-conta',[SiteController::class, 'createAccount'])->name('paciente.createAcount');
 
 
@@ -31,9 +27,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin', function () {
         return view('Admin.dashboard');
     })->name('dashboard');
-
-
-    //////////
 
     Route::get('/admin/listar-doctores', function () {
         return view('Admin.Doctor.todosDotores');
