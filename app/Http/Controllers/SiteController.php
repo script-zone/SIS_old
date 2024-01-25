@@ -27,7 +27,7 @@ class SiteController extends Controller
         //dd($request);
         //$retorno = Validacao::validarDadosLogin($request);
         //dd($request['email']); 
-        //if($retorno['estado'] == true){
+        //if($retorno['estado'] == true){}
 
         $request->validate([
             //validando
@@ -49,7 +49,6 @@ class SiteController extends Controller
             //dd($tipo_user);
             return redirect()->intended('/admin')->with(['sucesso'=>'Sessão iniciada com sucesso!']);
         }
-        //}
         
         return redirect()->back()->withErrors(['error' => 'Email ou Senha errados']);
         
