@@ -51,7 +51,6 @@
                         <i class="icofont-doctor-alt fs-5"></i>  <span>Doctor</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
                         <!-- Menu: Sub menu ul -->
                         <ul class="sub-menu collapse" id="menu-Doctor">
-                            <li><a class="ms-link" href="{{route('admin.doctor.todosDoctores')}}">Todos os Doctores</a></li>
                             <li><a class="ms-link" href="{{route('admin.doctor.agendarProcedimento')}}">Agendar Procedimento</a></li>
                             <li><a class="ms-link" href="{{route('admin.doctor.listarProcedimento')}}">Procedimentos Agendados</a></li>
                             <li><a class="ms-link" href="#">Agenda Médica</a></li>
@@ -67,7 +66,7 @@
                         <li><a class="ms-link" href="patient-list.html">Meus Exames</a></li>
                         <li><a class="ms-link" href="patient-list.html">Minhas Consultas</a></li>
                         <li><a class="ms-link" href="patient-invoices.html">Minhas Facturas</a></li>
-                        <li><a class="ms-link" href="patient-profile.html">Meu Perfil</a></li>
+                        <li><a class="ms-link" href="{{route('admin.paciente.perfil')}}">Meu Perfil</a></li>
                     </ul>
                 </li>
                 <li class="collapsed">
@@ -97,7 +96,7 @@
                     <i class="icofont-list fs-5"></i> <span>Listagem</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-list">
-                        <li><a class="ms-link" href="#">Pessoal Clinico</a></li>
+                        <li><a class="ms-link" href="{{route('admin.doctor.todosDoctores')}}">Pessoal Clinico</a></li>
                         <li><a class="ms-link" href="#">Paciente</a></li>
                         <li><a class="ms-link" href="#">Especialidades</a></li>
                         <li><a class="ms-link" href="#">Funcionarios</a></li>

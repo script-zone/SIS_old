@@ -30,7 +30,7 @@ Route::group(['middleware' => ['auth']], function () {
     })->name('dashboard');
 
     Route::get('/admin/listar-doctores', function () {
-        return view('Admin.Doctor.todosDotores');
+        return view('Admin.Listagem.todosDotores');
     })->name('admin.doctor.todosDoctores');
 
     Route::get('/admin/agendar-procedimento', function () {
@@ -48,4 +48,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/perfil-Doctor', function () {
         return view('Admin.Doctor.perfil');
     })->name('admin.doctor.pefil');
+
+
+    ////////////////////////
+
+    Route::get('/admin/perfil-paciente', function () {
+        return view('Admin.Paciente.perfil');
+    })->name('admin.paciente.perfil');
 });

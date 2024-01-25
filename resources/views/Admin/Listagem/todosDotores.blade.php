@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="star rounded-circle ">
                                     <a href="#">
-                                        <i class="bi bi-linkedin fs-5 text-blue"></i>
+                                      <i class="bi bi-linkedin fs-5 text-blue"></i>
                                     </a>
                                 </div>
                                 
