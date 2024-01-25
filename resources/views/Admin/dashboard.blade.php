@@ -192,7 +192,7 @@
 								<a href="#" class="rating-link active"><i class="bi bi-star-half text-primary"></i></a>
 							</span>
 						</div>
-						<h5 class="mb-0">Fridson Firmino</h5><span class="small">Cardiologista</span>
+						<h5 class="mb-0">{{ auth()->user()->nomeCompleto }}</h5><span class="small">Cardiologista</span>
 						<div class="d-flex justify-content-center pt-3">
 							<div class="opration d-flex justify-content-start align-content-center p-3">
 								<i class="icofont-operation-theater fs-1"></i> 

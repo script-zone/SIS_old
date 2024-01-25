@@ -27,12 +27,7 @@
 
 @if (session('mensagem'))
     {{ session('mensagem') }}
-    @endif
-    @if (session('retorno'))
-    @foreach (session('retorno') as $error)
-        {{ $error }}
-    @endforeach  
-    @endif
+@endif
 <div id="ihealth-layout" class="theme-tradewind">
 
     <!-- main body area -->
@@ -71,10 +66,16 @@
                                     
                                     <span class="dividers mt-4">---------</span>
                                 </div>
+                                @error('error')
+                                    <span>{{ $message }}</span>
+                                @enderror
                                 <div class="col-12">
                                     <div class="mb-2">
                                         <label class="form-label">E-mail</label>
                                         <input type="email" name="email" class="form-control form-control-lg" placeholder="name@example.com">
+                                        @error('email')
+                                            <span id="erro_email">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -86,6 +87,9 @@
                                             </span>
                                         </div>
                                         <input type="password" name="password" class="form-control form-control-lg" placeholder="***************">
+                                        @error('password')
+                                            <span id="erro_psw">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                

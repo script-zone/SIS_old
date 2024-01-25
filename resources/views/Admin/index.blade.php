@@ -171,9 +171,14 @@
                             </div>
                         </div>
                         <div class="dropdown user-profile ml-2 ml-sm-3 d-flex align-items-center zindex-popover">
+                            @if(session()->has('sucesso'))
+                                <span>{{ session()->get('sucesso') }}</span>
+                            @endif
+                               <!-- <span> Está Logado . . .</span> -->
+                            
                             <div class="u-info me-2">
-                                <p class="mb-0 text-end line-height-sm "><span class="font-weight-bold">Fridson Firmino</span></p>
-                                <small>Admin</small>
+                                <p class="mb-0 text-end line-height-sm "><span class="font-weight-bold">{{ auth()->user()->nomeCompleto }}</span></p>
+                                <small>{{ auth()->user()->tipo }}</small>
                             </div>
                             <a class="nav-link dropdown-toggle pulse p-0" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static">
                                 <img class="avatar lg rounded-circle img-thumbnail" src="{{asset('Style/images/profile_av.png')}}" alt="perfil">
@@ -184,8 +189,8 @@
                                         <div class="d-flex py-1">
                                             <img class="avatar rounded-circle" src="{{asset('Style/images/profile_av.png')}}" alt="perfil">
                                             <div class="flex-fill ms-3">
-                                                <p class="mb-0"><span class="font-weight-bold">Fridson Firmino</span></p>
-                                                <small class="">fridsoncmf@gmail.com</small>
+                                                <p class="mb-0"><span class="font-weight-bold">{{ auth()->user()->nomeCompleto }}</span></p>
+                                                <small class="">{{ auth()->user()->email }}</small>
                                             </div>
                                         </div>
                                         
@@ -266,6 +271,7 @@
     </div>
   
 </div>
+
 
 <!-- Jquery Core Js -->
 <script src="{{asset('Style/bundles/libscripts.bundle.js')}}"></script>

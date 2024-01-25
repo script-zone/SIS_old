@@ -25,24 +25,33 @@ class SiteController extends Controller
 
     public function authLogin (Request $request) {
         //dd($request);
-        $retorno = Validacao::validarDadosLogin($request);
+        //$retorno = Validacao::validarDadosLogin($request);
         //dd($request['email']); 
-        if($retorno['estado'] == true){
+        //if($retorno['estado'] == true){
 
-            $dadosUtilizador = $request->validate([
-                'email' => ['required', 'email'],
-                'password' => ['required'],
-            ]);
+        $request->validate([
+            //validando
+            'email' => 'required|email',
+            'password' => 'required|min:2',
+        ],[
+            //mensagens de erros de validacao
+            'email.required' => 'email obrigatório',
+            'email.email' => 'email deve ter aspecto de email',
+            'password.required' => 'password obrigatória',
+            'password.min' => 'password deve ter no minimo :min caracteres'
+        ]);
 
-            if(Auth::attempt($dadosUtilizador)){
-                $request->session()->regenerate();
-                $tipo_user = User::getTipo($request['email'])[0]->tipo;
-                //dd($tipo_user);
-                return redirect()->intended('/admin')->with(['dados'=>$dadosUtilizador]);
-            }
+        $dadosUtilizador = $request->only('email','password');
+
+        if(Auth::attempt($dadosUtilizador)){
+            $request->session()->regenerate();
+            //$tipo_user = User::getTipo($request['email'])[0]->tipo;
+            //dd($tipo_user);
+            return redirect()->intended('/admin')->with(['sucesso'=>'Sessão iniciada com sucesso!']);
         }
+        //}
         
-        return redirect()->back()->with(['retorno' => $retorno,'mensagem' => 'Email ou Senha errados']);
+        return redirect()->back()->withErrors(['error' => 'Email ou Senha errados']);
         
     }
 

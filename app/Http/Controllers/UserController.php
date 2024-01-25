@@ -26,7 +26,7 @@ class UserController extends Controller
                 DB::beginTransaction();
 
                 $user = new User();
-                $user->nomeCompleto                 = filter_var($request['nomeCompleto'], FILTER_SANITIZE_STRING);
+                $user->nomeCompleto         = filter_var($request['nomeCompleto'], FILTER_SANITIZE_STRING);
                 $user->email                = filter_var($request['email'], FILTER_SANITIZE_STRING);
                 $user->password             = bcrypt($request['password']);
                 $user->tipo                 = "paciente";

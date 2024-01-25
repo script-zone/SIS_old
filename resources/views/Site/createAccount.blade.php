@@ -76,12 +76,18 @@
                                     <div class="mb-2">
                                         <label class="form-label">E-mail</label>
                                         <input type="email" name="email" class="form-control form-control-lg" placeholder="name@example.com">
+                                        @error('email')
+                                            <span id="erro_email">{{ message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="mb-2">
                                         <label class="form-label">Senha</label>
                                         <input type="password" name="password" id="password" class="form-control form-control-lg" placeholder="8+ characters required">
+                                        @error('password')
+                                            <span id="erro_psw">{{ message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div hidden class="col-12">
