@@ -36,4 +36,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/agendar-procedimento', function () {
         return view('Admin.Doctor.agendarProcedimento');
     })->name('admin.doctor.agendarProcedimento');
+
+    Route::get('/admin/listar-procedimentos', function () {
+        return view('Admin.Doctor.listarProcedimento');
+    })->name('admin.doctor.listarProcedimento');
+
+    Route::get('/admin/listar-pacientes', function () {
+        return view('Admin.listarPaciente');
+    })->name('admin.listarPaciente');
+
+    Route::get('/admin/perfil-Doctor', function () {
+        return view('Admin.Doctor.perfil');
+    })->name('admin.doctor.pefil');
 });

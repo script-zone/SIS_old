@@ -31,7 +31,7 @@
     <!-- sidebar -->
     <div class="sidebar px-4 py-4 py-md-5 me-0">
         <div class="d-flex flex-column h-100">
-            <a href="#" class="mb-0 brand-icon">
+            <a href="{{route('dashboard')}}" class="mb-0 brand-icon">
                 <span class="logo-icon">
                     <i class="icofont-heart-beat fs-2"></i>
                 </span>
@@ -53,10 +53,10 @@
                         <ul class="sub-menu collapse" id="menu-Doctor">
                             <li><a class="ms-link" href="{{route('admin.doctor.todosDoctores')}}">Todos os Doctores</a></li>
                             <li><a class="ms-link" href="{{route('admin.doctor.agendarProcedimento')}}">Agendar Procedimento</a></li>
-                            <li><a class="ms-link" href="#">Procedimentos Agendados</a></li>
+                            <li><a class="ms-link" href="{{route('admin.doctor.listarProcedimento')}}">Procedimentos Agendados</a></li>
                             <li><a class="ms-link" href="#">Agenda Médica</a></li>
-                            <li><a class="ms-link" href="#">Meus Pacientes</a></li>
-                            <li><a class="ms-link" href="#">Meu Perfil</a></li>
+                            <li><a class="ms-link" href="{{route('admin.listarPaciente')}}">Meus Pacientes</a></li>
+                            <li><a class="ms-link" href="{{route('admin.doctor.pefil')}}">Meu Perfil</a></li>
                         </ul>
                 </li>
                 <li class="collapsed">
@@ -123,7 +123,8 @@
     
                     <!-- header rightbar icon -->
                     <div class="h-right d-flex align-items-center mr-5 mr-lg-0 order-1">
-
+                        <div class="d-flex">
+                        </div>
                         <div class="dropdown notifications zindex-popover">
                             <a class="nav-link dropdown-toggle pulse" href="#" role="button" data-bs-toggle="dropdown">
                                 <i class="icofont-alarm fs-5"></i>
@@ -166,6 +167,8 @@
                                 </div>
                             </div>
                         </div>
+
+
                         <div class="dropdown user-profile ml-2 ml-sm-3 d-flex align-items-center zindex-popover">
                             @if(session()->has('sucesso'))
                                 <span>{{ session()->get('sucesso') }}</span>
@@ -202,6 +205,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="setting ms-2">
                             <a href="#" data-bs-toggle="modal" data-bs-target="#Settingmodal"><i class="icofont-gear-alt fs-5"></i></a>
                         </div>
@@ -209,12 +213,14 @@
     
                     <!-- menu toggler -->
                     <button class="navbar-toggler p-0 border-0 menu-toggle order-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainHeader">
-                        <span class="fa fa-bars"></span>
+                        <span class="icofont-list fs-5"></span>
                     </button>
     
                     <!-- main menu Search-->
                     <div class="order-0 col-lg-4 col-md-4 col-sm-12 col-12 mb-3 mb-md-0 ">
                         <div class="input-group flex-nowrap input-group-lg">
+                            <input type="search" class="form-control" placeholder="Search" aria-label="search" aria-describedby="addon-wrapping">
+                            <button type="button" class="input-group-text" id="addon-wrapping"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
     
@@ -226,48 +232,10 @@
              @yield('conteudo')
       
         <!-- Modal Custom Settings-->
-        <div class="modal fade right" id="Settingmodal" tabindex="-1"  aria-hidden="true">
-            <div class="modal-dialog  modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Definições</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body custom_setting">
-                        <!-- Settings: Color -->
-                        <div class="setting-theme pb-3">
-                            <h6 class="card-title mb-2 fs-6 d-flex align-items-center"><i class="icofont-color-bucket fs-4 me-2 text-primary"></i>Template Color Settings</h6>
-                            
-                        </div>
-                        <!-- Settings: Template dynamics -->
-                        <div class="dynamic-block py-3">
-                            <ul class="list-unstyled choose-skin mb-2 mt-1">
-                                <li data-theme="dynamic"><div class="dynamic"><i class="icofont-paint me-2"></i> Click to Dyanmic Setting</div></li>
-                            </ul>
-                            
-                        </div>
-                        <!-- Settings: Font -->
-                        <div class="setting-font py-3">
-                            <h6 class="card-title mb-2 fs-6 d-flex align-items-center"><i class="icofont-font fs-4 me-2 text-primary"></i> Font Settings</h6>
-                            
-                        </div>
-                        <!-- Settings: Light/dark -->
-                        <div class="setting-mode py-3">
-                            <h6 class="card-title mb-2 fs-6 d-flex align-items-center"><i class="icofont-layout fs-4 me-2 text-primary"></i>Contrast Layout</h6>
-                            
-                        </div>
-                    </div>
-                    <div class="modal-footer justify-content-start">
-                        <button type="button" class="btn btn-white border lift" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary lift">Save Changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>    
+        
     </div>
   
 </div>
-
 
 <!-- Jquery Core Js -->
 <script src="{{asset('Style/bundles/libscripts.bundle.js')}}"></script>
@@ -281,6 +249,13 @@
 <!-- Jquery Page Js -->
 <script src="{{asset('Style/js/template.js')}}"></script>
 <script src="{{asset('Style/js/page/index.js')}}"></script>
+
+
+<!-- Jquery Page Js -->
+<script src="{{asset('Style/js/template.js')}}"></script>
+
+
+
  <script>
       $('#myDataTable')
       .addClass( 'nowrap' )
@@ -290,6 +265,17 @@
               { targets: [-1, -3], className: 'dt-body-right' }
           ]
       });
+
+      $(document).ready(function() {
+        $('#myProjectTable')
+        .addClass( 'nowrap' )
+        .dataTable( {
+            responsive: true,
+            columnDefs: [
+                { targets: [-1, -3], className: 'dt-body-right' }
+            ]
+        });
+    });
  </script>
 </body>
 
