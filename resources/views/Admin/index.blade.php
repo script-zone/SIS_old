@@ -123,11 +123,7 @@
     
                     <!-- header rightbar icon -->
                     <div class="h-right d-flex align-items-center mr-5 mr-lg-0 order-1">
-                        <div class="d-flex">
-                            <a class="nav-link text-primary collapsed" href="help.html" title="Get Help">
-                                <i class="icofont-info-square fs-5"></i>
-                            </a>
-                        </div>
+
                         <div class="dropdown notifications zindex-popover">
                             <a class="nav-link dropdown-toggle pulse" href="#" role="button" data-bs-toggle="dropdown">
                                 <i class="icofont-alarm fs-5"></i>
@@ -178,7 +174,7 @@
                             
                             <div class="u-info me-2">
                                 <p class="mb-0 text-end line-height-sm "><span class="font-weight-bold">{{ auth()->user()->nomeCompleto }}</span></p>
-                                <small>{{ auth()->user()->tipo }}</small>
+                                <small class="text-uppercase">{{ auth()->user()->tipo }}</small>
                             </div>
                             <a class="nav-link dropdown-toggle pulse p-0" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static">
                                 <img class="avatar lg rounded-circle img-thumbnail" src="{{asset('Style/images/profile_av.png')}}" alt="perfil">

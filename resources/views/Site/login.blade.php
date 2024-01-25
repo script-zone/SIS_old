@@ -66,9 +66,7 @@
                                     
                                     <span class="dividers mt-4">---------</span>
                                 </div>
-                                @error('error')
-                                    <span>{{ $message }}</span>
-                                @enderror
+                                
                                 <div class="col-12">
                                     <div class="mb-2">
                                         <label class="form-label">E-mail</label>
@@ -89,6 +87,9 @@
                                         <input type="password" name="password" class="form-control form-control-lg" placeholder="***************">
                                         @error('password')
                                             <span id="erro_psw">{{ $message }}</span>
+                                        @enderror
+                                        @error('error')
+                                            <span class="mt-4">{{ $message }}</span>
                                         @enderror
                                     </div>
                                 </div>

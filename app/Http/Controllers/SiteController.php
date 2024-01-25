@@ -47,7 +47,7 @@ class SiteController extends Controller
             $request->session()->regenerate();
             //$tipo_user = User::getTipo($request['email'])[0]->tipo;
             //dd($tipo_user);
-            return redirect()->intended('/admin')->with(['sucesso'=>'Sessão iniciada com sucesso!']);
+            return redirect()->intended('/admin')->with(['sucesso'=>'Online']);
         }
         
         return redirect()->back()->withErrors(['error' => 'Email ou Senha errados']);

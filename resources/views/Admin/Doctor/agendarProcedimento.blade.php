@@ -20,33 +20,32 @@
                         <form>
                             <div class="row g-3 align-items-center">
                                 <div class="col-md-6">
-                                    <label for="firstname" class="form-label">Nome Completo</label>
-                                    <input type="text" class="form-control" id="firstname">
+                                    <label  class="form-label">Paciente</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Selecione o Paciente</option>
+                                        <option value="1">Fridson Firmino</option>
+                                        <option value="2">Benvindo Alves</option>
+                                        <option value="3">Joelson Botelho</option>
+                                        <option value="4">Joilson Capemba</option>
+                                        <option value="5">Edvaldo Vitena</option>
+                                    </select>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="phonenumber" class="form-label">Número de telefone</label>
-                                    <input type="text" class="form-control" id="phonenumber">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="emailaddress" class="form-label">E-mail</label>
-                                    <input type="email" class="form-control" id="emailaddress">
-                                </div>
-                                <div class="col-md-6">
-                                    <label  class="form-label">Gênero</label>
+                                    <label  class="form-label">O Procedimento é Urgente?</label>
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-2">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios11" value="option1" checked>
+                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios11" value="option1" >
                                                 <label class="form-check-label" for="exampleRadios11">
-                                                Masculino
+                                                Sim
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-2">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios22" value="option2">
+                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios22" value="option2" checked>
                                                 <label class="form-check-label" for="exampleRadios22">
-                                                Femenino
+                                                Não
                                                 </label>
                                             </div>
                                         </div>
