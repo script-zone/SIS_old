@@ -194,7 +194,7 @@
                                     <div class="list-group m-2 ">
                                         <a href="#" class="list-group-item list-group-item-action border-0 "><i class="icofont-ui-video-chat fs-5 me-3"></i>Agenda Médica</a>
                                         <a href="#" class="list-group-item list-group-item-action border-0 "><i class="icofont-dollar fs-5 me-3"></i>Perfil</a>
-                                        <a href="{{route('login')}}" class="list-group-item list-group-item-action border-0 "><i class="icofont-logout fs-6 me-3"></i>Terminar Secção</a>
+                                        <a href="{{route('logout')}}" class="list-group-item list-group-item-action border-0 "><i class="icofont-logout fs-6 me-3"></i>Terminar Secção</a>
                                         <div><hr class="dropdown-divider border-dark"></div>
                                         <a href="{{route('paciente.createAcount')}}" class="list-group-item list-group-item-action border-0 "><i class="icofont-contact-add fs-5 me-3"></i>Criar uma conta pessoal</a>
                                     </div>

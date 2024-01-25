@@ -19,6 +19,7 @@ use App\Http\Controllers\UserController;
 Route::get('/', [SiteController::class, 'index'])->name('index');
 Route::get('/login', [SiteController::class, 'login'])->name('login');
 Route::post('/login/autenticacao', [SiteController::class, 'authLogin'])->name('login_auth');
+Route::get('/logout', [SiteController::class, 'fazerLogout'])->name('logout');
 Route::post('/paciente/sign_up', [UserController::class, 'createAccountPaciente'])->name('paciente.criar_conta');
 Route::get('/criar-conta',[SiteController::class, 'createAccount'])->name('paciente.createAcount');
 

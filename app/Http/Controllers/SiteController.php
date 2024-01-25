@@ -46,7 +46,17 @@ class SiteController extends Controller
         
     }
 
-    public function fazerLogout () {
+    public function fazerLogout(){
+        if (Auth::check() === true) {
+            Auth::logout();
+            //Session::flush();
+            return redirect(route('login'));
+        } else {
+            return redirect(route('dashboard'));
+        }
+    }
+
+    public function logout () {
 
         Auth::fazerLogout();
 

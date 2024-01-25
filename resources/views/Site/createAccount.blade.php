@@ -63,31 +63,31 @@
                                 <div class="col-6">
                                     <div class="mb-2">
                                         <label class="form-label">Nome</label>
-                                        <input type="text" class="form-control form-control-lg" placeholder="Ex: Fridson">
+                                        <input type="text" name="nome" class="form-control form-control-lg" placeholder="Ex: Fridson">
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="mb-2">
                                         <label class="form-label">Sobrenome</label>
-                                        <input type="text" class="form-control form-control-lg" placeholder="Ex: Firmino">
+                                        <input type="text" name="sobrenome" class="form-control form-control-lg" placeholder="Ex: Firmino">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="mb-2">
                                         <label class="form-label">E-mail</label>
-                                        <input type="email" class="form-control form-control-lg" placeholder="name@example.com">
+                                        <input type="email" name="email" class="form-control form-control-lg" placeholder="name@example.com">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="mb-2">
                                         <label class="form-label">Senha</label>
-                                        <input type="password" id="password" class="form-control form-control-lg" placeholder="8+ characters required">
+                                        <input type="password" name="password" id="password" class="form-control form-control-lg" placeholder="8+ characters required">
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                <div hidden class="col-12">
                                     <div class="mb-2">
                                         <label class="form-label">Confirmar Senha</label>
-                                        <input type="password" id="re_password" class="form-control form-control-lg" placeholder="8+ characters required">
+                                        <input type="password" name="re_password" id="re_password" class="form-control form-control-lg" placeholder="8+ characters required">
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -99,7 +99,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 text-center mt-4">
-                                    <a href="#" class="btn btn-lg btn-block btn-light lift text-uppercase" alt="CRIAR-CONTA">CRIAR CONTA</a>
+                                    <button type="submit" class="btn btn-lg btn-block btn-light lift text-uppercase" alt="CRIAR-CONTA">CRIAR CONTA</button>
                                 </div>
                                 <div class="col-12 text-center mt-4">
                                     <span>Já tem uma conta? <a href="{{route('login')}}" title="Login" >Faça login aqui</a></span>
