@@ -118,18 +118,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="d-flex align-items-center justify-content-between shadow-sm p-3">
-                            <div class="left-info">
-                                <span class="text-muted">Dinner</span>
-                                <h5 class="fw-bold my-2">390 Kcal</h5>
-                                <span class="text-muted">Recommended</span>
-                            </div>
-                            <div class="right-info">
-                                <i class="icofont-aids fs-1 color-lavender-purple"></i>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
