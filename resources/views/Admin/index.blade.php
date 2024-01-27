@@ -53,7 +53,7 @@
                         <ul class="sub-menu collapse" id="menu-Doctor">
                             <li><a class="ms-link" href="{{route('admin.doctor.agendarProcedimento')}}">Agendar Procedimento</a></li>
                             <li><a class="ms-link" href="{{route('admin.doctor.listarProcedimento')}}">Procedimentos Agendados</a></li>
-                            <li><a class="ms-link" href="#">Agenda Médica</a></li>
+                            <li><a class="ms-link" href="{{route('admin.doctor.agendaMedica')}}">Agenda Médica</a></li>
                             <li><a class="ms-link" href="{{route('admin.listarPaciente')}}">Meus Pacientes</a></li>
                             <li><a class="ms-link" href="{{route('admin.doctor.pefil')}}">Meu Perfil</a></li>
                         </ul>

@@ -199,8 +199,6 @@
                                                 </div>
                                                 <div class="card-hover-show">
                                                     <a class="btn btn-sm btn-white border lift" href="#">Download</a>
-                                                    <a class="btn btn-sm btn-white border lift" href="#">Send</a>
-                                                    <a class="btn btn-sm btn-white border lift" href="#">Delete</a>
                                                 </div>
                                             </div>
                                         </div>

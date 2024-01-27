@@ -49,6 +49,10 @@ Route::group(['middleware' => ['auth']], function () {
         return view('Admin.Doctor.perfil');
     })->name('admin.doctor.pefil');
 
+    Route::get('/admin/agenda-medica', function () {
+        return view('Admin.Doctor.agendaMedica');
+    })->name('admin.doctor.agendaMedica');
+
 
     ////////////////////////
 
