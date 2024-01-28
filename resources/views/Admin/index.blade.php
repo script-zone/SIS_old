@@ -72,6 +72,15 @@
                     </ul>
                 </li>
                 <li class="collapsed">
+                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Marcacao" href="#">
+                    <i class="icofont-calendar fs-5"></i> <span>Marcação</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                    <!-- Menu: Sub menu ul -->
+                    <ul class="sub-menu collapse" id="menu-Marcacao">
+                        <li><a class="ms-link" href="#">Exames</a></li>
+                        <li><a class="ms-link" href="#">Cosulta</a></li>
+                    </ul>
+                </li>
+                <li class="collapsed">
                     <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-lab" href="#">
                     <i class="icofont-blood-test  fs-5"></i> <span>Laboratório</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
@@ -97,9 +106,9 @@
                     <i class="icofont-list fs-5"></i> <span>Listagem</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-list">
-                        <li><a class="ms-link" href="{{route('admin.doctor.todosDoctores')}}">Pessoal Clinico</a></li>
-                        <li><a class="ms-link" href="#">Paciente</a></li>
-                        <li><a class="ms-link" href="#">Especialidades</a></li>
+                        <li><a class="ms-link" href="{{route('admin.listagem.todosDoctores')}}">Pessoal Clinico</a></li>
+                        <li><a class="ms-link" href="{{route('admin.listagem.todosPacientes')}}">Paciente</a></li>
+                        <li><a class="ms-link" href="{{route('admin.listagem.todasEspec')}}">Especialidades</a></li>
                         <li><a class="ms-link" href="#">Funcionarios</a></li>
                     </ul>
                 </li>
@@ -256,7 +265,6 @@
 <!-- Jquery Page Js -->
 <script src="{{asset('Style/js/template.js')}}"></script>
 <script src="{{asset('Style/js/page/index.js')}}"></script>
-
 
 <!-- Jquery Page Js -->
 <script src="{{asset('Style/js/template.js')}}"></script>

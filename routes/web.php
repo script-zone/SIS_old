@@ -30,9 +30,7 @@ Route::group(['middleware' => ['auth']], function () {
     })->name('dashboard');
 
         ////////// dOCTORES //////////////
-    Route::get('/admin/listar-doctores', function () {
-        return view('Admin.Listagem.todosDotores');
-    })->name('admin.doctor.todosDoctores');
+
 
     Route::get('/admin/agendar-procedimento', function () {
         return view('Admin.Doctor.agendarProcedimento');
@@ -42,7 +40,7 @@ Route::group(['middleware' => ['auth']], function () {
         return view('Admin.Doctor.listarProcedimento');
     })->name('admin.doctor.listarProcedimento');
 
-    Route::get('/admin/listar-pacientes', function () {
+    Route::get('/admin/listar-pacientes-por-doctor', function () {
         return view('Admin.listarPaciente');
     })->name('admin.listarPaciente');
 
@@ -91,4 +89,18 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/cadastro-especialidade', function () {
         return view('Admin.Cadastro.cadastroEspec');
     })->name('admin.cadastro.cadastroEspecialidade');
+
+
+        ////////// Listagem //////////////
+        Route::get('/admin/listar-doctores', function () {
+            return view('Admin.Listagem.todosDotores');
+        })->name('admin.listagem.todosDoctores');
+    
+        Route::get('/admin/listar-especialidade', function () {
+            return view('Admin.Listagem.todasEspec');
+        })->name('admin.listagem.todasEspec');        
+        
+        Route::get('/admin/listar-pacientes', function () {
+            return view('Admin.Listagem.todosPacientes');
+        })->name('admin.listagem.todosPacientes');
 });
