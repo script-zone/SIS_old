@@ -29,6 +29,7 @@ Route::group(['middleware' => ['auth']], function () {
         return view('Admin.dashboard');
     })->name('dashboard');
 
+        ////////// dOCTORES //////////////
     Route::get('/admin/listar-doctores', function () {
         return view('Admin.Listagem.todosDotores');
     })->name('admin.doctor.todosDoctores');
@@ -54,9 +55,40 @@ Route::group(['middleware' => ['auth']], function () {
     })->name('admin.doctor.agendaMedica');
 
 
-    ////////////////////////
-
+    ////////// PACIENTE //////////////
     Route::get('/admin/perfil-paciente', function () {
         return view('Admin.Paciente.perfil');
     })->name('admin.paciente.perfil');
+
+    Route::get('/admin/exames-paciente', function () {
+        return view('Admin.Paciente.meusExames');
+    })->name('admin.paciente.meusExames');
+
+    Route::get('/admin/consultas-paciente', function () {
+        return view('Admin.Paciente.minhasConsultas');
+    })->name('admin.paciente.minhasConsultas');
+
+
+        ////////// Laboratorio //////////////
+    Route::get('/admin/resultado-exame-Lab', function () {
+        return view('Admin.Lab.examesLab');
+    })->name('admin.lab.listaDeExameEmEspera');
+
+    Route::get('/admin/lancar-resulado-exame', function () {
+        return view('Admin.Lab.resultadoExame');
+    })->name('admin.lab.resultadoExame');
+
+
+    ////////// Cadastros //////////////
+    Route::get('/admin/cadastro-paciente', function () {
+        return view('Admin.Cadastro.cadastroPaciente');
+    })->name('admin.cadastro.cadastroPaciente');
+
+    Route::get('/admin/cadastro-doctor', function () {
+        return view('Admin.Cadastro.cadastroDoctor');
+    })->name('admin.cadastro.cadastroDoctor');
+
+    Route::get('/admin/cadastro-especialidade', function () {
+        return view('Admin.Cadastro.cadastroEspec');
+    })->name('admin.cadastro.cadastroEspecialidade');
 });

@@ -6,10 +6,7 @@
         <div class="row align-items-center">
             <div class="border-0 mb-4">
                 <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
-                    <h3 class="fw-bold mb-0">Exames Agendados</h3>
-                    <div class="col-auto d-flex w-sm-100">
-                        <a href="#" class="btn btn-primary btn-set-task w-sm-100"><i class="icofont-plus-circle me-2 fs-6"></i>Add Procedimento</a>
-                    </div>
+                    <h3 class="fw-bold mb-0">Exames com Resultado em Espera</h3>
                 </div>
             </div>
         </div> <!-- Row end  -->
@@ -22,12 +19,12 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Nome do Paciente</th> 
-                                    <th>Descrição</th> 
-                                    <th>Procedimento</th>   
+                                    <th>Tipo de Exame</th> 
+                                    <th>Resultado</th>   
                                     <th>Data</th>  
                                     <th>Hora</th>  
                                     <th>Estado</th>  
-                                    <th>Acção</th>  
+                                    <th>Acção</th>   
                                 </tr>
                             </thead>
                             <tbody>
@@ -56,8 +53,7 @@
                                     </td>
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#depedit"><i class="icofont-edit text-success"></i></button>
-                                            <button type="button" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></button>
+                                            <a href="{{route('admin.lab.resultadoExame')}}" class="btn btn-outline-secondary" ><i class="icofont-edit text-success"></i></a>
                                         </div>
                                     </td>
                                 </tr>
@@ -87,7 +83,6 @@
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic outlined example">
                                             <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#depedit"><i class="icofont-edit text-success"></i></button>
-                                            <button type="button" class="btn btn-outline-secondary deleterow"><i class="icofont-ui-delete text-danger"></i></button>
                                         </div>
                                     </td>
                                 </tr>

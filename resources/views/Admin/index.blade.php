@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{asset('Style/plugin/datatables/dataTables.bootstrap5.min.css')}}">
     <!-- project css file  -->
     <link rel="stylesheet" href="{{asset('Style/css/ihealth.style.min.css')}}">
+    
     <!-- Google Code  -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-264428387-1"></script>
     <script>
@@ -63,9 +64,10 @@
                     <i class="icofont-blind fs-5"></i> <span>Paciente</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-Patient">
-                        <li><a class="ms-link" href="patient-list.html">Meus Exames</a></li>
-                        <li><a class="ms-link" href="patient-list.html">Minhas Consultas</a></li>
-                        <li><a class="ms-link" href="patient-invoices.html">Minhas Facturas</a></li>
+                        <li><a class="ms-link" href="{{route('admin.paciente.meusExames')}}">Meus Exames</a></li>
+                        <li><a class="ms-link" href="{{route('admin.paciente.minhasConsultas')}}">Minhas Consultas</a></li>
+                        <li><a class="ms-link" href="#">Minhas Facturas</a></li>
+                        <li><a class="ms-link" href="#">Mensagens</a></li>
                         <li><a class="ms-link" href="{{route('admin.paciente.perfil')}}">Meu Perfil</a></li>
                     </ul>
                 </li>
@@ -74,9 +76,8 @@
                     <i class="icofont-blood-test  fs-5"></i> <span>Laboratório</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-lab">
-                        <li><a class="ms-link" href="patient-list.html">Exames Agendados</a></li>
-                        <li><a class="ms-link" href="patient-list.html">Lançar Resultados</a></li>
-                        <li><a class="ms-link" href="patient-profile.html">Meu Perfil</a></li>
+                        <li><a class="ms-link" href="{{route('admin.lab.listaDeExameEmEspera')}}">Exames Agendados</a></li>
+                        <li><a class="ms-link" href="{{route('admin.lab.resultadoExame')}}">Lançar Resultados</a></li>
                     </ul>
                 </li>
                 <li><a class="m-link" href="department.html"><i class="icofont-hospital fs-5"></i> <span>Area</span></a></li>
@@ -85,9 +86,9 @@
                     <i class="icofont-contact-add fs-5"></i> <span>Cadastro</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-cadastro">
-                        <li><a class="ms-link" href="#">Pessoal Clinico</a></li>
-                        <li><a class="ms-link" href="#">Paciente</a></li>
-                        <li><a class="ms-link" href="#">Especialidades</a></li>
+                        <li><a class="ms-link" href="{{route('admin.cadastro.cadastroDoctor')}}">Pessoal Clinico</a></li>
+                        <li><a class="ms-link" href="{{route('admin.cadastro.cadastroPaciente')}}">Paciente</a></li>
+                        <li><a class="ms-link" href="{{route('admin.cadastro.cadastroEspecialidade')}}">Especialidades</a></li>
                         <li><a class="ms-link" href="#">Funcionarios</a></li>
                     </ul>
                 </li>
@@ -102,12 +103,22 @@
                         <li><a class="ms-link" href="#">Funcionarios</a></li>
                     </ul>
                 </li>
+                <li class="collapsed">
+                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-role" href="#">
+                    <i class="icofont-list fs-5"></i> <span>Role</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                    <!-- Menu: Sub menu ul -->
+                    <ul class="sub-menu collapse" id="menu-role">
+                        <li><a class="ms-link" href="">Clinico</a></li>
+                        <li><a class="ms-link" href="#">Paciente</a></li>
+                    </ul>
+                </li>
+                
                 
             </ul>
             
             <!-- Menu: menu collepce btn -->
             <button type="button" class="btn btn-link sidebar-mini-btn text-light">
-                <span class="ms-2"><i class="icofont-bubble-right"></i></span>
+                <span class="ms-2"><i class="icofont-bubble-right"></i>sss</span>
             </button>
         </div>
     </div>
@@ -217,10 +228,7 @@
     
                     <!-- main menu Search-->
                     <div class="order-0 col-lg-4 col-md-4 col-sm-12 col-12 mb-3 mb-md-0 ">
-                        <div class="input-group flex-nowrap input-group-lg">
-                            <input type="search" class="form-control" placeholder="Search" aria-label="search" aria-describedby="addon-wrapping">
-                            <button type="button" class="input-group-text" id="addon-wrapping"><i class="fa fa-search"></i></button>
-                        </div>
+                        
                     </div>
     
                 </div>
