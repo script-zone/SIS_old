@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('bi')->unique();
             $table->string('morada');
             $table->string('localidade');
-            $table->string('codigoPostal');
+            $table->string('codigoPostal')->nullable();
             $table->string('telefone');
             $table->string('contacto_emergencia');
             $table->char('sexo', 1);

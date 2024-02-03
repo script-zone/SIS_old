@@ -14,7 +14,7 @@ class UserController extends Controller
 {
     //
 
-    public function createAccountPaciente (Request $request) {
+    public function createAccountSite (Request $request) {
 
         // dd($request);
 
@@ -77,6 +77,7 @@ class UserController extends Controller
             'retorno' => $retorno,
         ]);
 
-    }    
+    }
+    
 
 }

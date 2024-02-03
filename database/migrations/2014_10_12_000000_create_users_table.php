@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nomeCompleto');
+            // $table->string('ultimoNome');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('tipo')->nullable();;
+            $table->string('tipo')->nullable();
+            $table->string('foto')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

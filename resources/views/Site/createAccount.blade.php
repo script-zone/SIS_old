@@ -90,22 +90,23 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div hidden class="col-12">
+                                <div class="col-12">
                                     <div class="mb-2">
                                         <label class="form-label">Confirmar Senha</label>
                                         <input type="password" name="re_password" id="re_password" class="form-control form-control-lg" placeholder="8+ characters required">
+                                        <span id="fb"><i class="fab fa-instagram"></i></span>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <input class="form-check-input" type="checkbox" id="flexCheckDefault">
                                         <label class="form-check-label" for="flexCheckDefault">
                                             Eu aceito os <a href="#" title="Termos e as Condições">Termos e as Condições</a>
                                         </label>
                                     </div>
                                 </div>
                                 <div class="col-12 text-center mt-4">
-                                    <button type="submit" class="btn btn-lg btn-block btn-light lift text-uppercase" alt="CRIAR-CONTA">CRIAR CONTA</button>
+                                    <button type="submit" id="formBtn" class="btn btn-lg btn-block btn-light lift text-uppercase" alt="CRIAR-CONTA">CRIAR CONTA</button>
                                 </div>
                                 <div class="col-12 text-center mt-4">
                                     <span>Já tem uma conta? <a href="{{route('login')}}" title="Login" >Faça login aqui</a></span>
@@ -126,6 +127,7 @@
 
 <!-- Jquery Core Js -->
 <script src="{{asset('Style/bundles/libscripts.bundle.js')}}"></script>
+<script src="{{asset('js/Site/login.js')}}"></script>
 
 </body>
 

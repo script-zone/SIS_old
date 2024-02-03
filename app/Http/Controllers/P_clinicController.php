@@ -3,18 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Paciente;
-use App\Models\User;
-use App\Models\RCP;
-use DB;
 
-class PacienteController extends Controller
+class P_clinicController extends Controller
 {
     //
-    
-    public function createAccountUserPaciente (Request $request) {
 
-        $retorno['estado'] = true;
+
+    public function createAccountUserP_clinic (Request $request) {
 
         // dd($request);
 
@@ -27,38 +22,9 @@ class PacienteController extends Controller
         //    ]);
         // }
 
-        $retorno['erros_validacao_user'] = [];
-        $retorno['erros_validacao_paciente'] = [];
-        $retorno['erros_validacao_rcp'] = [];
-
+        $retorno['estado'] = false;
             
         $request['nomeCompleto'] = $request['nome']." ".$request['sobrenome'];
-
-        $allUsers = User::all();
-        foreach ($allUsers as $user) {
-
-            if($user->email == $request['email']){
-                $retorno['jaExisteEmail'] = "email já está a ser utilizado!";
-                $retorno['estado'] = false;
-                break;
-            };
-
-        }
-
-        $allPacientes = Paciente::all();
-        foreach ($allPacientes as $paciente) {
-
-            if($paciente->bi == $request['bi']){
-                $retorno['jaExistebi'] = "bilhete já está a ser utilizado!";
-                $retorno['estado'] = false;
-                break;
-            };
-        }
-
-        if($retorno['estado'] == false) return response([
-            'retorno' => $retorno,
-        ]);
-        
         //dd($request);
 
         try {
@@ -113,11 +79,14 @@ class PacienteController extends Controller
             $retorno['error_sql'] = $th->getMessage();
             $retorno['estado'] = false;
         }
+
+        $retorno['erros_validacao_user'] = [];
+        $retorno['erros_validacao_paciente'] = [];
+        $retorno['erros_validacao_rcp'] = [];
         
         return response([
             'retorno' => $retorno,
         ]);
 
     }
-
 }

@@ -45,8 +45,6 @@ class SiteController extends Controller
 
         if(Auth::attempt($dadosUtilizador)){
             $request->session()->regenerate();
-            //$tipo_user = User::getTipo($request['email'])[0]->tipo;
-            //dd($tipo_user);
             return redirect()->intended('/admin')->with(['sucesso'=>'Online']);
         }
         

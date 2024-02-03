@@ -52,8 +52,8 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class);
     }
 
-    public function getActions () {
-        return $this->roles->map->actions->flatten()->pluck('name');
+    public function getPermissions () {
+        return $this->roles->map->permissionss->flatten()->pluck('name');
     }
 
     public static function getTipo ($user_email) {

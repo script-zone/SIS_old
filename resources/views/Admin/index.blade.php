@@ -72,15 +72,6 @@
                     </ul>
                 </li>
                 <li class="collapsed">
-                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Marcacao" href="#">
-                    <i class="icofont-calendar fs-5"></i> <span>Marcação</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
-                    <!-- Menu: Sub menu ul -->
-                    <ul class="sub-menu collapse" id="menu-Marcacao">
-                        <li><a class="ms-link" href="#">Exames</a></li>
-                        <li><a class="ms-link" href="#">Cosulta</a></li>
-                    </ul>
-                </li>
-                <li class="collapsed">
                     <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-lab" href="#">
                     <i class="icofont-blood-test  fs-5"></i> <span>Laboratório</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
@@ -106,19 +97,29 @@
                     <i class="icofont-list fs-5"></i> <span>Listagem</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-list">
-                        <li><a class="ms-link" href="{{route('admin.listagem.todosDoctores')}}">Pessoal Clinico</a></li>
-                        <li><a class="ms-link" href="{{route('admin.listagem.todosPacientes')}}">Paciente</a></li>
-                        <li><a class="ms-link" href="{{route('admin.listagem.todasEspec')}}">Especialidades</a></li>
+                        <li><a class="ms-link" href="{{route('admin.doctor.todosDoctores')}}">Pessoal Clinico</a></li>
+                        <li><a class="ms-link" href="#">Paciente</a></li>
+                        <li><a class="ms-link" href="#">Especialidades</a></li>
                         <li><a class="ms-link" href="#">Funcionarios</a></li>
                     </ul>
                 </li>
                 <li class="collapsed">
                     <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-role" href="#">
-                    <i class="icofont-list fs-5"></i> <span>Role</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                        <i class="icofont-gear-alt fs-5"></i>
+                        <span>Configurações</span>
+                        <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span>
+                    </a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-role">
-                        <li><a class="ms-link" href="">Clinico</a></li>
-                        <li><a class="ms-link" href="#">Paciente</a></li>
+                        <li>
+                            <a class="ms-link" href="#">Permissoes</a>
+                        </li>
+                        <li>
+                            <a class="ms-link" href="#">Papéis</a>
+                        </li>
+                        <li>
+                            <a class="ms-link" href="#">Utilizador</a>
+                        </li>
                     </ul>
                 </li>
                 
@@ -127,7 +128,7 @@
             
             <!-- Menu: menu collepce btn -->
             <button type="button" class="btn btn-link sidebar-mini-btn text-light">
-                <span class="ms-2"><i class="icofont-bubble-right"></i>sss</span>
+                <span class="ms-2"><i class="icofont-bubble-right"></i></span>
             </button>
         </div>
     </div>
@@ -265,6 +266,7 @@
 <!-- Jquery Page Js -->
 <script src="{{asset('Style/js/template.js')}}"></script>
 <script src="{{asset('Style/js/page/index.js')}}"></script>
+
 
 <!-- Jquery Page Js -->
 <script src="{{asset('Style/js/template.js')}}"></script>

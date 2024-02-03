@@ -17,50 +17,51 @@
                         <h6 class="mb-0 fw-bold ">Informações Pessoais</h6>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form id="form_store_full_paciente" method="post" >
+                            @csrf
                             <div class="row g-3 align-items-center">
                                 <div class="col-md-6">
-                                    <label for="firstname" class="form-label">Nome</label>
-                                    <input type="text" class="form-control" id="firstname">
+                                    <label for="nome" class="form-label">Nome</label>
+                                    <input required type="text" name="nome" class="form-control" id="nome">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="lastname" class="form-label">Sobrenome</label>
-                                    <input type="text" class="form-control" id="lastname">
+                                    <input required type="text" name="sobrenome" class="form-control" id="sobreNome">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="phonenumber" class="form-label">Telefone</label>
-                                    <input type="number" class="form-control" id="phonenumber">
+                                    <label for="telefone" class="form-label">Telefone</label>
+                                    <input required type="number" name="telefone" class="form-control" id="telefone">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="emailaddress" class="form-label">Telefone de Emergência</label>
-                                    <input type="number" class="form-control" id="emailaddress">
+                                    <label for="telefoneEmergencia" class="form-label">Telefone de Emergência</label>
+                                    <input type="number" class="form-control" name="telefoneEmergencia" id="telefoneEmergencia">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="admitdate" class="form-label">Data Nascimento</label>
-                                    <input type="date" class="form-control" id="admitdate">
+                                    <label for="dataNascimento" class="form-label">Data Nascimento</label>
+                                    <input required type="date" name="dataNascimento" class="form-control" id="dataNascimento">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="admittime" class="form-label">Nº Bilhete</label>
-                                    <input type="text" class="form-control" id="admittime">
+                                    <label for="bi" class="form-label">Nº Bilhete</label>
+                                    <input required type="text" name="bi" class="form-control" id="bi">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="admittime" class="form-label">Morada</label>
-                                    <input type="text" class="form-control" id="admittime">
+                                    <label for="morada" class="form-label">Morada</label>
+                                    <input type="text" class="form-control" name="morada" id="morada">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="admittime" class="form-label">Localidade</label>
-                                    <input type="text" class="form-control" id="admittime">
+                                    <label for="localidade" class="form-label">Localidade</label>
+                                    <input type="text" class="form-control" name="localidade" id="localidade">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="admittime" class="form-label">Código Postal</label>
-                                    <input type="text" class="form-control" id="admittime">
+                                    <label for="codigoPostal" class="form-label">Código Postal</label>
+                                    <input type="text" class="form-control" name="codigoPostal" id="codigoPostal">
                                 </div>
                                 <div class="col-md-6">
                                     <label  class="form-label">Gênero</label>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios11" value="option1" checked>
+                                                <input class="form-check-input" type="radio" name="Sexo" id="SexoRadio1" value="M" checked>
                                                 <label class="form-check-label" for="exampleRadios11">
                                                     Masculino
                                                 </label>
@@ -68,7 +69,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios22" value="option2">
+                                                <input class="form-check-input" type="radio" name="Sexo" id="SexoRadio2" value="F">
                                                 <label class="form-check-label" for="exampleRadios22">
                                                     Femenino
                                                 </label>
@@ -77,12 +78,12 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="formFileMultiple" class="form-label">Carregar Foto</label>
-                                    <input class="form-control" type="file" id="formFileMultiple" multiple>
+                                    <label for="fileFoto" class="form-label">Carregar Foto</label>
+                                    <input class="form-control" name="fileFoto" type="file" id="fileFoto" multiple>
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="addnote" class="form-label">Adicionar Bio</label>
-                                    <textarea  class="form-control" id="addnote" rows="3"></textarea> 
+                                    <label for="addNote" class="form-label">Adicionar Bio</label>
+                                    <textarea name="addNote" class="form-control" id="addNote" rows="3"></textarea> 
                                 </div>
 
                                 <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
@@ -90,25 +91,32 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label  class="form-label">Tem uma deficiencia?</label>
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" name="deficiencia" id="deficiencia" aria-label="Default select example">
                                         <option selected>Seleccione uma</option>
                                         <option value="1">Deficiencia Visual</option>
+                                        <option value="1">Deficiência Auditiva</option>
                                         <option value="2">Fisico Motor</option>
                                         <option value="3">Outro</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6">
                                     <label  class="form-label">Grupo Sanguineo</label>
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" name="grupo_sanguineo" id="grupo_sanguineo" aria-label="Default select example">
                                         <option selected>Seleccione o Grupo Sanguineo</option>
                                         <option value="1">O+</option>
                                         <option value="2">O-</option>
-                                        <option value="3">Desconhecido</option>
+                                        <option value="3">A-</option>
+                                        <option value="4">A+</option>
+                                        <option value="5">B-</option>
+                                        <option value="6">B+</option>
+                                        <option value="7">AB-</option>
+                                        <option value="8">AB+</option>
+                                        <option value="9">Desconhecido</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6">
                                     <label  class="form-label">Alergia</label>
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" name="alergia" id="alergia" aria-label="Default select example">
                                         <option selected>Seleccione uma</option>
                                         <option value="1">Lactose</option>
                                         <option value="2">Outro</option>
@@ -117,11 +125,13 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label  class="form-label">Doença Familiar</label>
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" name="doenca_familiar" id="doenca_familiar" aria-label="Default select example">
                                         <option selected>Seleccione uma</option>
                                         <option value="1">Alzaimer</option>
-                                        <option value="2">Outro</option>
-                                        <option value="3">Desconhecido</option>
+                                        <option value="2">Diabete</option>
+                                        <option value="3">Ataque Cardio Vascular</option>
+                                        <option value="4">Outro</option>
+                                        <option value="9">Desconhecido</option>
                                     </select>
                                 </div>
                                 <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
@@ -129,14 +139,15 @@
                                 </div>
                                 <div class="row g-3 align-items-center">
                                     <div class="col-md-6">
-                                        <label for="insinfo" class="form-label">E-mail</label>
-                                        <input type="email" class="form-control" id="insinfo">
+                                        <label for="email" class="form-label">E-mail</label>
+                                        <input type="email" name="email" class="form-control" id="email">
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="roominfo" class="form-label">Senha</label>
-                                        <input type="text" class="form-control" id="roominfo">
+                                        <label for="password" class="form-label">Senha</label>
+                                        <input type="text" name="password" class="form-control" id="password">
                                     </div>
-                                    <div class="col-md-6">
+
+                                    <!--<div class="col-md-6">
                                         <label  class="form-label">Seleccionar Doctor</label>
                                         <select class="form-select" aria-label="Default select example">
                                             <option selected>Seleccione um Doctor</option>
@@ -144,10 +155,11 @@
                                             <option value="2">Rebecca Hunter</option>
                                             <option value="3">Matt Clark</option>
                                         </select>
-                                    </div>
+                                    </div>-->
+
                                     <div class="col-md-6">
-                                        <label for="advancepayment" class="form-label">Confirmar Senha</label>
-                                        <input type="text" class="form-control" id="advancepayment">
+                                        <label for="re_password" class="form-label">Confirmar Senha</label>
+                                        <input type="text" name="re_password" class="form-control" id="re_password">
                                     </div>
                                 </div>
                             </div>
@@ -162,4 +174,7 @@
         </div>
     </div>
 </div>
+
+<script src="{{asset('js/Admin/conta_paciente.js')}}"></script>
+
 @endsection

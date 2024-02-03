@@ -17,19 +17,16 @@
                         <h6 class="mb-0 fw-bold ">Informações</h6>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form action="{{ route('admin.store.especialidade') }}" id="form_store_full_especialidade" method="post">
+                            @csrf
                             <div class="row g-3 align-items-center">
                                 <div class="col-md-6">
-                                    <label for="firstname" class="form-label">Nome da Especialidade</label>
-                                    <input type="text" class="form-control" id="firstname">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="firstname" class="form-label">Nomeclatura do(a) Especialista</label>
-                                    <input type="text" class="form-control" id="firstname">
+                                    <label for="nome" class="form-label">Nome da Especialidade</label>
+                                    <input type="text" name="nome" class="form-control" id="nome">
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="addnote" class="form-label">Descrição da Especialidade</label>
-                                    <textarea  class="form-control" id="addnote" rows="3"></textarea> 
+                                    <label for="descricao" class="form-label">Descrição da Especialidade</label>
+                                    <textarea  class="form-control" name="descricao" id="descricao" rows="3"></textarea> 
                                 </div>
                             </div>
                             
@@ -42,4 +39,7 @@
         </div>
     </div>
 </div>
+
+<script src="{{asset('js/Admin/especialidade.js')}}"></script>
+
 @endsection

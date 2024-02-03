@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EspecialidadeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ Route::get('/', [SiteController::class, 'index'])->name('index');
 Route::get('/login', [SiteController::class, 'login'])->name('login');
 Route::post('/login/autenticacao', [SiteController::class, 'authLogin'])->name('login_auth');
 Route::get('/logout', [SiteController::class, 'fazerLogout'])->name('logout');
-Route::post('/paciente/sign_up', [UserController::class, 'createAccountPaciente'])->name('paciente.criar_conta');
+Route::post('/paciente/sign_up', [UserController::class, 'createAccountSite'])->name('paciente.criar_conta');
 Route::get('/criar-conta',[SiteController::class, 'createAccount'])->name('paciente.createAcount');
 
 
@@ -30,7 +31,9 @@ Route::group(['middleware' => ['auth']], function () {
     })->name('dashboard');
 
         ////////// dOCTORES //////////////
-
+    Route::get('/admin/listar-doctores', function () {
+        return view('Admin.Listagem.todosDotores');
+    })->name('admin.doctor.todosDoctores');
 
     Route::get('/admin/agendar-procedimento', function () {
         return view('Admin.Doctor.agendarProcedimento');
@@ -40,7 +43,7 @@ Route::group(['middleware' => ['auth']], function () {
         return view('Admin.Doctor.listarProcedimento');
     })->name('admin.doctor.listarProcedimento');
 
-    Route::get('/admin/listar-pacientes-por-doctor', function () {
+    Route::get('/admin/listar-pacientes', function () {
         return view('Admin.listarPaciente');
     })->name('admin.listarPaciente');
 
@@ -54,6 +57,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     ////////// PACIENTE //////////////
+
     Route::get('/admin/perfil-paciente', function () {
         return view('Admin.Paciente.perfil');
     })->name('admin.paciente.perfil');
@@ -78,29 +82,26 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     ////////// Cadastros //////////////
+    // pacientes
     Route::get('/admin/cadastro-paciente', function () {
         return view('Admin.Cadastro.cadastroPaciente');
     })->name('admin.cadastro.cadastroPaciente');
+    
+    Route::post('/admin/store/paciente', 
+    [PacienteController::class, 'createAccountUserPaciente'])
+    ->name('admin.store.paciente');
 
+    // pessoal clinico
     Route::get('/admin/cadastro-doctor', function () {
         return view('Admin.Cadastro.cadastroDoctor');
     })->name('admin.cadastro.cadastroDoctor');
 
+    // Especialidades
     Route::get('/admin/cadastro-especialidade', function () {
         return view('Admin.Cadastro.cadastroEspec');
     })->name('admin.cadastro.cadastroEspecialidade');
 
-
-        ////////// Listagem //////////////
-        Route::get('/admin/listar-doctores', function () {
-            return view('Admin.Listagem.todosDotores');
-        })->name('admin.listagem.todosDoctores');
-    
-        Route::get('/admin/listar-especialidade', function () {
-            return view('Admin.Listagem.todasEspec');
-        })->name('admin.listagem.todasEspec');        
-        
-        Route::get('/admin/listar-pacientes', function () {
-            return view('Admin.Listagem.todosPacientes');
-        })->name('admin.listagem.todosPacientes');
+    Route::post('/admin/store/especialidade', 
+    [EspecialidadeController::class, 'createEspecialidade'])
+    ->name('admin.store.especialidade');
 });

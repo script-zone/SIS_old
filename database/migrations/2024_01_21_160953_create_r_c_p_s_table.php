@@ -16,10 +16,9 @@ return new class extends Migration
             $table->string('grupo_sanguineo');
             $table->string('alergias');
             $table->string('deficiencia');
-            $table->string('historico_familiar')->nullable();;
-            $table->string('terapeutica')->nullable();;
+            $table->string('historico_familiar')->nullable();
+            $table->string('terapeutica')->nullable();
             $table->unsignedBigInteger('paciente_id');
-            $table->foreign('paciente_id')->references('id')->on('pacientes')->onDelete('CASCADE');
             $table->timestamps();
         });
     }
