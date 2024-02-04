@@ -36,7 +36,7 @@ class P_clinicController extends Controller
             $user->email        = filter_var($request['email'], FILTER_SANITIZE_STRING);
             $user->password     = bcrypt($request['password']);
             $user->foto         = null;
-            $user->tipo         = "paciente";
+            $user->tipo         = "pessoal clinico";
             $user->save();
 
             // registrando-o como paciente
