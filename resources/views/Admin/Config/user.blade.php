@@ -17,7 +17,7 @@
                         <h6 class="mb-0 fw-bold ">Informações Pessoais</h6>
                     </div>
                     <div class="card-body">
-                        <form id="form_store_full_paciente" method="post" >
+                        <form id="form_store_full_admin" method="#" >
                             @csrf
                             <div class="row g-3 align-items-center">
                                 <div class="col-md-6">
@@ -74,10 +74,14 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label  class="form-label">Papel</label>
-                                    <select class="form-select" name="doenca_familiar" id="doenca_familiar" aria-label="Default select example">
-                                        <option selected>Seleccione um...</option>
-                                        <option value="9">Desconhecido</option>
+                                    <label for="papel" class="form-label">Papel</label>
+                                    <select class="form-select" name="papel" id="papel" aria-label="Default select example">
+                                        <option selected>Seleccione um papel </option>
+                                        @foreach($papeis as $papel)
+                                            @if($papel->tipo == 'admin')
+                                            <option value="{{ $papel->id }}">{{ $papel->name }}</option>
+                                            @endif
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
@@ -90,11 +94,11 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label for="password" class="form-label">Senha</label>
-                                        <input type="text" name="password" class="form-control" id="password">
+                                        <input type="password" name="password" class="form-control" id="password">
                                     </div>
                                     <div class="col-md-6">
                                         <label for="re_password" class="form-label">Confirmar Senha</label>
-                                        <input type="text" name="re_password" class="form-control" id="re_password">
+                                        <input type="password" name="re_password" class="form-control" id="re_password">
                                     </div>
                                 </div>
                             </div>
@@ -106,5 +110,7 @@
         </div>
     </div>
 </div>
+
+<script src="{{ asset('js/Admin/conta_admin.js') }}"></script>
 
 @endsection

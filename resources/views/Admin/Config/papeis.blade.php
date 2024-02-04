@@ -17,177 +17,36 @@
                         <h6 class="mb-0 fw-bold ">Informações</h6>
                     </div>
                     <div class="card-body">
-                        <form action="#" id="form" method="#">
+                        <form action="#" id="formPapelPermissoes" method="#">
+                            @csrf
                             <div class="row g-3 align-items-center">
                                 <div class="col-md-6">
-                                    <label for="nome" class="form-label">Papel</label>
-                                    <input type="text" name="nome" class="form-control" id="nome">
+                                    <label for="name" class="form-label">Papel</label>
+                                    <input required type="text" name="name" class="form-control" id="name">
                                 </div>
                             </div>
+
                             <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
                                 <h6 class="mb-0 fw-bold "></h6>
                             </div>
+
                             <div class="table-responsive">
                                 <table class="table table-striped custom-table">
                                     <thead>
                                         <tr>
-                                            <th>Modulos e Permissões</th>
-                                            <th class="text-center">Read</th>
-                                            <th class="text-center">Write</th>
-                                            <th class="text-center">Create</th>
-                                            <th class="text-center">Delete</th>
-                                            <th class="text-center">Import</th>
-                                            <th class="text-center">Export</th>
+                                            <th class="">Permissão</th>
+                                            <th class="text-center">seleccionar</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach($permissoes as $permissao)
                                         <tr>
-                                            <td>Doctor</td>
+                                            <td class="">{{$permissao->name}}</td>
                                             <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
+                                                <input class="permissao" name="{{$permissao->id}}" type="checkbox">
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>Paciente</td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Laborátorio</td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cadastro</td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Listagem</td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Marcação</td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Configurações</td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                            <td class="text-center">
-                                                <input type="checkbox" checked="">
-                                            </td>
-                                        </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -201,6 +60,8 @@
         </div>
     </div>
 </div>
+
+<script src="{{ asset('js/Admin/papel_permissoes.js') }}"></script>
 
 
 @endsection

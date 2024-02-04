@@ -5,6 +5,8 @@ use App\Http\Controllers\SiteController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EspecialidadeController;
+use App\Http\Controllers\AccessController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -117,11 +119,11 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     ////////// CONFIG //////////////
-    Route::get('/admin/add-user', function () {
-        return view('Admin.Config.user');
-    })->name('admin.config.user');
+    Route::get('/admin/add-user', [AdminController::class, 'formCreateUserAdmin'])->name('admin.config.user');
+    Route::post('/admin/store/user_admin', [AdminController::class, 'createAccountUserAdmin'])->name('admin.config.store.user.admin');
 
-    Route::get('/admin/add-papel-permissoes', function () {
-        return view('Admin.Config.papeis');
-    })->name('admin.config.papeis');
+    Route::get('/admin/add-papel-permissoes', [AccessController::class, 'getPapelPermissoes'] )->name('admin.config.papeis');
+    Route::post('/admin/store/papel_permissoes', [AccessController::class, 'storePapelPermissoes'])->name('admin.config.store.papeis');
+
+
 });

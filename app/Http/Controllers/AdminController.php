@@ -3,16 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Paciente;
+
 use App\Models\User;
-use App\Models\RCP;
+use App\Models\P_admin;
+use App\Models\Role;
+
 use DB;
 
-class PacienteController extends Controller
+class AdminController extends Controller
 {
     //
-    
-    public function createAccountUserPaciente (Request $request) {
+
+    public function formCreateUserAdmin () {
+        
+        $papeis = Role::getRoles();
+
+        return view('Admin.Config.user')->with(['papeis' => $papeis]);
+
+    }
+
+    public function createAccountUserAdmin (Request $request) {
+
+        // dd($request);
 
         $retorno['estado'] = true;
 
@@ -45,10 +57,10 @@ class PacienteController extends Controller
 
         }
 
-        $allPacientes = Paciente::all();
-        foreach ($allPacientes as $paciente) {
+        $allP_admin = P_admin::all();
+        foreach ($allP_admin as $admin) {
 
-            if($paciente->bi == $request['bi']){
+            if($admin->bi == $request['bi']){
                 $retorno['jaExistebi'] = "bilhete já está a ser utilizado!";
                 $retorno['estado'] = false;
                 break;
@@ -73,9 +85,8 @@ class PacienteController extends Controller
             $user->tipo         = "paciente";
             $user->save();
 
-            // registrando-o como paciente
-            $paciente = new Paciente();
-            $paciente->contacto_emergencia= filter_var($request['telefoneEmergencia'], FILTER_SANITIZE_STRING);
+            // registrando-o como pessoal administrativo
+            $paciente = new P_admin();
             $paciente->data_nascimento= filter_var($request['dataNascimento'], FILTER_SANITIZE_STRING);
             $paciente->codigoPostal= filter_var($request['codigoPostal'], FILTER_SANITIZE_STRING);
             $paciente->localidade= filter_var($request['localidade'], FILTER_SANITIZE_STRING);
@@ -86,15 +97,7 @@ class PacienteController extends Controller
             $paciente->user_id= $user->id;
             $paciente->save();
 
-            // criando seu RCP
-            $rcp = new RCP();
-            $rcp->historico_familiar= $request['doenca_familiar'];
-            $rcp->grupo_sanguineo= $request['grupo_sanguineo'];
-            $rcp->alergias= $request['alergia'];
-            $rcp->deficiencia= $request['deficiencia'];
-            $rcp->terapeutica= filter_var($request['addNote'], FILTER_SANITIZE_STRING);
-            $rcp->paciente_id= $paciente->id;
-            $rcp->save();
+            Role::storeRoleUser($user->id, $request['papel']);
 
             DB::commit();
 
@@ -123,5 +126,7 @@ class PacienteController extends Controller
         ]);
 
     }
+
+
 
 }

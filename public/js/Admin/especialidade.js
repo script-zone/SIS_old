@@ -3,8 +3,7 @@ form_store_full_especialidade = document.getElementById('form_store_full_especia
 
 form_store_full_especialidade.addEventListener('submit',function(e){
     e.preventDefault();
-    // if(document.getElementById('search').value == "")return;
-    console.log($("#form_store_full_especialidade").serialize());
+    
     $.ajax({
         url: "/admin/store/especialidade",
         type: "post",

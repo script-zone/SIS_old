@@ -1,10 +1,9 @@
 
-form_store_full_paciente = document.getElementById('form_store_full_paciente');
+const form_store_full_paciente = document.getElementById('form_store_full_paciente');
 
 form_store_full_paciente.addEventListener('submit',function(e){
     e.preventDefault();
-    // if(document.getElementById('search').value == "")return;
-    console.log($("#form_store_full_paciente").serialize());
+    
     $.ajax({
         url: "/admin/store/paciente",
         type: "post",
