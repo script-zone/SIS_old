@@ -104,4 +104,24 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/admin/store/especialidade', 
     [EspecialidadeController::class, 'createEspecialidade'])
     ->name('admin.store.especialidade');
+
+
+    ////////// Marcação //////////////
+    Route::get('/admin/marcar-exame', function () {
+        return view('Admin.Marcacao.exame');
+    })->name('admin.marcacao.exame');
+
+    Route::get('/admin/marcar-consulta', function () {
+        return view('Admin.Marcacao.consulta');
+    })->name('admin.marcacao.consulta');
+
+
+    ////////// CONFIG //////////////
+    Route::get('/admin/add-user', function () {
+        return view('Admin.Config.user');
+    })->name('admin.config.user');
+
+    Route::get('/admin/add-papel-permissoes', function () {
+        return view('Admin.Config.papeis');
+    })->name('admin.config.papeis');
 });

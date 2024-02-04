@@ -42,9 +42,9 @@
 
             <ul class="menu-list flex-grow-1 mt-3">
                 <li class="collapsed">
-                <a class="m-link active" data-bs-toggle="collapse" data-bs-target="#dashboard" href="#">
-                <i class="icofont-ui-home fs-5"></i> <span>Menu Principal</span> <span class="ms-auto text-end fs-5"></span></a>
-                <!-- Menu: Sub menu ul -->
+                    <a class="m-link active" data-bs-toggle="collapse" data-bs-target="#dashboard" href="#">
+                    <i class="icofont-ui-home fs-5"></i> <span>Menu Principal</span> <span class="ms-auto text-end fs-5"></span></a>
+                    <!-- Menu: Sub menu ul -->
 
                 </li>
                 <li class="collapsed">
@@ -80,7 +80,7 @@
                         <li><a class="ms-link" href="{{route('admin.lab.resultadoExame')}}">Lançar Resultados</a></li>
                     </ul>
                 </li>
-                <li><a class="m-link" href="department.html"><i class="icofont-hospital fs-5"></i> <span>Area</span></a></li>
+                
                 <li class="collapsed">
                     <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-cadastro" href="#">
                     <i class="icofont-contact-add fs-5"></i> <span>Cadastro</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
@@ -89,7 +89,6 @@
                         <li><a class="ms-link" href="{{route('admin.cadastro.cadastroDoctor')}}">Pessoal Clinico</a></li>
                         <li><a class="ms-link" href="{{route('admin.cadastro.cadastroPaciente')}}">Paciente</a></li>
                         <li><a class="ms-link" href="{{route('admin.cadastro.cadastroEspecialidade')}}">Especialidades</a></li>
-                        <li><a class="ms-link" href="#">Funcionarios</a></li>
                     </ul>
                 </li>
                 <li class="collapsed">
@@ -100,8 +99,21 @@
                         <li><a class="ms-link" href="{{route('admin.doctor.todosDoctores')}}">Pessoal Clinico</a></li>
                         <li><a class="ms-link" href="#">Paciente</a></li>
                         <li><a class="ms-link" href="#">Especialidades</a></li>
-                        <li><a class="ms-link" href="#">Funcionarios</a></li>
                     </ul>
+                </li>
+                <li class="collapsed">
+                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-marcacao" href="#">
+                    <i class="icofont-calendar fs-5"></i> <span>Marcação</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                    <!-- Menu: Sub menu ul -->
+                    <ul class="sub-menu collapse" id="menu-marcacao">
+                        <li><a class="ms-link" href="{{route('admin.marcacao.exame')}}">Exames</a></li>
+                        <li><a class="ms-link" href="{{route('admin.marcacao.consulta')}}">Consulta</a></li>
+                    </ul>
+                </li>
+                <li class="collapsed">
+                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-feadback" href="#">
+                        <i class="icofont-ui-contact-list fs-5"></i>  <span>Portal Feadback</span></a>
+                        <!-- Menu: Sub menu ul -->
                 </li>
                 <li class="collapsed">
                     <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-role" href="#">
@@ -112,13 +124,10 @@
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-role">
                         <li>
-                            <a class="ms-link" href="#">Permissoes</a>
+                            <a class="ms-link" href="{{route('admin.config.papeis')}}">Papéis e Permissões</a>
                         </li>
                         <li>
-                            <a class="ms-link" href="#">Papéis</a>
-                        </li>
-                        <li>
-                            <a class="ms-link" href="#">Utilizador</a>
+                            <a class="ms-link" href="{{route('admin.config.user')}}">Utilizador</a>
                         </li>
                     </ul>
                 </li>
