@@ -56,8 +56,23 @@
                                     <input type="date" class="form-control" id="admitdate">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="admittime" class="form-label">Hora</label>
-                                    <input type="time" class="form-control" id="admittime">
+                                    <label  class="form-label">Hora</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Selecione um horário</option>
+                                        <option value="1">08:30</option>
+                                        <option value="1">09:30</option>
+                                        <option value="1">10:30</option>
+                                        <option value="1">11:30</option>
+                                        <option value="1">12:30</option>
+                                        <option value="1">13:30</option>
+                                        <option value="1">14:30</option>
+                                        <option value="1">15:30</option>
+                                        <option value="1">16:30</option>
+                                        <option value="1">17:30</option>
+                                        <option value="1">18:30</option>
+                                        <option value="1">19:30</option>
+                                        <option value="1">20:30</option>
+                                    </select>
                                 </div>
                                 <div class="col-md-6">
                                     <label  class="form-label">Tipo de Consulta</label>

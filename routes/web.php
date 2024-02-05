@@ -82,12 +82,8 @@ Route::group(['middleware' => ['auth']], function () {
     })->name('admin.paciente.edit_Perfil');
 
     Route::get('/admin/exames-paciente', function () {
-        return view('Admin.Paciente.meusExames');
-    })->name('admin.paciente.meusExames');
-
-    Route::get('/admin/consultas-paciente', function () {
-        return view('Admin.Paciente.minhasConsultas');
-    })->name('admin.paciente.minhasConsultas');
+        return view('Admin.Paciente.minhaAgenda');
+    })->name('admin.paciente.minhaAgenda');
 
 
         ////////// Laboratorio //////////////

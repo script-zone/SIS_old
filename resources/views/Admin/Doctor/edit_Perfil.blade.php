@@ -104,64 +104,7 @@
                                     </div>
                                     <div class="col-md-6">
                                     <label  class="form-label">Dias de Trabalho</label>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="dias" id="domingo" value="domingo">
-                                                <label class="form-check-label" for="exampleRadios11">
-                                                    Domingo
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="dias" id="segunda-feira" value="segunda-feira">
-                                                <label class="form-check-label" for="exampleRadios22">
-                                                    Segunda-Feira
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="dias" id="terca-feira" value="terca-feira">
-                                                <label class="form-check-label" for="exampleRadios11">
-                                                    Terça-Feira
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="dias" id="quarta-feira" value="quarta-feira">
-                                                <label class="form-check-label" for="exampleRadios22">
-                                                    Quarta-Feira
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="dias" id="quinta-feira" value="quinta-feira">
-                                                <label class="form-check-label" for="exampleRadios11">
-                                                    Quinta-Feira
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="dias" id="sexta-feira" value="sexta-feira">
-                                                <label class="form-check-label" for="exampleRadios22">
-                                                    Sexta-Feira
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="dias" id="sabado" value="sabado">
-                                                <label class="form-check-label" for="exampleRadios22">
-                                                    Sábado
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                                     <div class="col-md-6">
                                         <label for="roominfo" class="form-label">Senha</label>

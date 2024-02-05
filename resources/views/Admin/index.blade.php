@@ -63,8 +63,7 @@
                     <i class="icofont-blind fs-5"></i> <span>Paciente</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-Patient">
-                        <li><a class="ms-link" href="{{route('admin.paciente.meusExames')}}">Meus Exames</a></li>
-                        <li><a class="ms-link" href="{{route('admin.paciente.minhasConsultas')}}">Minhas Consultas</a></li>
+                        <li><a class="ms-link" href="{{route('admin.paciente.minhaAgenda')}}">Minha Agenda</a></li>
                         <li><a class="ms-link" href="#">Minhas Facturas</a></li>
                         <li><a class="ms-link" href="#">Mensagens</a></li>
                         <li><a class="ms-link" href="{{route('admin.paciente.perfil')}}">Meu Perfil</a></li>
