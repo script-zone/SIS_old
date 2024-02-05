@@ -12,6 +12,7 @@
                         <ul class="nav nav-tabs tab-body-header rounded invoice-set" role="tablist">
                             <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#Invoice-list" role="tab">Exames</a></li>
                             <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#Invoice-Simple" role="tab">Consultas</a></li>
+                            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#Invoice-Simple2" role="tab">Procedimentos</a></li>
                         </ul>
                     </div>
                 </div>
@@ -65,7 +66,9 @@
                                                     </td>
                                                     <td>
                                                         <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#depedit"><i class="icofont-edit text-success"></i></button>
+                                                            <a href="{{route('admin.marcacao.reagendarExame')}}" class="btn btn-outline-secondary" alt="Reagendar"><i class="icofont-edit text-success"></i></a>
+                                                            <a href="#" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#cancelarExame"><i class="icofont-ui-delete text-danger"></i></a>
+
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -94,7 +97,9 @@
                                                     </td>
                                                     <td>
                                                         <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#depedit"><i class="icofont-edit text-success"></i></button>
+                                                            <a href="{{route('admin.marcacao.reagendarExame')}}" class="btn btn-outline-secondary" alt="Reagendar"><i class="icofont-edit text-success"></i></a>
+                                                            <a href="#" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#cancelarExame"><i class="icofont-ui-delete text-danger"></i></a>
+
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -111,7 +116,7 @@
                             <div class="col-sm-12">
                                 <div class="card mb-3">
                                     <div class="card-body">
-                                        <table id="myProjectTable" class="table table-hover align-middle mb-0" style="width:100%">
+                                        <table id="myProjectTable2" class="table table-hover align-middle mb-0" style="width:100%">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
@@ -150,7 +155,9 @@
                                                     </td>
                                                     <td>
                                                         <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#depedit"><i class="icofont-edit text-success"></i></button>
+                                                            <a href="{{route('admin.marcacao.reagendarConsulta')}}" class="btn btn-outline-secondary" alt="Reagendar"><i class="icofont-edit text-success"></i></a>
+                                                            <a href="#" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#cancelarConsulta"><i class="icofont-ui-delete text-danger"></i></a>
+
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -179,7 +186,96 @@
                                                     </td>
                                                     <td>
                                                         <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#depedit"><i class="icofont-edit text-success"></i></button>
+                                                            <a href="{{route('admin.marcacao.reagendarConsulta')}}" class="btn btn-outline-secondary" alt="Reagendar"><i class="icofont-edit text-success"></i></a>
+                                                            <a href="#" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#cancelarConsulta"><i class="icofont-ui-delete text-danger"></i></a>
+                                                            
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- Row End -->
+                    </div> <!-- tab end  -->
+                    <div class="tab-pane fade" id="Invoice-Simple2">
+                        <div class="row clearfix g-3">
+                            <div class="col-sm-12">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <table id="myProjectTable3" class="table table-hover align-middle mb-0" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Nome do Paciente</th> 
+                                                    <th>Descrição</th> 
+                                                    <th>Procedimento</th>   
+                                                    <th>Data</th>  
+                                                    <th>Hora</th>  
+                                                    <th>Estado</th>  
+                                                    <th>Acção</th>  
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <span class="fw-bold">1</span>
+                                                    </td>
+                                                    <td>
+                                                        <img class="avatar rounded-circle" src="{{asset('Style/images/xs/avatar1.jpg')}}" alt="">
+                                                        <span class="fw-bold ms-1">Paciente Teste</span>
+                                                    </td>
+                                                    <td>
+                                                        Uma pequena descrição asd ad asdas da da sdas dad as d
+                                                    </td>
+                                                    <td>
+                                                        Sirurgia Plastica
+                                                    </td>
+                                                    <td>
+                                                        29/01/2024
+                                                    </td>
+                                                    <td>
+                                                        10:30
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-danger ms-1">Pendente</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                            <a href="{{route('admin.doctor.reagendarProcedimento')}}" class="btn btn-outline-secondary" alt="Reagendar"><i class="icofont-edit text-success"></i></a>
+                                                            <a href="#" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#cancelarProcedi"><i class="icofont-ui-delete text-danger"></i></a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span class="fw-bold">2</span>
+                                                    </td>
+                                                    <td>
+                                                        <img class="avatar rounded-circle" src="{{asset('Style/images/xs/avatar1.jpg')}}" alt="">
+                                                        <span class="fw-bold ms-1">Paciente Teste 2</span>
+                                                    </td>
+                                                    <td>
+                                                        Uma pequena descrição
+                                                    </td>
+                                                    <td>
+                                                        Sirurgia Plastica
+                                                    </td>
+                                                    <td>
+                                                        29/01/2024
+                                                    </td>
+                                                    <td>
+                                                        10:30
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-danger ms-1">Pendente</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                            <a href="{{route('admin.doctor.reagendarProcedimento')}}" class="btn btn-outline-secondary" ><i class="icofont-edit text-success"></i></a>
+                                                            <a href="#" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#cancelarProcedi"><i class="icofont-ui-delete text-danger"></i></a>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -197,5 +293,6 @@
         </div> <!-- Row end  -->
     </div>
 </div>
+
     
 @endsection

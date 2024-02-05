@@ -14,6 +14,10 @@
                             </a>
                             <div class="about-info d-flex align-items-center mt-3 justify-content-center flex-column">
                                 <span class="fw-bold small-14">PACIENTE</span>
+                                <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                    <a href="#"  class="btn btn-outline-secondary text-danger">Eliminar</a>
+                                    <a href="{{route('admin.paciente.edit_Perfil')}}"  class="btn btn-outline-secondary text-success">Editar</a>
+                                </div>
                             </div>
                         </div>
                         <div class="teacher-info border-start ps-xl-4 ps-md-4 ps-sm-4 ps-4 w-100">

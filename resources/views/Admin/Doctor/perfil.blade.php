@@ -12,8 +12,11 @@
                                 <img src="assets/images/lg/avatar3.jpg" alt="" class="avatar xl rounded-circle img-thumbnail shadow-sm">
                             </a>
                             <div class="about-info d-flex align-items-center mt-3 justify-content-center flex-column">
-                                <span class="text-muted small">Doctor ID : PXL-0001</span>
-                                <span class="text-bold small">PEDIATRIA</span>
+                                <span class="fw-bold small">PEDIATRIA</span>
+                                <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                    <a href="#"  class="btn btn-outline-secondary text-danger">Eliminar</a>
+                                    <a href="{{route('admin.doctor.edit_Perfil')}}"  class="btn btn-outline-secondary text-success">Editar</a>
+                                </div>
                             </div>
                         </div>
                         <div class="teacher-info border-start ps-xl-4 ps-md-4 ps-sm-4 ps-4 w-100">

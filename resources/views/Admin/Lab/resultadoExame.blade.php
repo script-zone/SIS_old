@@ -45,9 +45,17 @@
                                     <label for="admittime" class="form-label">Estado</label>
                                     <input type="text" class="form-control" id="admittime">
                                 </div>
+                                <div class="col-md-6">
+                                    <label  class="form-label">Resultado</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Selecione um</option>
+                                        <option value="1">Falso</option>
+                                        <option value="2">Positivo</option>
+                                    </select>
+                                </div>
                                 
                                 <div class="col-md-12">
-                                    <label for="addnote" class="form-label">Resultado</label>
+                                    <label for="addnote" class="form-label">Descriçãp</label>
                                     <textarea  class="form-control" id="addnote" rows="3"></textarea> 
                                 </div>
                             </div>

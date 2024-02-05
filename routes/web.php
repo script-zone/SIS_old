@@ -41,10 +41,6 @@ Route::group(['middleware' => ['auth']], function () {
         return view('Admin.Doctor.agendarProcedimento');
     })->name('admin.doctor.agendarProcedimento');
 
-    Route::get('/admin/listar-procedimentos', function () {
-        return view('Admin.Doctor.listarProcedimento');
-    })->name('admin.doctor.listarProcedimento');
-
     Route::get('/admin/listar-pacientes', function () {
         return view('Admin.listarPaciente');
     })->name('admin.listarPaciente');
@@ -53,9 +49,26 @@ Route::group(['middleware' => ['auth']], function () {
         return view('Admin.Doctor.perfil');
     })->name('admin.doctor.pefil');
 
+    Route::get('/admin/editar-Doctor', function () {
+        return view('Admin.Doctor.edit_Perfil');
+    })->name('admin.doctor.edit_Perfil');
+
     Route::get('/admin/agenda-medica', function () {
         return view('Admin.Doctor.agendaMedica');
     })->name('admin.doctor.agendaMedica');
+
+    ////////////// REAGENDAR OU EDITAR ////////////////////
+    Route::get('/admin/reagendar-procedimento', function () {
+        return view('Admin.Doctor.reagendarProcedimento');
+    })->name('admin.doctor.reagendarProcedimento');
+
+    Route::get('/admin/reagendar-exame', function () {
+        return view('Admin.Marcacao.reagendarExame');
+    })->name('admin.marcacao.reagendarExame');
+
+    Route::get('/admin/reagendar-consulta', function () {
+        return view('Admin.Marcacao.reagendarConsulta');
+    })->name('admin.marcacao.reagendarConsulta');
 
 
     ////////// PACIENTE //////////////
@@ -63,6 +76,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/perfil-paciente', function () {
         return view('Admin.Paciente.perfil');
     })->name('admin.paciente.perfil');
+
+    Route::get('/admin/editar-paciente', function () {
+        return view('Admin.Paciente.edit_Perfil');
+    })->name('admin.paciente.edit_Perfil');
 
     Route::get('/admin/exames-paciente', function () {
         return view('Admin.Paciente.meusExames');

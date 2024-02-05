@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{asset('Style/plugin/datatables/dataTables.bootstrap5.min.css')}}">
     <!-- project css file  -->
     <link rel="stylesheet" href="{{asset('Style/css/ihealth.style.min.css')}}">
-    
+ 
     <!-- Google Code  -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-264428387-1"></script>
     <script>
@@ -53,7 +53,6 @@
                         <!-- Menu: Sub menu ul -->
                         <ul class="sub-menu collapse" id="menu-Doctor">
                             <li><a class="ms-link" href="{{route('admin.doctor.agendarProcedimento')}}">Agendar Procedimento</a></li>
-                            <li><a class="ms-link" href="{{route('admin.doctor.listarProcedimento')}}">Procedimentos Agendados</a></li>
                             <li><a class="ms-link" href="{{route('admin.doctor.agendaMedica')}}">Agenda Médica</a></li>
                             <li><a class="ms-link" href="{{route('admin.listarPaciente')}}">Meus Pacientes</a></li>
                             <li><a class="ms-link" href="{{route('admin.doctor.pefil')}}">Meu Perfil</a></li>
@@ -270,7 +269,8 @@
 <script src="{{asset('Style/bundles/apexcharts.bundle.js')}}"></script>
 <script src="{{asset('Style/plugin/jqueryuicalandar/jquery-ui.min.js')}}"></script>
 <script src="{{asset('Style/plugin/owlcarousel/owl.carousel.js')}}"></script>
-<script src="{{asset('Style/bundles/dataTables.bundle.js')}}"></script>      
+<script src="{{asset('Style/bundles/dataTables.bundle.js')}}"></script> 
+<script src="{{asset('Style/js/select2.min.js')}}"></script> 
 
 <!-- Jquery Page Js -->
 <script src="{{asset('Style/js/template.js')}}"></script>
@@ -302,7 +302,131 @@
             ]
         });
     });
+    $(document).ready(function() {
+        $('#myProjectTable2')
+        .addClass( 'nowrap' )
+        .dataTable( {
+            responsive: true,
+            columnDefs: [
+                { targets: [-1, -3], className: 'dt-body-right' }
+            ]
+        });
+    });
+    $(document).ready(function() {
+        $('#myProjectTable3')
+        .addClass( 'nowrap' )
+        .dataTable( {
+            responsive: true,
+            columnDefs: [
+                { targets: [-1, -3], className: 'dt-body-right' }
+            ]
+        });
+    });
+
  </script>
+
+<!-- Modal- Aguarde 1-->
+<div class="modal fade" id="search_aguarde" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="loader-demo-box border-0">
+            <div class="circle-loader"></div><br>
+            <h1 class="text-white">Aguarde Por Favor</h1>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="successModal">
+  <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="modal-body text-center">
+            <div style="
+                margin-top:-40px;
+                background:#fff;
+                border-radius:50%;
+                display:inline-block;
+                width:72px;
+                height:72px;
+                font-size: 64px;
+                line-height:72px;
+                box-shadow: 3px 5px 26px rgba(0,0,0,0.3)">
+          <i class="text-success icofont-simple-smile icofont-check-circled"></i>
+        </div>
+        <div class="mt-4 py-2">
+          <p class="px-4 pb-0 mb-1 text-secondary">SUCESSO</p>
+          <h4 class="h5">Cadastro efectuado...</h4>
+        </div>
+        <div class="py-1"><button type="button" class="btn btn-sm btn-outline-success rounded-pill px-5" data-bs-dismiss="modal">OK</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal- Cancelar Procedimento-->
+<div class="modal fade" id="cancelarProcedi" tabindex="-1"  aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="{{asset('img/sent.png')}}" alt="" width="80" height="76">
+            </div>
+            <div class="modal-body text-center">
+                <div class="deadline-form">
+                <h4>Tem certeza que deseja cancelar o Procedimento?</h4>
+                </div>
+                <div class="mb-3">
+                </div>
+            </div>
+            <div class="modal-body g-5 text-center">
+                <button type="button" class="btn btn-secundary" data-bs-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-danger text-white">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal- Cancelar Exame-->
+<div class="modal fade" id="cancelarExame" tabindex="-1"  aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="{{asset('img/sent.png')}}" alt="" width="80" height="76">
+            </div>
+            <div class="modal-body text-center">
+                <div class="deadline-form">
+                <h4>Tem certeza que deseja cancelar o Exame?</h4>
+                </div>
+                <div class="mb-3">
+                </div>
+            </div>
+            <div class="modal-body g-5 text-center">
+                <button type="button" class="btn btn-secundary" data-bs-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-danger text-white">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal- Cancelar Consulta-->
+<div class="modal fade" id="cancelarConsulta" tabindex="-1"  aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="{{asset('img/sent.png')}}" alt="" width="80" height="76">
+            </div>
+            <div class="modal-body text-center">
+                <div class="deadline-form">
+                <h4>Tem certeza que deseja cancelar a Consulta?</h4>
+                </div>
+                <div class="mb-3">
+                </div>
+            </div>
+            <div class="modal-body g-5 text-center">
+                <button type="button" class="btn btn-secundary" data-bs-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-danger text-white">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 
 <!-- Mirrored from pixelwibes.com/template/ihealth/html/dist/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jan 2024 09:34:07 GMT -->
