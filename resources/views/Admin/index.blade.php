@@ -54,7 +54,6 @@
                         <ul class="sub-menu collapse" id="menu-Doctor">
                             <li><a class="ms-link" href="{{route('admin.doctor.agendarProcedimento')}}">Agendar Procedimento</a></li>
                             <li><a class="ms-link" href="{{route('admin.doctor.agendaMedica')}}">Agenda Médica</a></li>
-                            <li><a class="ms-link" href="{{route('admin.listarPaciente')}}">Meus Pacientes</a></li>
                             <li><a class="ms-link" href="{{route('admin.doctor.pefil')}}">Meu Perfil</a></li>
                         </ul>
                 </li>
@@ -95,8 +94,8 @@
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-list">
                         <li><a class="ms-link" href="{{route('admin.doctor.todosDoctores')}}">Pessoal Clinico</a></li>
-                        <li><a class="ms-link" href="#">Paciente</a></li>
-                        <li><a class="ms-link" href="#">Especialidades</a></li>
+                        <li><a class="ms-link" href="{{route('admin.listarPaciente')}}">Paciente</a></li>
+                        <li><a class="ms-link" href="{{route('admin.listagem.todasEspec')}}">Especialidades</a></li>
                     </ul>
                 </li>
                 <li class="collapsed">
@@ -122,15 +121,16 @@
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-role">
                         <li>
-                            <a class="ms-link" href="{{route('admin.config.papeis')}}">Papéis e Permissões</a>
+                            <a class="ms-link" href="{{route('admin.config.papeis')}}">Add Papéis e Permissões</a>
                         </li>
                         <li>
-                            <a class="ms-link" href="{{route('admin.config.user')}}">Utilizador</a>
+                            <a class="ms-link" href="{{route('admin.config.user')}}">Adicionar Utilizador</a>
+                        </li>
+                        <li>
+                            <a class="ms-link" href="{{route('admin.config.listarUsers')}}">Listar Utilizadores</a>
                         </li>
                     </ul>
                 </li>
-                
-                
             </ul>
             
             <!-- Menu: menu collepce btn -->
