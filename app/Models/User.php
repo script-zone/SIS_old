@@ -56,11 +56,17 @@ class User extends Authenticatable
         return $this->roles->map->permissionss->flatten()->pluck('name');
     }
 
+    public static function getRoles ($user_id) {
+        return DB::select("SELECT r.name FROM roles r INNER JOIN role_user ru ON (ru.role_id=r.id) WHERE ru.user_id = $user_id");
+    }
+
+    public static function getTotalUser () {
+        return DB::select("SELECT count(id) as total FROM users")[0]->total;
+    }
+
     public static function getTipo ($user_email) {
         return DB::select("SELECT tipo FROM users WHERE email = '$user_email'");
     }
 
-    public static function getRoles ($user_id) {
-        return DB::select("SELECT r.name FROM roles r INNER JOIN role_user ru ON (ru.role_id=r.id) WHERE ru.user_id = $user_id");
-    }
+
 }

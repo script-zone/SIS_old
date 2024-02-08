@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('p_clinic_id');
             $table->unsignedBigInteger('dia_id');
-            $table->foreign('p_clinic_id')->references('id')->on('p_clinics');
-            $table->foreign('dia_id')->references('id')->on('dias');
+            $table->foreign('p_clinic_id')->references('id')->on('p_clinics')->onDelete('CASCADE');
+            $table->foreign('dia_id')->references('id')->on('dias')->onDelete('CASCADE');
             $table->timestamps();
         });
     }

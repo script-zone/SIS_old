@@ -15,13 +15,11 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->integer('estado');
             $table->date('data');
-            $table->integer('hora');
+            $table->string('hora');
             $table->integer('tipo');
-            $table->integer('resultado')->nullable();;
+            $table->integer('resultado')->nullable();
             $table->unsignedBigInteger('paciente_id');
-            $table->foreign('paciente_id')->references('id')->on('pacientes')->onDelete('CASCADE');
-            $table->unsignedBigInteger('medico_id');
-            $table->foreign('medico_id')->references('id')->on('p_clinics')->onDelete('CASCADE');
+            $table->unsignedBigInteger('medico_id')->nullable();
             $table->unsignedBigInteger('rcp_id');
             $table->foreign('rcp_id')->references('id')->on('r_c_p_s')->onDelete('CASCADE');
             $table->timestamps();

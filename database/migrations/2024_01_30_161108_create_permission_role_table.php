@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('role_id');
             $table->unsignedBigInteger('hability_id');
-            $table->foreign('role_id')->references('id')->on('roles');
-            $table->foreign('hability_id')->references('id')->on('permissions');
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('CASCADE');
+            $table->foreign('hability_id')->references('id')->on('permissions')->onDelete('CASCADE');
             $table->timestamps();
         });
     }

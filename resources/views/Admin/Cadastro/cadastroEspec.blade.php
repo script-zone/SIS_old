@@ -40,6 +40,6 @@
     </div>
 </div>
 
-<script src="{{asset('js/Admin/especialidade.js')}}"></script>
+<script src="{{asset('js/Admin/cadastro/especialidade.js')}}"></script>
 
 @endsection

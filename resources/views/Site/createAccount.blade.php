@@ -69,7 +69,7 @@
                                 <div class="col-6">
                                     <div class="mb-2">
                                         <label class="form-label">Sobrenome</label>
-                                        <input type="text" name="sobrenome" class="form-control form-control-lg" placeholder="Ex: Firmino">
+                                        <input type="text" name="sobreNome" class="form-control form-control-lg" placeholder="Ex: Firmino">
                                     </div>
                                 </div>
                                 <div class="col-12">

@@ -17,93 +17,56 @@
                         <h6 class="mb-0 fw-bold ">Login Registro</h6>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form id="form_store_full_p_clinico">
+                        @csrf
                             <div class="row g-3 align-items-center">
                                 <div class="col-md-6">
-                                    <label for="firstname" class="form-label">Nome</label>
-                                    <input type="text" class="form-control" id="firstname">
+                                    <label for="nome" class="form-label">Nome</label>
+                                    <input required type="text" name="nome" class="form-control" id="nome">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="lastname" class="form-label">Sobrenome</label>
-                                    <input type="text" class="form-control" id="lastname">
+                                    <label for="sobreNome" class="form-label">Sobrenome</label>
+                                    <input required type="text" name="sobreNome" class="form-control" id="sobreNome">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="insinfo" class="form-label">E-mail</label>
-                                    <input type="email" class="form-control" id="insinfo">
+                                    <label for="email" class="form-label">E-mail</label>
+                                    <input required type="email" name="email" class="form-control" id="email">
                                 </div>
                                 <div class="col-md-6">
-                                    <label  class="form-label">Especialidade</label>
-                                    <select class="form-select" name="especialidade" id="especialidade" aria-label="Default select example">
-                                        <option selected>Seleccione uma</option>
-                                        <option value="1">Outro</option>
+                                    <label for="CRM" class="form-label">CRM</label>
+                                    <input required type="text" name="CRM" class="form-control" id="CRM">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="bi" class="form-label">Bilhete de Identidade</label>
+                                    <input required type="text" name="bi" class="form-control" id="bi">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Especialidade</label>
+                                    <select required class="form-select" name="especialidade" id="especialidade" aria-label="Default select example">
+                                        <option selected value="-1">Seleccione uma</option>
+                                        @foreach ( $especialidades as $especialidade )
+                                        <option value="{{ $especialidade->id }}">{{ $especialidade->nome }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <label  class="form-label">Dias de Trabalho</label>
                                     <div class="row">
+                                        @foreach($dias as $dia)
                                         <div class="col-md-6">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="dias" id="domingo" value="domingo">
-                                                <label class="form-check-label" for="exampleRadios11">
-                                                    Domingo
-                                                </label>
+                                                <input class="form-check-input dia" type="checkbox" name="{{ $dia->id }}" id="{{ $dia->dia_semanal }}">
+                                                <label class="form-check-label" for="{{ $dia->id }}">{{ $dia->dia_semanal }}</label>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="dias" id="segunda-feira" value="segunda-feira">
-                                                <label class="form-check-label" for="exampleRadios22">
-                                                    Segunda-Feira
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="dias" id="terca-feira" value="terca-feira">
-                                                <label class="form-check-label" for="exampleRadios11">
-                                                    Terça-Feira
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="dias" id="quarta-feira" value="quarta-feira">
-                                                <label class="form-check-label" for="exampleRadios22">
-                                                    Quarta-Feira
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="dias" id="quinta-feira" value="quinta-feira">
-                                                <label class="form-check-label" for="exampleRadios11">
-                                                    Quinta-Feira
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="dias" id="sexta-feira" value="sexta-feira">
-                                                <label class="form-check-label" for="exampleRadios22">
-                                                    Sexta-Feira
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="dias" id="sabado" value="sabado">
-                                                <label class="form-check-label" for="exampleRadios22">
-                                                    Sábado
-                                                </label>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 <div class="col-md-6">
-                                    <label for="roominfo" class="form-label">Senha</label>
-                                    <input type="text" class="form-control" id="roominfo">
+                                    <label for="password" class="form-label">Senha</label>
+                                    <input required type="password" name="password" class="form-control" id="password">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="advancepayment" class="form-label">Confirmar Senha</label>
-                                    <input type="text" class="form-control" id="advancepayment">
+                                    <label for="re_password" class="form-label">Confirmar Senha</label>
+                                    <input required type="password" name="re_password" class="form-control" id="re_password">
                                 </div>
                             </div>
                             
@@ -115,4 +78,7 @@
         </div>
     </div>
 </div>
+
+<script src="{{asset('js/Admin/cadastro/conta_p_clinico.js')}}"></script>
+
 @endsection

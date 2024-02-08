@@ -25,8 +25,8 @@
                                     <input required type="text" name="nome" class="form-control" id="nome">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="lastname" class="form-label">Sobrenome</label>
-                                    <input required type="text" name="sobrenome" class="form-control" id="sobreNome">
+                                    <label for="sobreNome" class="form-label">Sobrenome</label>
+                                    <input required type="text" name="sobreNome" class="form-control" id="sobreNome">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="telefone" class="form-label">Telefone</label>
@@ -175,6 +175,6 @@
     </div>
 </div>
 
-<script src="{{asset('js/Admin/conta_paciente.js')}}"></script>
+<script src="{{asset('js/Admin/cadastro/conta_paciente.js')}}"></script>
 
 @endsection

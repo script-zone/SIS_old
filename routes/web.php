@@ -7,6 +7,10 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\EspecialidadeController;
 use App\Http\Controllers\AccessController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\P_clinicController;
+use App\Http\Controllers\ConsultaController;
+use App\Http\Controllers\ExameController;
+use App\Http\Controllers\ProcedimentoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,11 +27,12 @@ Route::get('/', [SiteController::class, 'index'])->name('index');
 Route::get('/login', [SiteController::class, 'login'])->name('login');
 Route::post('/login/autenticacao', [SiteController::class, 'authLogin'])->name('login_auth');
 Route::get('/logout', [SiteController::class, 'fazerLogout'])->name('logout');
-Route::post('/paciente/sign_up', [UserController::class, 'createAccountSite'])->name('paciente.criar_conta');
+Route::post('/paciente/sign_up', [UserController::class, 'createAccountUser'])->name('paciente.criar_conta');
 Route::get('/paciente/criar-conta',[SiteController::class, 'createAccount'])->name('paciente.createAcount');
 
 
 Route::group(['middleware' => ['auth']], function () {
+
     Route::get('/admin', function () {
         return view('Admin.dashboard');
     })->name('dashboard');
@@ -36,10 +41,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/user/doctor/listar-doctores', function () {
         return view('Admin.Listagem.todosDotores');
     })->name('admin.doctor.todosDoctores');
-
-    Route::get('/admin/user/doctor/procedimento/agendar-procedimento', function () {
-        return view('Admin.Doctor.agendarProcedimento');
-    })->name('admin.doctor.agendarProcedimento');
 
     Route::get('/admin/user/doctor/listar-pacientes', function () {
         return view('Admin.listarPaciente');
@@ -57,22 +58,7 @@ Route::group(['middleware' => ['auth']], function () {
         return view('Admin.Doctor.agendaMedica');
     })->name('admin.doctor.agendaMedica');
 
-    ////////////// REAGENDAR OU EDITAR ////////////////////
-    Route::get('/admin/user/doctor/procedimento/reagendar-procedimento', function () {
-        return view('Admin.Doctor.reagendarProcedimento');
-    })->name('admin.doctor.reagendarProcedimento');
-
-    Route::get('/admin/user/doctor/exame/reagendar-exame', function () {
-        return view('Admin.Marcacao.reagendarExame');
-    })->name('admin.marcacao.reagendarExame');
-
-    Route::get('/admin/user/doctor/consulta/reagendar-consulta', function () {
-        return view('Admin.Marcacao.reagendarConsulta');
-    })->name('admin.marcacao.reagendarConsulta');
-
-
     ////////// PACIENTE //////////////
-
     Route::get('/admin/user/paciente/perfil-paciente', function () {
         return view('Admin.Paciente.perfil');
     })->name('admin.paciente.perfil');
@@ -86,7 +72,7 @@ Route::group(['middleware' => ['auth']], function () {
     })->name('admin.paciente.minhaAgenda');
 
 
-        ////////// Laboratorio //////////////
+    ////////// Laboratorio //////////////
     Route::get('/admin/user/tecnico_lab/resultados/pendentes', function () {
         return view('Admin.Lab.examesLab');
     })->name('admin.lab.listaDeExameEmEspera');
@@ -98,23 +84,16 @@ Route::group(['middleware' => ['auth']], function () {
 
     ////////// Cadastros //////////////
     // pacientes
-    Route::get('/admin/cadastro/paciente', function () {
-        return view('Admin.Cadastro.cadastroPaciente');
-    })->name('admin.cadastro.cadastroPaciente');
-    
-    Route::post('/admin/store/paciente', 
-    [PacienteController::class, 'createAccountUserPaciente'])
-    ->name('admin.store.paciente');
+    Route::get('/admin/cadastro/paciente', [PacienteController::class, 'formAccountUserPaciente'])->name('admin.cadastro.cadastroPaciente');
+    Route::post('/admin/store/paciente', [PacienteController::class, 'createAccountUserPaciente'])->name('admin.store.paciente');
 
     // pessoal clinico
-    Route::get('/admin/cadastro/doctor', function () {
-        return view('Admin.Cadastro.cadastroDoctor');
-    })->name('admin.cadastro.cadastroDoctor');
+    Route::get('/admin/cadastro/p_clinic', [P_clinicController::class, 'formCreateAccountP_clinic'])->name('admin.cadastro.p_clinic');
+    Route::post('/admin/store/p_clinic', [P_clinicController::class, 'createAccountUserP_clinic'])->name('admin.cadastro.store.p_clinic');
 
     // Especialidades
-    Route::get('/admin/cadastro/especialidade', function () {
-        return view('Admin.Cadastro.cadastroEspec');
-    })->name('admin.cadastro.cadastroEspecialidade');
+    Route::get('/admin/cadastro/especialidade', [EspecialidadeController::class, 'formCreateEspecialidade'])->name('admin.cadastro.cadastroEspecialidade');
+    Route::post('/admin/store/especialidade', [EspecialidadeController::class, 'createEspecialidade'])->name('admin.store.especialidade');
 
     Route::get('/admin/especialidade/editar', function () {
         return view('Admin.Cadastro.editarEspec');
@@ -124,19 +103,29 @@ Route::group(['middleware' => ['auth']], function () {
         return view('Admin.Listagem.todasEspec');
     })->name('admin.listagem.todasEspec');
 
-    Route::post('/admin/store/especialidade', 
-    [EspecialidadeController::class, 'createEspecialidade'])
-    ->name('admin.store.especialidade');
-
 
     ////////// Marcação //////////////
-    Route::get('/admin/exame/marcar', function () {
-        return view('Admin.Marcacao.exame');
-    })->name('admin.marcacao.exame');
+    Route::get('/admin/consulta/marcar', [ConsultaController::class, 'formMarcacaoConsulta'])->name('admin.marcacao.consulta');
+    Route::post('/admin/store/consulta/marcar', [ConsultaController::class, 'storeMarcacaoConsulta'])->name('admin.store.marcacao.consulta');
+    
+    Route::get('/admin/exame/marcar', [ExameController::class, 'formMarcacaoExame'])->name('admin.marcacao.exame');
+    Route::post('/admin/store/exame/marcar', [ExameController::class, 'storeMarcacaoExame'])->name('admin.store.marcacao.exame');
+    
+    Route::get('/admin/procedimento/marcar', [ProcedimentoController::class, 'formMarcacaoProcedimento'])->name('admin.marcacao.procedimento');
+    Route::post('/admin/store/procedimento/marcar', [ProcedimentoController::class, 'storeMarcacaoProcedimento'])->name('admin.store.marcacao.procedimento');
 
-    Route::get('/admin/consulta/marcar', function () {
-        return view('Admin.Marcacao.consulta');
-    })->name('admin.marcacao.consulta');
+    ////////////// REAGENDAR OU EDITAR Marcação ////////////////////
+    Route::get('/admin/user/doctor/procedimento/reagendar-procedimento', function () {
+        return view('Admin.Doctor.reagendarProcedimento');
+    })->name('admin.doctor.reagendarProcedimento');
+
+    Route::get('/admin/user/doctor/exame/reagendar-exame', function () {
+        return view('Admin.Marcacao.reagendarExame');
+    })->name('admin.marcacao.reagendarExame');
+
+    Route::get('/admin/user/doctor/consulta/reagendar-consulta', function () {
+        return view('Admin.Marcacao.reagendarConsulta');
+    })->name('admin.marcacao.reagendarConsulta');
 
 
     ////////// CONFIG //////////////

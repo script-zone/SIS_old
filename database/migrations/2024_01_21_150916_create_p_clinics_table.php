@@ -13,16 +13,10 @@ return new class extends Migration
     {
         Schema::create('p_clinics', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('morada');
-            $table->string('bi')->unique();
-            $table->integer('estado');
-            $table->string('horario');
-            $table->string('dias_de_trabalho');
-            $table->string('localidade');
-            $table->string('codigoPostal');
-            $table->string('telefone')->unique();
-            $table->char('sexo', 1);
-            $table->string('data_nascimento');
+            $table->integer('estado');/** 0 - cadastro incompleto; 1 - cadastro completo */
+            $table->string('CRM');
+            $table->integer('especialidade');
+            $table->string('horario')->nullable();                                                                                                                              ;
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
             $table->timestamps();

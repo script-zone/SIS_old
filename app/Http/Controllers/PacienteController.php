@@ -6,11 +6,16 @@ use Illuminate\Http\Request;
 use App\Models\Paciente;
 use App\Models\User;
 use App\Models\RCP;
+use App\Models\Role;
 use DB;
 
 class PacienteController extends Controller
 {
     //
+
+    public function formAccountUserPaciente () {
+        return view('Admin.Cadastro.cadastroPaciente');
+    }
     
     public function createAccountUserPaciente (Request $request) {
 
@@ -43,16 +48,12 @@ class PacienteController extends Controller
                 break;
             };
 
-        }
-
-        $allPacientes = Paciente::all();
-        foreach ($allPacientes as $paciente) {
-
-            if($paciente->bi == $request['bi']){
+            if($user->bi == $request['bi']){
                 $retorno['jaExistebi'] = "bilhete já está a ser utilizado!";
                 $retorno['estado'] = false;
                 break;
             };
+
         }
 
         if($retorno['estado'] == false) return response([
@@ -66,23 +67,25 @@ class PacienteController extends Controller
 
             // registrando o paciente como user
             $user = new User();
-            $user->nomeCompleto = filter_var($request['nomeCompleto'], FILTER_SANITIZE_STRING);
+            $user->nome = filter_var($request['nome'], FILTER_SANITIZE_STRING);
+            $user->sobreNome = filter_var($request['sobreNome'], FILTER_SANITIZE_STRING);
             $user->email        = filter_var($request['email'], FILTER_SANITIZE_STRING);
             $user->password     = bcrypt($request['password']);
-            $user->foto         = null;
             $user->tipo         = "paciente";
+            $user->data_nascimento= filter_var($request['dataNascimento'], FILTER_SANITIZE_STRING);
+            $user->codigoPostal= filter_var($request['codigoPostal'], FILTER_SANITIZE_STRING);
+            $user->localidade= filter_var($request['localidade'], FILTER_SANITIZE_STRING);
+            $user->telefone= filter_var($request['telefone'], FILTER_SANITIZE_STRING);
+            $user->morada= filter_var($request['morada'], FILTER_SANITIZE_STRING);
+            $user->sexo= filter_var($request['Sexo'], FILTER_SANITIZE_STRING);
+            $user->bi= filter_var($request['bi'], FILTER_SANITIZE_STRING);
             $user->save();
+
+            Role::storeRoleUser($user->id, 1);
 
             // registrando-o como paciente
             $paciente = new Paciente();
             $paciente->contacto_emergencia= filter_var($request['telefoneEmergencia'], FILTER_SANITIZE_STRING);
-            $paciente->data_nascimento= filter_var($request['dataNascimento'], FILTER_SANITIZE_STRING);
-            $paciente->codigoPostal= filter_var($request['codigoPostal'], FILTER_SANITIZE_STRING);
-            $paciente->localidade= filter_var($request['localidade'], FILTER_SANITIZE_STRING);
-            $paciente->telefone= filter_var($request['telefone'], FILTER_SANITIZE_STRING);
-            $paciente->morada= filter_var($request['morada'], FILTER_SANITIZE_STRING);
-            $paciente->sexo= filter_var($request['Sexo'], FILTER_SANITIZE_STRING);
-            $paciente->bi= filter_var($request['bi'], FILTER_SANITIZE_STRING);
             $paciente->user_id= $user->id;
             $paciente->save();
 
@@ -99,6 +102,10 @@ class PacienteController extends Controller
             DB::commit();
 
             $retorno['estado'] = true;
+            $retorno['dados_validos'] = [
+                'numero_user' => $user->email,
+                'password' => $request['password'],
+            ];
 
         } catch (Exception $th) {
             DB::rollBack();

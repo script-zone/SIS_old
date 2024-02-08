@@ -55,16 +55,12 @@ class AdminController extends Controller
                 break;
             };
 
-        }
-
-        $allP_admin = P_admin::all();
-        foreach ($allP_admin as $admin) {
-
-            if($admin->bi == $request['bi']){
+            if($user->bi == $request['bi']){
                 $retorno['jaExistebi'] = "bilhete já está a ser utilizado!";
                 $retorno['estado'] = false;
                 break;
             };
+
         }
 
         if($retorno['estado'] == false) return response([
@@ -78,22 +74,23 @@ class AdminController extends Controller
 
             // registrando o paciente como user
             $user = new User();
-            $user->nomeCompleto = filter_var($request['nomeCompleto'], FILTER_SANITIZE_STRING);
+            $user->nome = filter_var($request['nome'], FILTER_SANITIZE_STRING);
+            $user->sobreNome = filter_var($request['sobreNome'], FILTER_SANITIZE_STRING);
             $user->email        = filter_var($request['email'], FILTER_SANITIZE_STRING);
             $user->password     = bcrypt($request['password']);
             $user->foto         = null;
             $user->tipo         = "pessoal_administrativo";
+            $user->data_nascimento= filter_var($request['dataNascimento'], FILTER_SANITIZE_STRING);
+            $user->codigoPostal= filter_var($request['codigoPostal'], FILTER_SANITIZE_STRING);
+            $user->localidade= filter_var($request['localidade'], FILTER_SANITIZE_STRING);
+            $user->telefone= filter_var($request['telefone'], FILTER_SANITIZE_STRING);
+            $user->morada= filter_var($request['morada'], FILTER_SANITIZE_STRING);
+            $user->sexo= filter_var($request['Sexo'], FILTER_SANITIZE_STRING);
+            $user->bi= filter_var($request['bi'], FILTER_SANITIZE_STRING);
             $user->save();
 
             // registrando-o como pessoal administrativo
             $paciente = new P_admin();
-            $paciente->data_nascimento= filter_var($request['dataNascimento'], FILTER_SANITIZE_STRING);
-            $paciente->codigoPostal= filter_var($request['codigoPostal'], FILTER_SANITIZE_STRING);
-            $paciente->localidade= filter_var($request['localidade'], FILTER_SANITIZE_STRING);
-            $paciente->telefone= filter_var($request['telefone'], FILTER_SANITIZE_STRING);
-            $paciente->morada= filter_var($request['morada'], FILTER_SANITIZE_STRING);
-            $paciente->sexo= filter_var($request['Sexo'], FILTER_SANITIZE_STRING);
-            $paciente->bi= filter_var($request['bi'], FILTER_SANITIZE_STRING);
             $paciente->user_id= $user->id;
             $paciente->save();
 
@@ -102,6 +99,10 @@ class AdminController extends Controller
             DB::commit();
 
             $retorno['estado'] = true;
+            $retorno['dados_validos'] = [
+                'numero_user' => $user->email,
+                'password' => $request['password'],
+            ];
 
         } catch (Exception $th) {
             DB::rollBack();

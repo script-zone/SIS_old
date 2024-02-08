@@ -49,13 +49,12 @@
                 </li>
                 <li class="collapsed">
                     <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Doctor" href="#">
-                        <i class="icofont-doctor-alt fs-5"></i>  <span>Doctor</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
-                        <!-- Menu: Sub menu ul -->
-                        <ul class="sub-menu collapse" id="menu-Doctor">
-                            <li><a class="ms-link" href="{{route('admin.doctor.agendarProcedimento')}}">Agendar Procedimento</a></li>
-                            <li><a class="ms-link" href="{{route('admin.doctor.agendaMedica')}}">Agenda Médica</a></li>
-                            <li><a class="ms-link" href="{{route('admin.doctor.pefil')}}">Meu Perfil</a></li>
-                        </ul>
+                    <i class="icofont-doctor-alt fs-5"></i>  <span>Doctor</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                    <!-- Menu: Sub menu ul -->
+                    <ul class="sub-menu collapse" id="menu-Doctor">
+                        <li><a class="ms-link" href="{{route('admin.doctor.agendaMedica')}}">Agenda Médica</a></li>
+                        <li><a class="ms-link" href="{{route('admin.doctor.pefil')}}">Meu Perfil</a></li>
+                    </ul>
                 </li>
                 <li class="collapsed">
                     <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-Patient" href="#">
@@ -83,7 +82,7 @@
                     <i class="icofont-contact-add fs-5"></i> <span>Cadastro</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-cadastro">
-                        <li><a class="ms-link" href="{{route('admin.cadastro.cadastroDoctor')}}">Pessoal Clinico</a></li>
+                        <li><a class="ms-link" href="{{route('admin.cadastro.p_clinic')}}">Pessoal Clinico</a></li>
                         <li><a class="ms-link" href="{{route('admin.cadastro.cadastroPaciente')}}">Paciente</a></li>
                         <li><a class="ms-link" href="{{route('admin.cadastro.cadastroEspecialidade')}}">Especialidades</a></li>
                     </ul>
@@ -103,8 +102,9 @@
                     <i class="icofont-calendar fs-5"></i> <span>Marcação</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-marcacao">
-                        <li><a class="ms-link" href="{{route('admin.marcacao.exame')}}">Exames</a></li>
                         <li><a class="ms-link" href="{{route('admin.marcacao.consulta')}}">Consulta</a></li>
+                        <li><a class="ms-link" href="{{route('admin.marcacao.exame')}}">Exames</a></li>
+                        <li><a class="ms-link" href="{{route('admin.marcacao.procedimento')}}">Agendar Procedimento</a></li>
                     </ul>
                 </li>
                 <li class="collapsed">

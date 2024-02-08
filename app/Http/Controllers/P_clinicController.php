@@ -3,10 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\P_clinic;
+use App\Models\Especialidade;
+use App\Models\User;
+use App\Models\Role;
+use DB;
 
 class P_clinicController extends Controller
 {
     //
+
+    public function formCreateAccountP_clinic () {
+
+        $dados = [
+            'dias' => P_clinic::getDias(),
+            'especialidades' => Especialidade::all(),
+        ];
+
+        return view('Admin.Cadastro.cadastroDoctor')->with($dados);
+    }
 
 
     public function createAccountUserP_clinic (Request $request) {
@@ -22,49 +37,64 @@ class P_clinicController extends Controller
         //    ]);
         // }
 
-        $retorno['estado'] = false;
-            
-        $request['nomeCompleto'] = $request['nome']." ".$request['sobrenome'];
+        $retorno['estado'] = true;
         //dd($request);
+
+        $allUsers = User::all();
+        foreach ($allUsers as $user) {
+
+            if($user->email == $request['email']){
+                $retorno['jaExisteEmail'] = "email já está a ser utilizado!";
+                $retorno['estado'] = false;
+                break;
+            };
+
+            if($user->bi == $request['bi']){
+                $retorno['jaExistebi'] = "bilhete já está a ser utilizado!";
+                $retorno['estado'] = false;
+                break;
+            };
+
+        }
+
+        if($retorno['estado'] == false) return response([
+            'retorno' => $retorno,
+        ]);
 
         try {
             DB::beginTransaction();
 
-            // registrando o paciente como user
+            // registrando o p_clinic como user
             $user = new User();
-            $user->nomeCompleto = filter_var($request['nomeCompleto'], FILTER_SANITIZE_STRING);
+            $user->nome         = filter_var($request['nome'], FILTER_SANITIZE_STRING);
+            $user->sobreNome    = filter_var($request['sobreNome'], FILTER_SANITIZE_STRING);
             $user->email        = filter_var($request['email'], FILTER_SANITIZE_STRING);
             $user->password     = bcrypt($request['password']);
-            $user->foto         = null;
+            $user->bi           = filter_var($request['bi'], FILTER_SANITIZE_STRING);
             $user->tipo         = "pessoal clinico";
             $user->save();
 
-            // registrando-o como paciente
-            $paciente = new Paciente();
-            $paciente->contacto_emergencia= filter_var($request['telefoneEmergencia'], FILTER_SANITIZE_STRING);
-            $paciente->data_nascimento= filter_var($request['dataNascimento'], FILTER_SANITIZE_STRING);
-            $paciente->codigoPostal= filter_var($request['codigoPostal'], FILTER_SANITIZE_STRING);
-            $paciente->localidade= filter_var($request['localidade'], FILTER_SANITIZE_STRING);
-            $paciente->telefone= filter_var($request['telefone'], FILTER_SANITIZE_STRING);
-            $paciente->morada= filter_var($request['morada'], FILTER_SANITIZE_STRING);
-            $paciente->sexo= filter_var($request['Sexo'], FILTER_SANITIZE_STRING);
-            $paciente->bi= filter_var($request['bi'], FILTER_SANITIZE_STRING);
-            $paciente->user_id= $user->id;
-            $paciente->save();
+            Role::storeRoleUser($user->id, 4);
 
-            // criando seu RCP
-            $rcp = new RCP();
-            $rcp->historico_familiar= $request['doenca_familiar'];
-            $rcp->grupo_sanguineo= $request['grupo_sanguineo'];
-            $rcp->alergias= $request['alergia'];
-            $rcp->deficiencia= $request['deficiencia'];
-            $rcp->terapeutica= filter_var($request['addNote'], FILTER_SANITIZE_STRING);
-            $rcp->paciente_id= $paciente->id;
-            $rcp->save();
+            // registrando-o como paciente
+            $pClinc = new P_clinic();
+            $pClinc->estado= 0;
+            $pClinc->CRM= filter_var($request['CRM'], FILTER_SANITIZE_STRING);
+            $pClinc->especialidade= $request['especialidade'];
+            $pClinc->user_id= $user->id;
+            $pClinc->save();
+
+            $dias = explode(',', $request['dias']);
+
+            P_clinic::storeDiasTrabalho($pClinc->id, $dias);
 
             DB::commit();
 
             $retorno['estado'] = true;
+            $retorno['dados_validos'] = [
+                'numero_user' => $user->email,
+                'password' => $request['password'],
+            ];
 
         } catch (Exception $th) {
             DB::rollBack();

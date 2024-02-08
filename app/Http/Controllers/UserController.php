@@ -4,17 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Crypt;
 
 use App\Models\User;
 use App\Models\Validacao;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Crypt;
+use App\Models\Role;
+use App\Models\Paciente;
 
 class UserController extends Controller
 {
     //
 
-    public function createAccountSite (Request $request) {
+    public function createAccountUser (Request $request) {
 
         // dd($request);
 
@@ -27,27 +29,37 @@ class UserController extends Controller
         //    ]);
         // }
             
-        $request['nomeCompleto'] = $request['nome']." ".$request['sobrenome'];
+        
         //dd($request);
 
+        $totalUsers = User::getTotalUser();
+
         try {
+
             DB::beginTransaction();
 
             $user = new User();
-            $user->nomeCompleto         = filter_var($request['nomeCompleto'], FILTER_SANITIZE_STRING);
-            $user->email                = filter_var($request['email'], FILTER_SANITIZE_STRING);
-            $user->password             = bcrypt($request['password']);
-            $user->tipo                 = "paciente";
+            $user->nome         = filter_var($request['nome'], FILTER_SANITIZE_STRING);
+            $user->sobreNome    = filter_var($request['sobreNome'], FILTER_SANITIZE_STRING);
+            $user->email        = filter_var($request['email'], FILTER_SANITIZE_STRING);
+            $user->password     = bcrypt(filter_var($request['password'], FILTER_SANITIZE_STRING));
+            $user->tipo         = "paciente";
             $user->save();
+
+            Role::storeRoleUser($user->id, 1);
+
+            // registrando-o como paciente
+            $paciente = new Paciente();
+            $paciente->contacto_emergencia= null;
+            $paciente->user_id= $user->id;
+            $paciente->save();
 
             DB::commit();
 
-            //enviarNotificacaoCelular($candidato->telefone,  $mensagem);
-
-            // $mensagem = "Suas Credenciais";
-            // $retorno['estado'] = true;
-
-        
+            $retorno['dadosValidos'] = [
+                'numero_user' => $user->numero_user,
+                'password' => $user->password,
+            ];
 
         } catch (Exception $th) {
             DB::rollBack();
@@ -60,19 +72,11 @@ class UserController extends Controller
 
             $retorno['error_sql'] = $th->getMessage();
             $retorno['estado'] = false;
-            return response([
-                'retorno' => $retorno
+            return redirect()->back()->withErrors([
+                'retorno' => $retorno,
             ]);
         }
-        
-        $dadosUtilizador = $request->only('email','password');
 
-        if(Auth::attempt($dadosUtilizador)){
-            $request->session()->regenerate();
-            //$tipo_user = User::getTipo($request['email'])[0]->tipo;
-            //dd($tipo_user);
-            return redirect()->intended('/admin')->with(['sucesso'=>'Online']);
-        }
         return redirect()->back()->with([
             'retorno' => $retorno,
         ]);

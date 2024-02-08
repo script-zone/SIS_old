@@ -10,6 +10,11 @@ class EspecialidadeController extends Controller
 {
     //
 
+
+    public function formCreateEspecialidade () {
+        return view('Admin.Cadastro.cadastroEspec');
+    }
+
     public function createEspecialidade (Request $request) {
 
         // dd($request);
@@ -33,10 +38,10 @@ class EspecialidadeController extends Controller
             DB::beginTransaction();
 
             // registrando uma especialidade
-            $user = new Especialidade();
-            $user->nome = filter_var($request['nome'], FILTER_SANITIZE_STRING);
-            $user->descricao = filter_var($request['descricao'], FILTER_SANITIZE_STRING);
-            $user->save();
+            $especialidade = new Especialidade();
+            $especialidade->nome = filter_var($request['nome'], FILTER_SANITIZE_STRING);
+            $especialidade->descricao = filter_var($request['descricao'], FILTER_SANITIZE_STRING);
+            $especialidade->save();
 
             DB::commit();
 

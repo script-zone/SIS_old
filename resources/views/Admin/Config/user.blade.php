@@ -26,7 +26,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="lastname" class="form-label">Sobrenome</label>
-                                    <input required type="text" name="sobrenome" class="form-control" id="sobreNome">
+                                    <input required type="text" name="sobreNome" class="form-control" id="sobreNome">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="telefone" class="form-label">Telefone</label>
@@ -111,6 +111,6 @@
     </div>
 </div>
 
-<script src="{{ asset('js/Admin/conta_admin.js') }}"></script>
+<script src="{{ asset('js/Admin/cadastro/conta_admin.js') }}"></script>
 
 @endsection

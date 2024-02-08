@@ -8,7 +8,6 @@ formPapelPermissoes.addEventListener('submit',function(e){
     const ids = [];
 
     const permissoes = document.getElementsByClassName('permissao');
-    const nome = document.getElementById('name');
 
     for (const permissao of permissoes) {
         if(permissao.checked == true){
@@ -17,12 +16,12 @@ formPapelPermissoes.addEventListener('submit',function(e){
         
     }
 
-    let parametros = `&permissoes=${ids}`;
+    let parametro = `&permissoes=${ids}`;
     
     $.ajax({
         url: '/admin/store/papel_permissoes',
         type: "post",
-        data: $('#formPapelPermissoes').serialize()+parametros,
+        data: $('#formPapelPermissoes').serialize()+parametro,
         dataType: "json",
         success: function(data) {
             console.log(data);
