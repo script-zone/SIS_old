@@ -1,6 +1,7 @@
 @extends('Admin.index')
 
 @section('conteudo')
+
 <div class="body d-flex py-3">
     <div class="container-xxl">
         <div class="row align-items-center">
@@ -22,11 +23,14 @@
                             <div class="row g-3 align-items-center">
                                 <div class="col-md-6">
                                     <label for="nome" class="form-label">Nome da Especialidade</label>
-                                    <input type="text" name="nome" class="form-control" id="nome">
+                                    <input type="text" name="nome" class="form-control" id="nome" placeholder="Digite um nome..." maxlength="15" required>
+                                    <span id="nomeAviso" class="text-danger d-none">Por favor informe um nome válido...</span>
+
                                 </div>
                                 <div class="col-md-12">
                                     <label for="descricao" class="form-label">Descrição da Especialidade</label>
-                                    <textarea  class="form-control" name="descricao" id="descricao" rows="3"></textarea> 
+                                    <textarea  class="form-control" name="descricao" id="descricao" rows="3" placeholder="Digite uma descição..." maxlength="50" required></textarea> 
+                                    <span id="descricaoAviso" class="text-danger d-none">Por favor informe uma descrição válida... </span>
                                 </div>
                             </div>
                             
@@ -41,5 +45,6 @@
 </div>
 
 <script src="{{asset('js/Admin/cadastro/especialidade.js')}}"></script>
+
 
 @endsection

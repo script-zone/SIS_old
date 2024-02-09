@@ -252,6 +252,22 @@
             </nav>
         </div>  
 
+        <!-- DIV SUCESSSO  -->
+        <div id="alerta-sucesso" class="alert alert-success d-none align-items-center " role="alert" >
+            <a class="icofont-warning fs-5" width="24" height="24" role="img" aria-label="Danger:"> </a>
+            <div class="ml-5">
+                <span></span>
+            </div>
+        </div>
+
+            <!-- DIV PROBLEMA  -->
+        <div id="alerta-problema" class="alert alert-danger d-none align-items-center ocultar" role="alert" >
+            <a class="icofont-warning fs-5" width="24" height="24" role="img" aria-label="Danger:"> </a>
+            <div class="ml-5">
+                <span id="conteudo-problema">  </span>
+            </div>
+        </div>
+
         <!-- Body: Body -->
              @yield('conteudo')
       

@@ -22,39 +22,48 @@
                             <div class="row g-3 align-items-center">
                                 <div class="col-md-6">
                                     <label for="nome" class="form-label">Nome</label>
-                                    <input required type="text" name="nome" class="form-control" id="nome">
+                                    <input type="text" name="nome" class="form-control" placeholder="Ex: Fridson" maxlength="25" id="nome" required>
+                                    <span id="nomeAviso" class="text-danger d-none">Por favor informe um nome válido...</span>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="sobreNome" class="form-label">Sobrenome</label>
-                                    <input required type="text" name="sobreNome" class="form-control" id="sobreNome">
+                                    <label for="sobrenome" class="form-label">Nome</label>
+                                    <input type="text" name="sobrenome" class="form-control" placeholder="Ex: Firmino" maxlength="25" id="sobrenome" required>
+                                    <span id="sobrenomeAviso" class="text-danger d-none">Por favor informe um nome válido...</span>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="telefone" class="form-label">Telefone</label>
-                                    <input required type="number" name="telefone" class="form-control" id="telefone">
+                                    <input type="number" name="telefone" class="form-control" placeholder="Ex: 9XXXXXXXX" id="telefone" required>
+                                    <span id="telefoneAviso" class="text-danger d-none">Por favor informe um número de telefone válido...</span>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="telefoneEmergencia" class="form-label">Telefone de Emergência</label>
-                                    <input type="number" class="form-control" name="telefoneEmergencia" id="telefoneEmergencia">
+                                    <input type="number" class="form-control" name="telefoneEmergencia" placeholder="Ex: 9XXXXXXXX" id="telefoneEmergencia" required>
+                                    <span id="telefoneEmergenciaAviso" class="text-danger d-none">Por favor informe um número de telefone válido...</span>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="dataNascimento" class="form-label">Data Nascimento</label>
-                                    <input required type="date" name="dataNascimento" class="form-control" id="dataNascimento">
+                                    <input type="date" name="dataNascimento" class="form-control" id="dataNascimento" required>
+                                    <span id="dataNascimentoAviso" class="text-danger d-none">Por favor informe uma data de nascimento válido...</span>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="bi" class="form-label">Nº Bilhete</label>
-                                    <input required type="text" name="bi" class="form-control" id="bi">
+                                    <input type="text" name="bi" class="form-control" placeholder="Ex: XXXXXXXXXYYXXX" maxlength="14" id="bi" required>
+                                    <span id="biAviso" class="text-danger d-none">Por favor informe um número do Bilhete válido...</span>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="morada" class="form-label">Morada</label>
-                                    <input type="text" class="form-control" name="morada" id="morada">
+                                    <input type="text" class="form-control" name="morada" placeholder="Ex: XXXX XXXX" maxlength="25" id="morada" required>
+                                    <span id="moradaAviso" class="text-danger d-none">Por favor informe uma morada válida...</span>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="localidade" class="form-label">Localidade</label>
-                                    <input type="text" class="form-control" name="localidade" id="localidade">
+                                    <input type="text" class="form-control" name="localidade" placeholder="Ex: XXXXXXX" maxlength="25" id="localidade">
+                                    <span id="localidadeAviso" class="text-danger d-none">Por favor informe uma localidade válida...</span>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="codigoPostal" class="form-label">Código Postal</label>
-                                    <input type="text" class="form-control" name="codigoPostal" id="codigoPostal">
+                                    <input type="text" class="form-control" name="codigoPostal" placeholder="Ex: 0000000" maxlength="10" id="codigoPostal" required>
+                                    <span id="codigoPostalAviso" class="text-danger d-none">Por favor informe um codigo válida...</span>
                                 </div>
                                 <div class="col-md-6">
                                     <label  class="form-label">Gênero</label>
@@ -79,11 +88,13 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="fileFoto" class="form-label">Carregar Foto</label>
-                                    <input class="form-control" name="fileFoto" type="file" id="fileFoto" multiple>
+                                    <input class="form-control" name="fileFoto" type="file" id="fileFoto" required>
+                                    <span id="fileFotoAviso" class="text-danger d-none">Por favor seleccione uma imagem válida...</span>
                                 </div>
                                 <div class="col-md-12">
                                     <label for="addNote" class="form-label">Adicionar Bio</label>
-                                    <textarea name="addNote" class="form-control" id="addNote" rows="3"></textarea> 
+                                    <textarea name="addNoteAviso" class="form-control" id="addNote" placeholder="Descrição..." maxlength="100" rows="3" required></textarea>
+                                    <span id="addNoteAviso" class="text-danger d-none">Por favor informe conteúdo válida...</span> 
                                 </div>
 
                                 <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
@@ -91,18 +102,19 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label  class="form-label">Tem uma deficiencia?</label>
-                                    <select class="form-select" name="deficiencia" id="deficiencia" aria-label="Default select example">
-                                        <option selected>Seleccione uma</option>
+                                    <select class="form-control" name="deficiencia" id="deficiencia" aria-label="Default select example" required>
+                                        <option selected disabled value="">Seleccione uma</option>
                                         <option value="1">Deficiencia Visual</option>
                                         <option value="1">Deficiência Auditiva</option>
                                         <option value="2">Fisico Motor</option>
                                         <option value="3">Outro</option>
                                     </select>
+                                    <span id="deficienciaAviso" class="text-danger d-none">Seleccione uma opção...</span>
                                 </div>
                                 <div class="col-md-6">
                                     <label  class="form-label">Grupo Sanguineo</label>
-                                    <select class="form-select" name="grupo_sanguineo" id="grupo_sanguineo" aria-label="Default select example">
-                                        <option selected>Seleccione o Grupo Sanguineo</option>
+                                    <select class="form-control" name="grupo_sanguineo" id="grupo_sanguineo" aria-label="Default select example" required>
+                                        <option selected disabled value="">Seleccione o Grupo Sanguineo</option>
                                         <option value="1">O+</option>
                                         <option value="2">O-</option>
                                         <option value="3">A-</option>
@@ -113,26 +125,29 @@
                                         <option value="8">AB+</option>
                                         <option value="9">Desconhecido</option>
                                     </select>
+                                    <span id="grupo_sanguineoAviso" class="text-danger d-none">Seleccione uma opção...</span>
                                 </div>
                                 <div class="col-md-6">
                                     <label  class="form-label">Alergia</label>
-                                    <select class="form-select" name="alergia" id="alergia" aria-label="Default select example">
-                                        <option selected>Seleccione uma</option>
+                                    <select class="form-control" name="alergia" id="alergia" aria-label="Default select example" required>
+                                        <option selected disabled value="">Seleccione uma</option>
                                         <option value="1">Lactose</option>
                                         <option value="2">Outro</option>
                                         <option value="3">Desconhecido</option>
                                     </select>
+                                    <span id="alergiaAviso" class="text-danger d-none">Seleccione uma opção...</span>
                                 </div>
                                 <div class="col-md-6">
                                     <label  class="form-label">Doença Familiar</label>
-                                    <select class="form-select" name="doenca_familiar" id="doenca_familiar" aria-label="Default select example">
-                                        <option selected>Seleccione uma</option>
+                                    <select class="form-control" name="doenca_familiar" id="doenca_familiar" aria-label="Default select example" required>
+                                        <option selected disabled value="">Seleccione uma</option>
                                         <option value="1">Alzaimer</option>
                                         <option value="2">Diabete</option>
                                         <option value="3">Ataque Cardio Vascular</option>
                                         <option value="4">Outro</option>
                                         <option value="9">Desconhecido</option>
                                     </select>
+                                    <span id="doenca_familiarAviso" class="text-danger d-none">Seleccione uma opção...</span>
                                 </div>
                                 <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
                                     <h6 class="mb-0 fw-bold ">Login Registro</h6>
@@ -140,31 +155,21 @@
                                 <div class="row g-3 align-items-center">
                                     <div class="col-md-6">
                                         <label for="email" class="form-label">E-mail</label>
-                                        <input type="email" name="email" class="form-control" id="email">
+                                        <input type="email" name="email" class="form-control" placeholder="Ex: exemplo@gmail.com" maxlength="30" id="email" required>
+                                        <span id="emailAviso" class="text-danger d-none">Por favor informe um Email válida...</span>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="password" class="form-label">Senha</label>
-                                        <input type="text" name="password" class="form-control" id="password">
+                                        <input type="text" name="password" class="form-control" placeholder="Ex: ***********" maxlength="15" id="password" required>
+                                        <span id="passwordAviso" class="text-danger d-none">Por favor informe uma senha válida, tamanho minimo 8...</span>
                                     </div>
-
-                                    <!--<div class="col-md-6">
-                                        <label  class="form-label">Seleccionar Doctor</label>
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>Seleccione um Doctor</option>
-                                            <option value="1">Vanessa Miller</option>
-                                            <option value="2">Rebecca Hunter</option>
-                                            <option value="3">Matt Clark</option>
-                                        </select>
-                                    </div>-->
-
                                     <div class="col-md-6">
                                         <label for="re_password" class="form-label">Confirmar Senha</label>
-                                        <input type="text" name="re_password" class="form-control" id="re_password">
+                                        <input type="text" name="re_password" class="form-control" placeholder="Ex: ***********" maxlength="15" id="re_password" required>
+                                        <span id="re_passwordAviso" class="text-danger d-none">Por favor, as senhas devem ser iguais...</span>
                                     </div>
                                 </div>
                             </div>
-                            
-                            
                             
                             <button type="submit" class="btn btn-primary mt-4">Cadastrar</button>
                         </form>
@@ -175,6 +180,8 @@
     </div>
 </div>
 
-<script src="{{asset('js/Admin/cadastro/conta_paciente.js')}}"></script>
+<script src="{{asset('js/Admin/cadastro/conta_paciente.js')}}">
+
+</script>
 
 @endsection
