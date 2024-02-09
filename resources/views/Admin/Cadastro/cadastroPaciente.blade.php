@@ -155,17 +155,17 @@
                                 <div class="row g-3 align-items-center">
                                     <div class="col-md-6">
                                         <label for="email" class="form-label">E-mail</label>
-                                        <input type="email" name="email" class="form-control" placeholder="Ex: exemplo@gmail.com" maxlength="30" id="email" required>
+                                        <input type="email" name="email" class="form-control" placeholder="Digite o seu email" maxlength="30" id="email" required>
                                         <span id="emailAviso" class="text-danger d-none">Por favor informe um Email válida...</span>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="password" class="form-label">Senha</label>
-                                        <input type="text" name="password" class="form-control" placeholder="Ex: ***********" maxlength="15" id="password" required>
+                                        <input type="password" name="password" class="form-control" placeholder="Digite a sua senha" maxlength="15" id="password" required>
                                         <span id="passwordAviso" class="text-danger d-none">Por favor informe uma senha válida, tamanho minimo 8...</span>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="re_password" class="form-label">Confirmar Senha</label>
-                                        <input type="text" name="re_password" class="form-control" placeholder="Ex: ***********" maxlength="15" id="re_password" required>
+                                        <input type="password" name="re_password" class="form-control" placeholder="Repita a sua senha " maxlength="15" id="re_password" required>
                                         <span id="re_passwordAviso" class="text-danger d-none">Por favor, as senhas devem ser iguais...</span>
                                     </div>
                                 </div>

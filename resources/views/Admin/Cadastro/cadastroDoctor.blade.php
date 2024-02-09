@@ -18,32 +18,37 @@
                     </div>
                     <div class="card-body">
                         <form id="form_store_full_p_clinico">
-                        @csrf
+                            @csrf
                             <div class="row g-3 align-items-center">
                                 <div class="col-md-6">
                                     <label for="nome" class="form-label">Nome</label>
-                                    <input required type="text" name="nome" class="form-control" id="nome">
+                                    <input  type="text" name="nome" class="form-control" placeholder="Digite o seu nome" id="nome" required>
+                                    <span id="nomeAviso" class="text-danger d-none">Por favor informe um nome válida...</span>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="sobreNome" class="form-label">Sobrenome</label>
-                                    <input required type="text" name="sobreNome" class="form-control" id="sobreNome">
+                                    <label for="sobrenome" class="form-label">Nome</label>
+                                    <input  type="text" name="sobrenome" class="form-control" placeholder="Digite o seu sobrenome" id="sobrenome" required>
+                                    <span id="sobrenomeAviso" class="text-danger d-none">Por favor informe um nome válida...</span>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="email" class="form-label">E-mail</label>
-                                    <input required type="email" name="email" class="form-control" id="email">
+                                    <input type="email" name="email" class="form-control" placeholder="Digite o seu email" id="email" required>
+                                    <span id="emailAviso" class="text-danger d-none">Por favor informe um email válida...</span>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="CRM" class="form-label">CRM</label>
-                                    <input required type="text" name="CRM" class="form-control" id="CRM">
+                                    <input type="text" name="CRM" class="form-control" placeholder="Digite o seu CRM" id="CRM" required>
+                                    <span id="CRMAviso" class="text-danger d-none">Por favor informe um CRM válida...</span>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="bi" class="form-label">Bilhete de Identidade</label>
-                                    <input required type="text" name="bi" class="form-control" id="bi">
+                                    <label for="bi" class="form-label">Nº Bilhete</label>
+                                    <input type="text" name="bi" class="form-control" placeholder="Digite o seu número bilhete" id="bi" required>
+                                    <span id="biAviso" class="text-danger d-none">Por favor informe um número do Bilhete válido...</span>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Especialidade</label>
-                                    <select required class="form-select" name="especialidade" id="especialidade" aria-label="Default select example">
-                                        <option selected value="-1">Seleccione uma</option>
+                                    <select class="form-select" name="especialidade" id="especialidade" aria-label="Default select example" required>
+                                        <option selected disabled value="">Seleccione uma</option>
                                         @foreach ( $especialidades as $especialidade )
                                         <option value="{{ $especialidade->id }}">{{ $especialidade->nome }}</option>
                                         @endforeach
@@ -62,11 +67,13 @@
                                     </div>
                                 <div class="col-md-6">
                                     <label for="password" class="form-label">Senha</label>
-                                    <input required type="password" name="password" class="form-control" id="password">
+                                    <input type="password" name="password" class="form-control" placeholder="Digite a sua senha" id="password" required>
+                                    <span id="passwordAviso" class="text-danger d-none">Por favor informe uma senha válida, tamanho minimo 8...</span>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="re_password" class="form-label">Confirmar Senha</label>
-                                    <input required type="password" name="re_password" class="form-control" id="re_password">
+                                    <input type="password" name="re_password" class="form-control" placeholder="Repita a sua senha" id="re_password" required>
+                                    <span id="re_passwordAviso" class="text-danger d-none">Por favor, as senhas devem ser iguais...</span>
                                 </div>
                             </div>
                             
@@ -78,7 +85,6 @@
         </div>
     </div>
 </div>
-
 <script src="{{asset('js/Admin/cadastro/conta_p_clinico.js')}}"></script>
 
 @endsection

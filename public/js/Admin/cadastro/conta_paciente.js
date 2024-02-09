@@ -1,4 +1,3 @@
-var controler = false;
 const validaTextoSemCaracteresEspeciais =
     /^[a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s'\-]+( [a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s'\-]+)*$/;
 const validaNumeroDoBIAngolano =
