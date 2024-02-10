@@ -32,12 +32,12 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="telefone" class="form-label">Telefone</label>
-                                    <input type="number" name="telefone" class="form-control" placeholder="Ex: 9XXXXXXXX" id="telefone" required>
+                                    <input type="number" name="telefone" class="form-control" placeholder="Ex: 9XXXXXXXX" maxlength="13" id="telefone" required>
                                     <span id="telefoneAviso" class="text-danger d-none">Por favor informe um número de telefone válido...</span>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="telefoneEmergencia" class="form-label">Telefone de Emergência</label>
-                                    <input type="number" class="form-control" name="telefoneEmergencia" placeholder="Ex: 9XXXXXXXX" id="telefoneEmergencia" required>
+                                    <input type="number" class="form-control" name="telefoneEmergencia" placeholder="Ex: 9XXXXXXXX" maxlength="13" id="telefoneEmergencia" required>
                                     <span id="telefoneEmergenciaAviso" class="text-danger d-none">Por favor informe um número de telefone válido...</span>
                                 </div>
                                 <div class="col-md-6">

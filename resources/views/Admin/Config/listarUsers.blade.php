@@ -19,11 +19,8 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Nome</th>
-                                    <th>Endereço</th>
-                                    <th>Genero</th>
-                                    <th>Telefone</th>
                                     <th>Papel</th>
-                                    <th>Permissões</th>
+                                    <th>Detalhes</th>
                                     <th>Acção</th>
                                 </tr>
                             </thead>
@@ -31,13 +28,10 @@
                                 <tr>
                                     <td>PT-0001</td>
                                     <td>Molly</td>
-                                    <td>Angola, Luanda Zango II</td>
-                                    <td>Masculino</td>
-                                    <td>943606060</td>
                                     <td>Admin</td>
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                            <a href="{{route('admin.config.permissoes')}}" class="btn btn-outline-secondary" ><i class="text-success"> Ver Permissões</i></a>
+                                            <a href="{{route('admin.config.permissoes')}}" class="btn btn-outline-secondary" ><i class="text-success"> Ver Detalhes</i></a>
                                         </div>
                                     </td>
                                     <td>

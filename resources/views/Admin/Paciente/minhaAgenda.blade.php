@@ -31,9 +31,8 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Nome do Paciente</th> 
+                                                    <th>Nome do Doctor</th> 
                                                     <th>Tipo do Exame</th> 
-                                                    <th>Resultado</th>    
                                                     <th>Data</th>  
                                                     <th>Hora</th>  
                                                     <th>Estado</th>  
@@ -47,13 +46,10 @@
                                                     </td>
                                                     <td>
                                                         <img class="avatar rounded-circle" src="{{asset('Style/images/xs/avatar1.jpg')}}" alt="">
-                                                        <span class="fw-bold ms-1">Paciente Teste</span>
+                                                        <span class="fw-bold ms-1">Doctor Teste</span>
                                                     </td>
                                                     <td>
                                                         Uma pequena descrição asd ad asdas da da sdas dad as d
-                                                    </td>
-                                                    <td>
-                                                        Sirurgia Plastica
                                                     </td>
                                                     <td>
                                                         29/01/2024
@@ -82,9 +78,6 @@
                                                     </td>
                                                     <td>
                                                         Uma pequena descrição
-                                                    </td>
-                                                    <td>
-                                                        Sirurgia Plastica
                                                     </td>
                                                     <td>
                                                         29/01/2024
@@ -120,9 +113,8 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Nome do Paciente</th> 
+                                                    <th>Nome do Doctor</th> 
                                                     <th>Tipo da Consulta</th> 
-                                                    <th>Diagnostico</th>   
                                                     <th>Data</th>  
                                                     <th>Hora</th>  
                                                     <th>Estado</th>  
@@ -140,9 +132,6 @@
                                                     </td>
                                                     <td>
                                                         Uma pequena descrição asd ad asdas da da sdas dad as d
-                                                    </td>
-                                                    <td>
-                                                        Sirurgia Plastica
                                                     </td>
                                                     <td>
                                                         29/01/2024
@@ -171,9 +160,6 @@
                                                     </td>
                                                     <td>
                                                         Uma pequena descrição
-                                                    </td>
-                                                    <td>
-                                                        Sirurgia Plastica
                                                     </td>
                                                     <td>
                                                         29/01/2024

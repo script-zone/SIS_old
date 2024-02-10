@@ -42,9 +42,7 @@ Route::group(['middleware' => ['auth']], function () {
         return view('Admin.Listagem.todosDotores');
     })->name('admin.doctor.todosDoctores');
 
-    Route::get('/admin/user/doctor/listar-pacientes', function () {
-        return view('Admin.listarPaciente');
-    })->name('admin.listarPaciente');
+
 
     Route::get('/admin/user/doctor/perfil-Doctor', function () {
         return view('Admin.Doctor.perfil');
@@ -66,6 +64,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/user/paciente/perfil/editar-perfil', function () {
         return view('Admin.Paciente.edit_Perfil');
     })->name('admin.paciente.edit_Perfil');
+
+    Route::get('/admin/user/listar-pacientes', function () {
+        return view('Admin.Listagem.listarPaciente');
+    })->name('admin.listarPaciente');
 
     Route::get('/admin/user/paciente/agenda/agenda-medica', function () {
         return view('Admin.Paciente.minhaAgenda');

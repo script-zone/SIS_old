@@ -33,10 +33,8 @@
                                                     <th>#</th>
                                                     <th>Nome do Paciente</th> 
                                                     <th>Tipo do Exame</th> 
-                                                    <th>Resultado</th>    
                                                     <th>Data</th>  
                                                     <th>Hora</th>  
-                                                    <th>Estado</th>  
                                                     <th>Acção</th>  
                                                 </tr>
                                             </thead>
@@ -53,21 +51,14 @@
                                                         Uma pequena descrição asd ad asdas da da sdas dad as d
                                                     </td>
                                                     <td>
-                                                        Sirurgia Plastica
-                                                    </td>
-                                                    <td>
                                                         29/01/2024
                                                     </td>
                                                     <td>
                                                         10:30
                                                     </td>
                                                     <td>
-                                                        <span class="text-danger ms-1">Pendente</span>
-                                                    </td>
-                                                    <td>
                                                         <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                            <a href="{{route('admin.marcacao.reagendarExame')}}" class="btn btn-outline-secondary" alt="Reagendar"><i class="icofont-edit text-success"></i></a>
-                                                            <a href="#" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#cancelarExame"><i class="icofont-ui-delete text-danger"></i></a>
+                                                            <a href="#" class="btn btn-outline-secondary" alt="Reagendar"><i class="text-success">Confirmar Exame</i></a>
 
                                                         </div>
                                                     </td>
@@ -84,22 +75,14 @@
                                                         Uma pequena descrição
                                                     </td>
                                                     <td>
-                                                        Sirurgia Plastica
-                                                    </td>
-                                                    <td>
                                                         29/01/2024
                                                     </td>
                                                     <td>
                                                         10:30
                                                     </td>
                                                     <td>
-                                                        <span class="text-danger ms-1">Pendente</span>
-                                                    </td>
-                                                    <td>
                                                         <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                            <a href="{{route('admin.marcacao.reagendarExame')}}" class="btn btn-outline-secondary" alt="Reagendar"><i class="icofont-edit text-success"></i></a>
-                                                            <a href="#" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#cancelarExame"><i class="icofont-ui-delete text-danger"></i></a>
-
+                                                            <a href="#" class="btn btn-outline-secondary" alt="Reagendar"><i class="text-success">Confirmar Exame</i></a>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -121,8 +104,7 @@
                                                 <tr>
                                                     <th>#</th>
                                                     <th>Nome do Paciente</th> 
-                                                    <th>Tipo da Consulta</th> 
-                                                    <th>Diagnostico</th>   
+                                                    <th>Tipo da Consulta</th>
                                                     <th>Data</th>  
                                                     <th>Hora</th>  
                                                     <th>Estado</th>  
@@ -142,9 +124,6 @@
                                                         Uma pequena descrição asd ad asdas da da sdas dad as d
                                                     </td>
                                                     <td>
-                                                        Sirurgia Plastica
-                                                    </td>
-                                                    <td>
                                                         29/01/2024
                                                     </td>
                                                     <td>
@@ -155,6 +134,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#atendarConsulta"><i class="text-success">Atender</i></button>
                                                             <a href="{{route('admin.marcacao.reagendarConsulta')}}" class="btn btn-outline-secondary" alt="Reagendar"><i class="icofont-edit text-success"></i></a>
                                                             <a href="#" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#cancelarConsulta"><i class="icofont-ui-delete text-danger"></i></a>
 
@@ -173,9 +153,6 @@
                                                         Uma pequena descrição
                                                     </td>
                                                     <td>
-                                                        Sirurgia Plastica
-                                                    </td>
-                                                    <td>
                                                         29/01/2024
                                                     </td>
                                                     <td>
@@ -186,9 +163,9 @@
                                                     </td>
                                                     <td>
                                                         <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#atendarConsulta"><i class="text-success">Atender</i></button>
                                                             <a href="{{route('admin.marcacao.reagendarConsulta')}}" class="btn btn-outline-secondary" alt="Reagendar"><i class="icofont-edit text-success"></i></a>
                                                             <a href="#" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#cancelarConsulta"><i class="icofont-ui-delete text-danger"></i></a>
-                                                            
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -294,5 +271,45 @@
     </div>
 </div>
 
-    
+<!-- Edit Department-->
+<div class="modal fade" id="atendarConsulta" tabindex="-1"  aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title  fw-bold" id="depeditLabel"> Atendimento de Consulta</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="#" >
+                    @csrf
+                    <div class="row g-3 align-items-center">
+                        <div class="row g-3 mb-3">
+                            <div class="col-sm-6">
+                                <label for="deptwo48" class="form-label ">Nome do Paciente</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="deptwo48" class="form-label">Tipo de Consulta</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="sintomas" class="form-label">Descreva os Sintomas</label>
+                            <textarea  class="form-control" name="sintomas" id="sintomas" rows="2"></textarea> 
+                        </div>
+                        <div class="col-md-12">
+                            <label for="descricao" class="form-label">Descreva o Diagnostico</label>
+                            <textarea  class="form-control" name="descricao" id="descricao" rows="5"></textarea> 
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-primary">Concluir Consulta</button>
+            </div>
+        </div>
+        </div>
+    </div> 
+</div>  
 @endsection
