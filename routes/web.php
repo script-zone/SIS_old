@@ -76,9 +76,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/admin/store/p_clinic', [P_clinicController::class, 'createAccountUserP_clinic'])->name('admin.cadastro.store.p_clinic');
 
     // Especialidades
+    Route::get('/admin/especialidade/listar', [EspecialidadeController::class, 'showAllEspecialidades'])->name('admin.listagem.todasEspec');
     Route::get('/admin/cadastro/especialidade', [EspecialidadeController::class, 'formCreateEspecialidade'])->name('admin.cadastro.cadastroEspecialidade');
     Route::post('/admin/store/especialidade', [EspecialidadeController::class, 'createEspecialidade'])->name('admin.store.especialidade');
-    Route::get('/admin/especialidade/listar', [EspecialidadeController::class, 'showAllEspecialidades'])->name('admin.listagem.todasEspec');
+    Route::get('/admin/cadastro/exame', [EspecialidadeController::class, 'formCreateExame'])->name('admin.cadastro.exame');
+    Route::post('/admin/store/exame_especialidade', [EspecialidadeController::class, 'storeTipoExame'])->name('admin.store.exame_especialidade');
+    Route::get('/admin/cadastro/consulta', [EspecialidadeController::class, 'formCreateConsulta'])->name('admin.cadastro.consulta');
+    Route::post('/admin/store/consulta_especialidade', [EspecialidadeController::class, 'storeTipoConsulta'])->name('admin.store.consulta_especialidade');
 
     Route::get('/admin/especialidade/editar', function () {
         return view('Admin.Cadastro.editarEspec');

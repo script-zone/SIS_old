@@ -19,7 +19,7 @@ class ConsultaController extends Controller
 
         $dados = [
             'pacientes' => Paciente::getPacientes(),
-            'especialidades' => Especialidade::all(),
+            'tipoConsultas' => Consulta::getAllTipoConsulta(),
             'doctores' => P_clinic::getP_clinic(),
         ];
 

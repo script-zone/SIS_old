@@ -20,7 +20,7 @@ class ProcedimentoController extends Controller
 
         $dados = [
             'pacientes' => Paciente::getPacientes(),
-            'especialidades' => Especialidade::all(),
+            'tipoProcedimentos' => Procedimento::getAllTipoProcedimentos(),
             'doctores' => P_clinic::getP_clinic(),
         ];
 

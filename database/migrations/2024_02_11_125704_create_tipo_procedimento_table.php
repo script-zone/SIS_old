@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tipo_exames', function (Blueprint $table) {
+        Schema::create('tipo_procedimento', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
             $table->string('descricao');
-            $table->unsignedBigInteger('especialidade_id');
-            $table->foreign('especialidade_id')->references('id')->on('especialidades')->onDelete('CASCADE');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tipo_exames');
+        Schema::dropIfExists('tipo_procedimento');
     }
 };

@@ -94,7 +94,6 @@
                     <ul class="sub-menu collapse" id="menu-cadastro">
                         <li><a class="ms-link" href="{{route('admin.cadastro.p_clinic')}}">Pessoal Clinico</a></li>
                         <li><a class="ms-link" href="{{route('admin.cadastro.cadastroPaciente')}}">Paciente</a></li>
-                        <li><a class="ms-link" href="{{route('admin.cadastro.cadastroEspecialidade')}}">Especialidades</a></li>
                     </ul>
                 </li>
                 <li class="collapsed">
@@ -120,15 +119,12 @@
                     </a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-role">
-                        <li>
-                            <a class="ms-link" href="{{route('admin.config.papeis')}}">Add Papéis e Permissões</a>
-                        </li>
-                        <li>
-                            <a class="ms-link" href="{{route('admin.config.user')}}">Adicionar Utilizador</a>
-                        </li>
-                        <li>
-                            <a class="ms-link" href="{{route('admin.config.listarUsers')}}">Listar Utilizadores</a>
-                        </li>
+                        <li><a class="ms-link" href="{{route('admin.config.papeis')}}">Add Papéis e Permissões</a></li>
+                        <li><a class="ms-link" href="{{route('admin.config.user')}}">Adicionar Utilizador</a></li>
+                        <li><a class="ms-link" href="{{route('admin.config.listarUsers')}}">Listar Utilizadores</a></li>
+                        <li><a class="ms-link" href="{{route('admin.cadastro.cadastroEspecialidade')}}">Adicionar Especialidade</a></li>
+                        <li><a class="ms-link" href="{{route('admin.cadastro.exame')}}">Adicionar Exame</a></li>
+                        <li><a class="ms-link" href="{{route('admin.cadastro.consulta')}}">Adicionar Consulta</a></li>
                     </ul>
                 </li>
             </ul>

@@ -77,8 +77,8 @@
                                     <label  class="form-label">Tipo de Consulta</label>
                                     <select class="form-select" name="tipo" aria-label="Default select example">
                                         <option selected>Selecione o tipo de Procedimento</option>
-                                        @foreach ($especialidades as $especialidade)
-                                        <option value="{{ $especialidade->id }}">{{ $especialidade->nome }}</option>
+                                        @foreach ($tipoConsultas as $tc)
+                                        <option value="{{ $tc->id }}">{{ $tc->nome }}</option>
                                         @endforeach
                                     </select>
                                 </div>

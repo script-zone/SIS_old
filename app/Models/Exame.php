@@ -40,6 +40,18 @@ class Exame extends Model
                         ");
     }
 
+    public static function createExameEspecialidade ($request) {
+        DB::insert("INSERT INTO exame_especialidade (nome,  descricao, especialidade_id) VALUES ('".$request['nome']."', '".$request['descricao']."', ".$request['especialidade_id'].")");
+    }
+
+    public static function getAllTipoExame () {
+        return DB::select("SELECT *  FROM exame_especialidade");
+    }
+
+    public static function getAllTipoExameEspecialidade ($espec_id) {
+        return DB::select("SELECT *  FROM exame_especialidade WHERE especialidade_id = $espec_id");
+    }
+
 
 
 }

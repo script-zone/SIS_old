@@ -30,7 +30,7 @@
                                     </select>
                                 </div>
                                 <div class="col-md-6">
-                                    <label  class="form-label">A Consulta é Urgente?</label>
+                                    <label  class="form-label">O procedimento é Urgente?</label>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-check">
@@ -74,11 +74,11 @@
                                     </select>
                                 </div>
                                 <div class="col-md-6">
-                                    <label  class="form-label">Tipo de Consulta</label>
+                                    <label  class="form-label">Tipo de Procedimento</label>
                                     <select class="form-select" name="tipo" aria-label="Default select example">
                                         <option selected>Selecione o tipo de Procedimento</option>
-                                        @foreach ($especialidades as $especialidade)
-                                        <option value="{{ $especialidade->id }}">{{ $especialidade->nome }}</option>
+                                        @foreach ($tipoProcedimentos as $tp)
+                                        <option value="{{ $tp->id }}">{{ $tp->nome }}</option>
                                         @endforeach
                                     </select>
                                 </div>

@@ -32,6 +32,17 @@ class Consulta extends Model
                         ");
     }
 
+    public static function getAllTipoConsulta () {
+        return DB::select("SELECT * FROM consulta_especialidade");
+    }
+
+    public static function createConsultaEspecialidade ($request) {
+        DB::insert("INSERT INTO consulta_especialidade (nome,  descricao, especialidade_id) VALUES ('".$request['nome']."', '".$request['descricao']."', ".$request['especialidade_id'].")");
+    }
+
+    public static function getAllTipoConsultaEspecialidade ($espec_id) {
+        return DB::select("SELECT *  FROM consulta_especialidade WHERE especialidade_id = $espec_id");
+    }
 
 
 }

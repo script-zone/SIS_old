@@ -33,6 +33,10 @@ class Procedimento extends Model
                         ");
     }
 
+    public static function getAllTipoProcedimentos () {
+        return DB::select("SELECT * FROM tipo_procedimento");
+    }
+
 
 
 }

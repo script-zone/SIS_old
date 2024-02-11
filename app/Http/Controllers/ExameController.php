@@ -20,7 +20,7 @@ class ExameController extends Controller
 
         $dados = [
             'pacientes' => Paciente::getPacientes(),
-            'especialidades' => Especialidade::all(),
+            'tipoExames' => Exame::getAllTipoExame(),
             'doctores' => P_clinic::getP_clinic(),
         ];
 
