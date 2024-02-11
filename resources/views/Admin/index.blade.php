@@ -52,7 +52,7 @@
                     <i class="icofont-doctor-alt fs-5"></i>  <span>Doctor</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-Doctor">
-                        <li><a class="ms-link" href="{{route('admin.doctor.agendaMedica')}}">Agenda Médica</a></li>
+                        <li><a class="ms-link" href="{{route('admin.doctor.agendaMedica', auth()->user()->id )}}">Agenda Médica</a></li>
                         <li><a class="ms-link" href="{{route('admin.doctor.pefil')}}">Meu Perfil</a></li>
                     </ul>
                 </li>
@@ -61,10 +61,20 @@
                     <i class="icofont-blind fs-5"></i> <span>Paciente</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-Patient">
-                        <li><a class="ms-link" href="{{route('admin.paciente.minhaAgenda')}}">Minha Agenda</a></li>
+                        <li><a class="ms-link" href="{{route('admin.paciente.minhaAgenda', auth()->user()->id )}}">Minha Agenda</a></li>
                         <li><a class="ms-link" href="#">Minhas Facturas</a></li>
                         <li><a class="ms-link" href="#">Mensagens</a></li>
                         <li><a class="ms-link" href="{{route('admin.paciente.perfil')}}">Meu Perfil</a></li>
+                    </ul>
+                </li>
+                <li class="collapsed">
+                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-marcacao" href="#">
+                    <i class="icofont-calendar fs-5"></i> <span>Marcação</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
+                    <!-- Menu: Sub menu ul -->
+                    <ul class="sub-menu collapse" id="menu-marcacao">
+                        <li><a class="ms-link" href="{{route('admin.marcacao.consulta')}}">Consulta</a></li>
+                        <li><a class="ms-link" href="{{route('admin.marcacao.exame')}}">Exames</a></li>
+                        <li><a class="ms-link" href="{{route('admin.marcacao.procedimento')}}">Agendar Procedimento</a></li>
                     </ul>
                 </li>
                 <li class="collapsed">
@@ -95,16 +105,6 @@
                         <li><a class="ms-link" href="{{route('admin.doctor.todosDoctores')}}">Pessoal Clinico</a></li>
                         <li><a class="ms-link" href="{{route('admin.listarPaciente')}}">Paciente</a></li>
                         <li><a class="ms-link" href="{{route('admin.listagem.todasEspec')}}">Especialidades</a></li>
-                    </ul>
-                </li>
-                <li class="collapsed">
-                    <a class="m-link" data-bs-toggle="collapse" data-bs-target="#menu-marcacao" href="#">
-                    <i class="icofont-calendar fs-5"></i> <span>Marcação</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
-                    <!-- Menu: Sub menu ul -->
-                    <ul class="sub-menu collapse" id="menu-marcacao">
-                        <li><a class="ms-link" href="{{route('admin.marcacao.consulta')}}">Consulta</a></li>
-                        <li><a class="ms-link" href="{{route('admin.marcacao.exame')}}">Exames</a></li>
-                        <li><a class="ms-link" href="{{route('admin.marcacao.procedimento')}}">Agendar Procedimento</a></li>
                     </ul>
                 </li>
                 <li class="collapsed">
@@ -203,7 +203,7 @@
                                <!-- <span> Está Logado . . .</span> -->
                             
                             <div class="u-info me-2">
-                                <p class="mb-0 text-end line-height-sm "><span class="font-weight-bold">{{ auth()->user()->nomeCompleto }}</span></p>
+                                <p class="mb-0 text-end line-height-sm "><span class="font-weight-bold">{{ auth()->user()->nome }} {{ auth()->user()->sobreNome }}</span></p>
                                 <small class="text-uppercase">{{ auth()->user()->tipo }}</small>
                             </div>
                             <a class="nav-link dropdown-toggle pulse p-0" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static">
@@ -215,8 +215,8 @@
                                         <div class="d-flex py-1">
                                             <img class="avatar rounded-circle" src="{{asset('Style/images/profile_av.png')}}" alt="perfil">
                                             <div class="flex-fill ms-3">
-                                                <p class="mb-0"><span class="font-weight-bold">{{ auth()->user()->nomeCompleto }}</span></p>
-                                                <small class="">{{ auth()->user()->email }}</small>
+                                                <p class="mb-0"><span class="font-weight-bold">{{ auth()->user()->nome }} {{ auth()->user()->sobreNome }}</span></p>
+                                                <small class="">{{ auth()->user()->id }}</small>
                                             </div>
                                         </div>
                                         
@@ -377,71 +377,6 @@
 </div>
 
 
-<!-- Modal- Cancelar Procedimento-->
-<div class="modal fade" id="cancelarProcedi" tabindex="-1"  aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-body text-center">
-                <img src="{{asset('img/sent.png')}}" alt="" width="80" height="76">
-            </div>
-            <div class="modal-body text-center">
-                <div class="deadline-form">
-                <h4>Tem certeza que deseja cancelar o Procedimento?</h4>
-                </div>
-                <div class="mb-3">
-                </div>
-            </div>
-            <div class="modal-body g-5 text-center">
-                <button type="button" class="btn btn-secundary" data-bs-dismiss="modal">Fechar</button>
-                <button type="submit" class="btn btn-danger text-white">Cancelar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal- Cancelar Exame-->
-<div class="modal fade" id="cancelarExame" tabindex="-1"  aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-body text-center">
-                <img src="{{asset('img/sent.png')}}" alt="" width="80" height="76">
-            </div>
-            <div class="modal-body text-center">
-                <div class="deadline-form">
-                <h4>Tem certeza que deseja cancelar o Exame?</h4>
-                </div>
-                <div class="mb-3">
-                </div>
-            </div>
-            <div class="modal-body g-5 text-center">
-                <button type="button" class="btn btn-secundary" data-bs-dismiss="modal">Fechar</button>
-                <button type="submit" class="btn btn-danger text-white">Cancelar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal- Cancelar Consulta-->
-<div class="modal fade" id="cancelarConsulta" tabindex="-1"  aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-body text-center">
-                <img src="{{asset('img/sent.png')}}" alt="" width="80" height="76">
-            </div>
-            <div class="modal-body text-center">
-                <div class="deadline-form">
-                <h4>Tem certeza que deseja cancelar a Consulta?</h4>
-                </div>
-                <div class="mb-3">
-                </div>
-            </div>
-            <div class="modal-body g-5 text-center">
-                <button type="button" class="btn btn-secundary" data-bs-dismiss="modal">Fechar</button>
-                <button type="submit" class="btn btn-danger text-white">Cancelar</button>
-            </div>
-        </div>
-    </div>
-</div>
 </body>
 
 <!-- Mirrored from pixelwibes.com/template/ihealth/html/dist/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jan 2024 09:34:07 GMT -->

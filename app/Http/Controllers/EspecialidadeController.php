@@ -67,4 +67,14 @@ class EspecialidadeController extends Controller
 
     }
 
+    public function showAllEspecialidades () {
+
+        $dados = [
+            'especialidades' => Especialidade::all(),
+            'count' => 0,
+        ];
+
+        return view('Admin.Listagem.todasEspec')->with($dados);
+    }
+
 }

@@ -25,13 +25,14 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($users as $user)
                                 <tr>
-                                    <td>PT-0001</td>
-                                    <td>Molly</td>
-                                    <td>Admin</td>
+                                    <td>usr-{{ $user->id }}</td>
+                                    <td>{{ $user->nome }} {{ $user->sobreNome }}</td>
+                                    <td>{{ $user->papel }}</td>
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                            <a href="{{route('admin.config.permissoes')}}" class="btn btn-outline-secondary" ><i class="text-success"> Ver Detalhes</i></a>
+                                            <a href="{{route('admin.config.permissoes', [$user->id, $user->papel_id] )}}" class="btn btn-outline-secondary" ><i class="text-success"> Ver Detalhes</i></a>
                                         </div>
                                     </td>
                                     <td>
@@ -41,7 +42,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

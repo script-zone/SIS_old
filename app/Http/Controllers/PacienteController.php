@@ -7,6 +7,9 @@ use App\Models\Paciente;
 use App\Models\User;
 use App\Models\RCP;
 use App\Models\Role;
+use App\Models\Exame;
+use App\Models\Consulta;
+use App\Models\Procedimento;
 use DB;
 
 class PacienteController extends Controller
@@ -129,6 +132,36 @@ class PacienteController extends Controller
             'retorno' => $retorno,
         ]);
 
+    }
+
+    public function showPaciente () {
+
+        $dados = [
+            'pacientes' => Paciente::getUserPacientes(),
+        ];
+
+        return view('Admin.Listagem.listarPaciente')->with($dados);
+    }
+
+    public function showPacientePerfil () {
+
+        
+
+        return view('Admin.Paciente.perfil');
+    }
+
+    public function getAgendaMedica ($id_paciente) {
+
+        $dados = [
+            'exames' => Exame::getExamesPendentesPaciente($id_paciente),
+            'count1' => 1,
+            'consultas' => Consulta::getConsultasPendentesPaciente($id_paciente),
+            'count2' => 1,
+            'procedimentos' => Procedimento::getProcedimentosPendentesPaciente($id_paciente),
+            'count3' => 1,
+        ];
+
+        return view('Admin.Paciente.minhaAgenda')->with($dados);
     }
 
 }

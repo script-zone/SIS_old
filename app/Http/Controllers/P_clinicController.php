@@ -7,6 +7,10 @@ use App\Models\P_clinic;
 use App\Models\Especialidade;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Exame;
+use App\Models\Consulta;
+use App\Models\Procedimento;
+
 use DB;
 
 class P_clinicController extends Controller
@@ -118,5 +122,43 @@ class P_clinicController extends Controller
             'retorno' => $retorno,
         ]);
 
+    }
+    
+    public function showP_clinic () {
+
+        $doctores = P_clinic::getAllDoctores();
+
+        return view('Admin.Listagem.todosDotores')->with(['doctores' => $doctores]);
+    }
+
+    public function showP_clinic_Perfil () {
+
+        
+
+        return view('Admin.Doctor.perfil');
+    }
+
+    public function getAgendaMedica ($id_medico) {
+
+        $dados = [
+            'exames' => Exame::getExamesPendentesMedico($id_medico),
+            'count1' => 1,
+            'consultas' => Consulta::getConsultasPendentesMedico($id_medico),
+            'count2' => 1,
+            'procedimentos' => Procedimento::getProcedimentosPendentesMedico($id_medico),
+            'count3' => 1,
+        ];
+
+        return view('Admin.Doctor.agendaMedica')->with($dados);
+    }
+
+    public function listarExameslab () {
+
+        $dados = [
+            'exames' => Exame::getExamesPendentesLab(),
+            'count' => 1,
+        ];
+
+        return view('Admin.Lab.examesLab')->with($dados);
     }
 }

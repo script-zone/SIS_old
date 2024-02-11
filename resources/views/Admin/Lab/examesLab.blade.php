@@ -28,25 +28,26 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($exames as $exame)
                                 <tr>
                                     <td>
-                                        <span class="fw-bold">1</span>
+                                        <span class="fw-bold">{{ $count++ }}</span>
                                     </td>
                                     <td>
                                         <img class="avatar rounded-circle" src="{{asset('Style/images/xs/avatar1.jpg')}}" alt="">
-                                        <span class="fw-bold ms-1">Paciente Teste</span>
+                                        <span class="fw-bold ms-1">{{ $exame->nome }} {{ $exame->sobrenome }}</span>
                                     </td>
                                     <td>
-                                        Uma pequena descrição asd ad asdas da da sdas dad as d
+                                        {{ $exame->tipo }}
                                     </td>
                                     <td>
-                                        Sirurgia Plastica
+                                        {{ $exame->resultado }}
                                     </td>
                                     <td>
-                                        29/01/2024
+                                        {{ $exame->data }}
                                     </td>
                                     <td>
-                                        10:30
+                                        {{ $exame->hora }}
                                     </td>
                                     <td>
                                         <span class="text-danger ms-1">Pendente</span>
@@ -57,36 +58,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <span class="fw-bold">2</span>
-                                    </td>
-                                    <td>
-                                        <img class="avatar rounded-circle" src="{{asset('Style/images/xs/avatar1.jpg')}}" alt="">
-                                        <span class="fw-bold ms-1">Paciente Teste 2</span>
-                                    </td>
-                                    <td>
-                                        Uma pequena descrição
-                                    </td>
-                                    <td>
-                                        Sirurgia Plastica
-                                    </td>
-                                    <td>
-                                        29/01/2024
-                                    </td>
-                                    <td>
-                                        10:30
-                                    </td>
-                                    <td>
-                                        <span class="text-danger ms-1">Pendente</span>
-                                    </td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#depedit"><i class="icofont-edit text-success"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

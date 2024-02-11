@@ -128,6 +128,25 @@ class AdminController extends Controller
 
     }
 
+    public function getAllUsers () {
+
+        $dados = [
+            'users' => P_admin::getAllUsersAdmin(),
+        ];
+
+        return view('Admin.Config.listarUsers')->with($dados);
+    }
+
+    public function getDetalhesUserAdmin ($id_user_admin, $id_papel) {
+
+        $dados = [
+            'user' => User::find($id_user_admin),
+            'permissoes' => Role::getPermissoes($id_papel),
+        ];
+
+        return view('Admin.Config.userDetalhes')->with($dados);
+    }
+
 
 
 }

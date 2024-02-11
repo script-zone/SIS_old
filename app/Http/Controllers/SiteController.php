@@ -15,6 +15,13 @@ class SiteController extends Controller
         return view('Site.index');
     }
 
+    public function getDashAdmin () {
+
+        
+
+        return view('Admin.dashboard');
+    }
+
     public function login () {
         return view('Site.login');
     }

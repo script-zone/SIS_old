@@ -30,15 +30,16 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach ($especialidades as $especialidade)
                                                 <tr>
                                                     <td>
-                                                        <span class="fw-bold">1</span>
+                                                        <span class="fw-bold">{{ $count++ }}</span>
                                                     </td>
                                                     <td>
-                                                       Alguma coisa
+                                                       {{ $especialidade->nome }}
                                                     </td>
                                                     <td>
-                                                        Uma pequena descrição asd ad asdas da da sdas dad as d
+                                                        {{ $especialidade->descricao }}
                                                     </td>
                                                     <td>
                                                         <div class="btn-group" role="group" aria-label="Basic outlined example">
@@ -48,6 +49,7 @@
                                                         </div>
                                                     </td>
                                                 </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>

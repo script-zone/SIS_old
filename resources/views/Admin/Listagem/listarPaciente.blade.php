@@ -28,21 +28,28 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($pacientes as $paciente)
                                 <tr>
-                                    <td>PT-0001</td>
-                                    <td><img src="{{asset('Style/images/xs/avatar3.jpg')}}" class="avatar  rounded-circle me-2" alt="profile-image"><span>Molly </span></td>
-                                    <td>22</td>
-                                    <td>Angola, Luanda Zango II</td>
-                                    <td>Masculino</td>
-                                    <td>943606060</td>
-                                    <td>000054267LA210</td>
+                                    <td>PAC-{{ $paciente->id_paciente }}</td>
+                                    <td><img src="{{asset('Style/images/xs/avatar3.jpg')}}" class="avatar  rounded-circle me-2" alt="profile-image"><span>{{ $paciente->nome }} {{ $paciente->sobreNome }}</span></td>
+                                    <td>{{ $paciente->data_nascimento }}</td>
+                                    <td>{{ $paciente->localidade }} {{ $paciente->morada }}</td>
+                                    <td>
+                                        @if ($paciente->sexo=='M')
+                                        Masculino
+                                        @else
+                                        Feminino
+                                        @endif
+                                    </td>
+                                    <td>{{ $paciente->telefone }}</td>
+                                    <td>{{ $paciente->bi }}</td>
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic outlined example">
                                             <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#depedit"><i class="icofont-eye text-success"> RCU</i></button>
                                         </div>
                                     </td>
                                 </tr>
-                                
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

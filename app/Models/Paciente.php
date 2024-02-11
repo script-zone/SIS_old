@@ -15,6 +15,10 @@ class Paciente extends Model
         return DB::select("SELECT u.nome, u.sobreNome, p.id FROM users u INNER JOIN pacientes p ON (u.id=p.user_id) WHERE tipo = 'paciente'");
     }
 
+    public static function getUserPacientes () {
+        return DB::select("SELECT u.*, p.id as id_paciente FROM pacientes p INNER JOIN users u ON (u.id=p.user_id) WHERE u.tipo = 'paciente'");
+    }
+
     public static function getRCP ($paciente_id) {
         return DB::select("SELECT rcp.id FROM pacientes p INNER JOIN r_c_p_s rcp ON (p.id=rcp.paciente_id) WHERE p.id=$paciente_id");
     }

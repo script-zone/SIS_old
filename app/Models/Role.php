@@ -41,5 +41,13 @@ class Role extends Model
         return DB::select("SELECT id, name, tipo FROM roles");
     }
 
+    public static function getPermissoes ($id_papel) {
+        return DB::select("SELECT p.name FROM roles r 
+                            INNER JOIN permission_role pr ON (r.id=pr.role_id) 
+                            INNER JOIN permissions p ON (pr.hability_id=p.id) 
+                            WHERE r.id = $id_papel"
+                        );
+    }
+
 }
 
