@@ -1,5 +1,5 @@
 const validaTextoSemCaracteresEspeciais =
-    /^[a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s'\-]+( [a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s'\-]+)*$/;
+    /^[a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s]+(\s[a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s]+)*$/;
 
 const nome_Consulta = document.getElementById("nome");
 const descricao_Consulta = document.getElementById("descricao");
@@ -77,6 +77,7 @@ descricao_Consulta.onkeyup = function () {
 function validarFormularioCadastroTipoConsulta() {
     // Validação do campo nome_Consulta
     if (
+        nome_Consulta.value == "" ||
         nome_Consulta.value.length < 5 ||
         !validaTextoSemCaracteresEspeciais.test(nome_Consulta.value)
     ) {
@@ -88,6 +89,7 @@ function validarFormularioCadastroTipoConsulta() {
 
     // Validação do campo descricao_Consulta
     if (
+        descricao_Consulta.value == "" ||
         descricao_Consulta.value.length < 5 ||
         !validaTextoSemCaracteresEspeciais.test(descricao_Consulta.value)
     ) {

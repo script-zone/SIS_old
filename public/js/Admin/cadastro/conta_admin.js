@@ -1,5 +1,5 @@
 const validaTextoSemCaracteresEspeciais =
-    /^[a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s'\-]+( [a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s'\-]+)*$/;
+    /^[a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s]+(\s[a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s]+)*$/;
 const validaNumeroDoBIAngolano =
     /^[0-9]{9}(LA|BO|BA|BE|CA|CC|KN|KS|CE|HO|HA|LN|LS|ME|MO|NE|UE|ZE|OE|VP)[0-9]{3}$/;
 const validaNumeroDeTelefone =
@@ -182,6 +182,7 @@ function validarFormularioCadastroUtilizador() {
     // Validação do campo nome
     if (
         nome.value.length < 3 ||
+        nome.value == "" ||
         !validaTextoSemCaracteresEspeciais.test(nome.value)
     ) {
         setError(nome, "nomeAviso");
@@ -193,6 +194,7 @@ function validarFormularioCadastroUtilizador() {
     // Validação do campo sobrenome
     if (
         sobrenome.value.length < 3 ||
+        sobrenome.value == "" ||
         !validaTextoSemCaracteresEspeciais.test(sobrenome.value)
     ) {
         setError(sobrenome, "sobrenomeAviso");
@@ -202,7 +204,7 @@ function validarFormularioCadastroUtilizador() {
     }
 
     // Validação do campo telefone
-    if (!validaNumeroDeTelefone.test(telefone.value)) {
+    if (!validaNumeroDeTelefone.test(telefone.value) || telefone.value == "") {
         setError(telefone, "telefoneAviso");
         return false;
     } else {
@@ -210,7 +212,10 @@ function validarFormularioCadastroUtilizador() {
     }
 
     // Validação do campo telefoneEmergencia
-    if (!validaNumeroDeTelefone.test(telefoneEmergencia.value)) {
+    if (
+        !validaNumeroDeTelefone.test(telefoneEmergencia.value) ||
+        telefoneEmergencia.value == ""
+    ) {
         setError(telefoneEmergencia, "telefoneEmergenciaAviso");
         return false;
     } else {
@@ -218,7 +223,7 @@ function validarFormularioCadastroUtilizador() {
     }
 
     // Validação do campo dataNascimento
-    if (!verificarIdade(dataNascimento.value)) {
+    if (!verificarIdade(dataNascimento.value) || dataNascimento.value == "") {
         setError(dataNascimento, "dataNascimentoAviso");
         return false;
     } else {
@@ -226,7 +231,7 @@ function validarFormularioCadastroUtilizador() {
     }
 
     // Validação do campo bi
-    if (!validaNumeroDoBIAngolano.test(bi.value)) {
+    if (!validaNumeroDoBIAngolano.test(bi.value) || bi.value == "") {
         setError(bi, "biAviso");
         return false;
     } else {
@@ -236,7 +241,8 @@ function validarFormularioCadastroUtilizador() {
     // Validação do campo morada
     if (
         morada.value.length < 5 ||
-        !validaTextoSemCaracteresEspeciais.test(morada.value)
+        !validaTextoSemCaracteresEspeciais.test(morada.value) ||
+        morada.value == ""
     ) {
         setError(morada, "moradaAviso");
         return false;
@@ -247,7 +253,8 @@ function validarFormularioCadastroUtilizador() {
     // Validação do campo localidade
     if (
         localidade.value.length < 5 ||
-        !validaTextoSemCaracteresEspeciais.test(localidade.value)
+        !validaTextoSemCaracteresEspeciais.test(localidade.value) ||
+        localidade.value == ""
     ) {
         setError(localidade, "localidadeAviso");
         return false;
@@ -256,7 +263,7 @@ function validarFormularioCadastroUtilizador() {
     }
 
     // Validação do campo fileFoto (adicionado tipo file)
-    if (!fileFoto.value) {
+    if (!fileFoto.value || fileFoto.value == "") {
         setError(fileFoto, "fileFotoAviso");
         return false;
     } else {
@@ -264,7 +271,7 @@ function validarFormularioCadastroUtilizador() {
     }
 
     // Validação do campo email
-    if (!validaEmail.test(email.value)) {
+    if (!validaEmail.test(email.value) || email.value == "") {
         setError(email, "emailAviso");
         return false;
     } else {
@@ -272,7 +279,7 @@ function validarFormularioCadastroUtilizador() {
     }
 
     // Validação do campo password
-    if (password.value.length < 8) {
+    if (password.value.length < 8 || password.value == "") {
         setError(password, "passwordAviso");
         return false;
     } else {
@@ -280,7 +287,11 @@ function validarFormularioCadastroUtilizador() {
     }
 
     // Validação do campo re_password
-    if (re_password.value.length < 8 || password.value != re_password.value) {
+    if (
+        re_password.value.length < 8 ||
+        password.value != re_password.value ||
+        re_password.value == ""
+    ) {
         setError(re_password, "re_passwordAviso");
         return false;
     } else {

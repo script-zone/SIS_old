@@ -1,5 +1,5 @@
 const validaTextoSemCaracteresEspeciais =
-    /^[a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s'\-]+( [a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s'\-]+)*$/;
+    /^[a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s]+(\s[a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s]+)*$/;
 const validaNumeroDoBIAngolano =
     /^[0-9]{9}(LA|BO|BA|BE|CA|CC|KN|KS|CE|HO|HA|LN|LS|ME|MO|NE|UE|ZE|OE|VP)[0-9]{3}$/;
 const validaNumeroDeTelefone =
@@ -210,6 +210,7 @@ function validarFormularioCadastroPaciente() {
     // Validação do campo nome
     if (
         nome.value.length < 3 ||
+        nome.value == "" ||
         !validaTextoSemCaracteresEspeciais.test(nome.value)
     ) {
         setError(nome, "nomeAviso");
@@ -221,6 +222,7 @@ function validarFormularioCadastroPaciente() {
     // Validação do campo sobrenome
     if (
         sobrenome.value.length < 3 ||
+        sobrenome.value == "" ||
         !validaTextoSemCaracteresEspeciais.test(sobrenome.value)
     ) {
         setError(sobrenome, "sobrenomeAviso");
@@ -230,7 +232,7 @@ function validarFormularioCadastroPaciente() {
     }
 
     // Validação do campo telefone
-    if (!validaNumeroDeTelefone.test(telefone.value)) {
+    if (!validaNumeroDeTelefone.test(telefone.value) || telefone.value == "") {
         setError(telefone, "telefoneAviso");
         return false;
     } else {
@@ -238,7 +240,10 @@ function validarFormularioCadastroPaciente() {
     }
 
     // Validação do campo telefoneEmergencia
-    if (!validaNumeroDeTelefone.test(telefoneEmergencia.value)) {
+    if (
+        telefoneEmergencia.value == "" ||
+        !validaNumeroDeTelefone.test(telefoneEmergencia.value)
+    ) {
         setError(telefoneEmergencia, "telefoneEmergenciaAviso");
         return false;
     } else {
@@ -246,7 +251,7 @@ function validarFormularioCadastroPaciente() {
     }
 
     // Validação do campo dataNascimento
-    if (!verificarIdade(dataNascimento.value)) {
+    if (dataNascimento.value == "" || !verificarIdade(dataNascimento.value)) {
         setError(dataNascimento, "dataNascimentoAviso");
         return false;
     } else {
@@ -254,7 +259,7 @@ function validarFormularioCadastroPaciente() {
     }
 
     // Validação do campo bi
-    if (!validaNumeroDoBIAngolano.test(bi.value)) {
+    if (bi.value == "" || !validaNumeroDoBIAngolano.test(bi.value)) {
         setError(bi, "biAviso");
         return false;
     } else {
@@ -263,6 +268,7 @@ function validarFormularioCadastroPaciente() {
 
     // Validação do campo morada
     if (
+        morada.value == "" ||
         morada.value.length < 5 ||
         !validaTextoSemCaracteresEspeciais.test(morada.value)
     ) {
@@ -274,6 +280,7 @@ function validarFormularioCadastroPaciente() {
 
     // Validação do campo localidade
     if (
+        localidade.value == "" ||
         localidade.value.length < 5 ||
         !validaTextoSemCaracteresEspeciais.test(localidade.value)
     ) {
@@ -285,6 +292,7 @@ function validarFormularioCadastroPaciente() {
 
     // Validação do campo codigoPostal
     if (
+        codigoPostal.value == "" ||
         codigoPostal.value.length < 7 ||
         !validaTextoSemCaracteresEspeciais.test(codigoPostal.value)
     ) {
@@ -295,7 +303,7 @@ function validarFormularioCadastroPaciente() {
     }
 
     // Validação do campo fileFoto (adicionado tipo file)
-    if (!fileFoto.value) {
+    if (fileFoto.value == "" || !fileFoto.value) {
         setError(fileFoto, "fileFotoAviso");
         return false;
     } else {
@@ -303,7 +311,10 @@ function validarFormularioCadastroPaciente() {
     }
 
     // Validação do campo addNote
-    if (!validaTextoSemCaracteresEspeciais.test(addNote.value)) {
+    if (
+        addNote.value == "" ||
+        !validaTextoSemCaracteresEspeciais.test(addNote.value)
+    ) {
         setError(addNote, "addNoteAviso");
         return false;
     } else {
@@ -311,7 +322,7 @@ function validarFormularioCadastroPaciente() {
     }
 
     // Validação do campo email
-    if (!validaEmail.test(email.value)) {
+    if (email.value == "" || !validaEmail.test(email.value)) {
         setError(email, "emailAviso");
         return false;
     } else {
@@ -319,7 +330,7 @@ function validarFormularioCadastroPaciente() {
     }
 
     // Validação do campo password
-    if (password.value.length < 8) {
+    if (password.value == "" || password.value.length < 8) {
         setError(password, "passwordAviso");
         return false;
     } else {
@@ -327,7 +338,11 @@ function validarFormularioCadastroPaciente() {
     }
 
     // Validação do campo re_password
-    if (re_password.value.length < 8 || password.value != re_password.value) {
+    if (
+        re_password.value == "" ||
+        re_password.value.length < 8 ||
+        password.value != re_password.value
+    ) {
         setError(re_password, "re_passwordAviso");
         return false;
     } else {

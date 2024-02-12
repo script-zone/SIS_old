@@ -1,5 +1,5 @@
 const validaTextoSemCaracteresEspeciais =
-    /^[a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s'\-]+( [a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s'\-]+)*$/;
+    /^[a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s]+(\s[a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s]+)*$/;
 const validaNumeroDoBIAngolano =
     /^[0-9]{9}(LA|BO|BA|BE|CA|CC|KN|KS|CE|HO|HA|LN|LS|ME|MO|NE|UE|ZE|OE|VP)[0-9]{3}$/;
 const validaNumeroDeTelefone =
@@ -161,6 +161,7 @@ function validarFormularioCadastroPessoalClinica() {
     // Validação do campo nome
     if (
         nome.value.length < 3 ||
+        nome.value == "" ||
         !validaTextoSemCaracteresEspeciais.test(nome.value)
     ) {
         setError(nome, "nomeAviso");
@@ -172,6 +173,7 @@ function validarFormularioCadastroPessoalClinica() {
     // Validação do campo sobrenome
     if (
         sobrenome.value.length < 3 ||
+        sobrenome.value == "" ||
         !validaTextoSemCaracteresEspeciais.test(sobrenome.value)
     ) {
         setError(sobrenome, "sobrenomeAviso");
@@ -182,6 +184,7 @@ function validarFormularioCadastroPessoalClinica() {
 
     if (
         crm.value.length < 3 ||
+        crm.value == "" ||
         !validaTextoSemCaracteresEspeciais.test(crm.value)
     ) {
         setError(crm, "CRMAviso");
@@ -190,7 +193,7 @@ function validarFormularioCadastroPessoalClinica() {
     }
 
     // Validação do campo bi
-    if (!validaNumeroDoBIAngolano.test(bi.value)) {
+    if (!validaNumeroDoBIAngolano.test(bi.value) || bi.value == "") {
         setError(bi, "biAviso");
         return false;
     } else {
@@ -198,7 +201,7 @@ function validarFormularioCadastroPessoalClinica() {
     }
 
     // Validação do campo email
-    if (!validaEmail.test(email.value)) {
+    if (!validaEmail.test(email.value) || email.value == "") {
         setError(email, "emailAviso");
         return false;
     } else {
@@ -206,7 +209,7 @@ function validarFormularioCadastroPessoalClinica() {
     }
 
     // Validação do campo password
-    if (password.value.length < 8) {
+    if (password.value.length < 8 || password.value == "") {
         setError(password, "passwordAviso");
         return false;
     } else {
@@ -214,7 +217,11 @@ function validarFormularioCadastroPessoalClinica() {
     }
 
     // Validação do campo re_password
-    if (re_password.value.length < 8 || password.value != re_password.value) {
+    if (
+        re_password.value.length < 8 ||
+        re_password.value == "" ||
+        password.value != re_password.value
+    ) {
         setError(re_password, "re_passwordAviso");
         return false;
     } else {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use App\Models\Paciente;
 use App\Models\User;
 use App\Models\RCP;
@@ -151,6 +152,7 @@ class PacienteController extends Controller
     }
 
     public function getAgendaMedica ($id_paciente) {
+        $id_paciente = Crypt::decryptString($id_paciente);
 
         $dados = [
             'exames' => Exame::getExamesPendentesPaciente($id_paciente),

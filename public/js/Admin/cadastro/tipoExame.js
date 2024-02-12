@@ -1,5 +1,5 @@
 const validaTextoSemCaracteresEspeciais =
-    /^[a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s'\-]+( [a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s'\-]+)*$/;
+    /^[a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s]+(\s[a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s]+)*$/;
 
 const nome_Exame = document.getElementById("nome");
 const descricao_Exame = document.getElementById("descricao");
@@ -84,6 +84,7 @@ descricao_Exame.onkeyup = function () {
 function validarFormularioCadastroTipoExame() {
     // Validação do campo nome_Especialidade
     if (
+        nome_Exame.value == "" ||
         nome_Exame.value.length < 5 ||
         !validaTextoSemCaracteresEspeciais.test(nome_Exame.value)
     ) {
@@ -95,6 +96,7 @@ function validarFormularioCadastroTipoExame() {
 
     // Validação do campo descricao_Especialidade
     if (
+        descricao_Exame.value == "" ||
         descricao_Exame.value.length < 5 ||
         !validaTextoSemCaracteresEspeciais.test(descricao_Exame.value)
     ) {

@@ -1,5 +1,5 @@
 const validaTextoSemCaracteresEspeciais =
-    /^[a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s'\-]+( [a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s'\-]+)*$/;
+    /^[a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s]+(\s[a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s]+)*$/;
 
 const nome_Especialidade = document.getElementById("nome");
 const descricao_Especialidade = document.getElementById("descricao");
@@ -86,6 +86,7 @@ descricao_Especialidade.onkeyup = function () {
 function validarFormularioCadastroEspecialidade() {
     // Validação do campo nome_Especialidade
     if (
+        nome_Especialidade.value == "" ||
         nome_Especialidade.value.length < 5 ||
         !validaTextoSemCaracteresEspeciais.test(nome_Especialidade.value)
     ) {
@@ -97,6 +98,7 @@ function validarFormularioCadastroEspecialidade() {
 
     // Validação do campo descricao_Especialidade
     if (
+        descricao_Especialidade.value == "" ||
         descricao_Especialidade.value.length < 5 ||
         !validaTextoSemCaracteresEspeciais.test(descricao_Especialidade.value)
     ) {

@@ -1,8 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 
-
-<!-- Mirrored from pixelwibes.com/template/ihealth/html/dist/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jan 2024 09:33:29 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -52,7 +50,7 @@
                     <i class="icofont-doctor-alt fs-5"></i>  <span>Doctor</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-Doctor">
-                        <li><a class="ms-link" href="{{route('admin.doctor.agendaMedica', auth()->user()->id )}}">Agenda Médica</a></li>
+                        <li><a class="ms-link" href="{{route('admin.doctor.agendaMedica', Crypt::encryptString(auth()->user()->id))}}">Agenda Médica</a></li>
                         <li><a class="ms-link" href="{{route('admin.doctor.pefil')}}">Meu Perfil</a></li>
                     </ul>
                 </li>
@@ -61,7 +59,7 @@
                     <i class="icofont-blind fs-5"></i> <span>Paciente</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span></a>
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-Patient">
-                        <li><a class="ms-link" href="{{route('admin.paciente.minhaAgenda', auth()->user()->id )}}">Minha Agenda</a></li>
+                        <li><a class="ms-link" href="{{route('admin.paciente.minhaAgenda', Crypt::encryptString(auth()->user()->id))}}">Minha Agenda</a></li>
                         <li><a class="ms-link" href="#">Minhas Facturas</a></li>
                         <li><a class="ms-link" href="#">Mensagens</a></li>
                         <li><a class="ms-link" href="{{route('admin.paciente.perfil')}}">Meu Perfil</a></li>
@@ -336,15 +334,6 @@
 
  </script>
 
-<!-- Modal- Aguarde 1-->
-<div class="modal fade" id="search_aguarde" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="loader-demo-box border-0">
-            <div class="circle-loader"></div><br>
-            <h1 class="text-white">Aguarde Por Favor</h1>
-        </div>
-    </div>
-</div>
 
 <div class="modal fade" tabindex="-1" role="dialog" id="successModal">
   <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
@@ -375,5 +364,5 @@
 
 </body>
 
-<!-- Mirrored from pixelwibes.com/template/ihealth/html/dist/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 Jan 2024 09:34:07 GMT -->
+
 </html> 

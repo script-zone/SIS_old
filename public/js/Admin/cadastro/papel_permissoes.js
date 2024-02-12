@@ -1,5 +1,5 @@
 const validaTextoSemCaracteresEspeciais =
-    /^[a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s']+( [a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s']+)*$/;
+    /^[a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s]+(\s[a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s]+)*$/;
 
 const formPapelPermissoes = document.getElementById("formPapelPermissoes");
 const nomePapel = document.getElementById("nomePapel");
@@ -83,6 +83,7 @@ nomePapel.onkeyup = () => {
 function validarFormularioAddPapelPermissoes() {
     // Validação do campo nomePapel
     if (
+        nomePapel.value == "" ||
         nomePapel.value.length < 5 ||
         !validaTextoSemCaracteresEspeciais.test(nomePapel.value)
     ) {
