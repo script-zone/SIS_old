@@ -26,7 +26,7 @@
                                     <span id="nomeAviso" class="text-danger d-none">Por favor informe um nome válido...</span>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="sobrenome" class="form-label">Nome</label>
+                                    <label for="sobrenome" class="form-label">Sobrenome</label>
                                     <input type="text" name="sobrenome" class="form-control" placeholder="Ex: Firmino" maxlength="25" id="sobrenome" required>
                                     <span id="sobrenomeAviso" class="text-danger d-none">Por favor informe um nome válido...</span>
                                 </div>

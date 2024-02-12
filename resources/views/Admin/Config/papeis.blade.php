@@ -19,15 +19,10 @@
                     <div class="card-body">
                         <form action="#" id="formPapelPermissoes" method="#">
                             @csrf
-                            <div class="row g-3 align-items-center">
-                                <div class="col-md-6">
-                                    <label for="name" class="form-label">Papel</label>
-                                    <input required type="text" name="name" class="form-control" id="name">
-                                </div>
-                            </div>
-
-                            <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
-                                <h6 class="mb-0 fw-bold "></h6>
+                            <div class="col-md-6">
+                                <label for="nomePapel" class="form-label">Nome do Papel</label>
+                                <input type="text" name="nomePapel" class="form-control" id="nomePapel" placeholder="Digite um nome..." maxlength="25" required>
+                                <span id="nomeAviso" class="text-danger d-none">Por favor informe um nome válido...</span>
                             </div>
 
                             <div class="table-responsive">
@@ -43,7 +38,7 @@
                                         <tr>
                                             <td class="">{{$permissao->name}}</td>
                                             <td class="text-center">
-                                                <input class="permissao" name="{{$permissao->id}}" type="checkbox">
+                                                <input class="permissao" name="{{$permissao->id}}" type="checkbox" required>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -61,7 +56,7 @@
     </div>
 </div>
 
-<script src="{{ asset('js/Admin/papel_permissoes.js') }}"></script>
+<script src="{{asset('js/Admin/cadastro/papel_permissoes.js')}}"></script>
 
 
 @endsection

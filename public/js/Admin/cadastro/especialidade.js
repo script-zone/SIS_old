@@ -46,8 +46,6 @@ form_store_full_especialidade.addEventListener("submit", function (e) {
         },
         error: function (data) {
             console.log(data);
-            document.getElementById("nome").value = "";
-            document.getElementById("descricao").value = "";
             document
                 .getElementById("alerta-problema")
                 .classList.remove("d-none");

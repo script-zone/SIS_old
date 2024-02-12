@@ -23,7 +23,7 @@
                             <div class="row g-3 align-items-center">
                                 <div class="col-md-6">
                                     <label for="nome" class="form-label">Nome do Tipo de Exame</label>
-                                    <input type="text" name="nome" class="form-control" id="nome" placeholder="Digite um nome..." maxlength="15" required>
+                                    <input type="text" name="nome" class="form-control" id="nome" placeholder="Digite um nome..." maxlength="30" required>
                                     <span id="nomeAviso" class="text-danger d-none">Por favor informe um nome válido...</span>
 
                                 </div>

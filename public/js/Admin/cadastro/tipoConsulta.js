@@ -1,9 +1,22 @@
+const validaTextoSemCaracteresEspeciais =
+    /^[a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s'\-]+( [a-zA-ZçÇãÃõÕíÍóÓâÂôÔáÁéÉ\s'\-]+)*$/;
 
+const nome_Consulta = document.getElementById("nome");
+const descricao_Consulta = document.getElementById("descricao");
 
+function setError(inputId, spanAvisoIde) {
+    inputId.classList.add("border-danger");
+    document.getElementById(spanAvisoIde).classList.remove("d-none");
+    document.getElementById(spanAvisoIde).classList.add("d-block");
+}
 
-form_store_full_consulta = document.getElementById(
-    "form_store_full_consulta"
-);
+function removeError(inputId, spanAvisoIde) {
+    inputId.classList.remove("border-danger");
+    document.getElementById(spanAvisoIde).classList.remove("d-block");
+    document.getElementById(spanAvisoIde).classList.add("d-none");
+}
+
+form_store_full_consulta = document.getElementById("form_store_full_consulta");
 
 form_store_full_consulta.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -15,62 +28,73 @@ form_store_full_consulta.addEventListener("submit", function (e) {
         dataType: "json",
         success: function (data) {
             console.log(data);
+            document.getElementById("nome").value = "";
+            document.getElementById("descricao").value = "";
+            document
+                .getElementById("alerta-sucesso")
+                .classList.remove("d-none");
+            document.getElementById("alerta-sucesso").innerHTML =
+                "Tipo de Consulta cadastrado com sucesso...";
+            document.getElementById("alerta-sucesso").classList.add("d-flex");
         },
         error: function (data) {
+            console.log(data);
+            document
+                .getElementById("alerta-problema")
+                .classList.remove("d-none");
+            document.getElementById("alerta-problema").classList.add("d-flex");
+            document.getElementById("conteudo-problema").innerHTML =
+                "Falha ao cadastrar o Tipo de Consulta...";
         },
-        beforeSend: function () {
-            
-        },
-        complete: function () {
-
-        },
+        beforeSend: function () {},
+        complete: function () {},
     });
 });
 
-nome_Especialidade.onkeyup = function () {
+nome_Consulta.onkeyup = function () {
     if (
-        nome_Especialidade.value.length < 5 ||
-        !validaTextoSemCaracteresEspeciais.test(nome_Especialidade.value)
+        nome_Consulta.value.length < 5 ||
+        !validaTextoSemCaracteresEspeciais.test(nome_Consulta.value)
     ) {
-        setError(nome_Especialidade, "nomeAviso");
+        setError(nome_Consulta, "nomeAviso");
     } else {
-        removeError(nome_Especialidade, "nomeAviso");
+        removeError(nome_Consulta, "nomeAviso");
     }
 };
 
-descricao_Especialidade.onkeyup = function () {
+descricao_Consulta.onkeyup = function () {
     if (
-        descricao_Especialidade.value.length < 5 ||
-        !validaTextoSemCaracteresEspeciais.test(descricao_Especialidade.value)
+        descricao_Consulta.value.length < 5 ||
+        !validaTextoSemCaracteresEspeciais.test(descricao_Consulta.value)
     ) {
-        setError(descricao_Especialidade, "descricaoAviso");
+        setError(descricao_Consulta, "descricaoAviso");
     } else {
-        removeError(descricao_Especialidade, "descricaoAviso");
+        removeError(descricao_Consulta, "descricaoAviso");
     }
 };
 
 // Função para validar o formulário de especialidade
-function validarFormularioCadastroEspecialidade() {
-    // Validação do campo nome_Especialidade
+function validarFormularioCadastroTipoConsulta() {
+    // Validação do campo nome_Consulta
     if (
-        nome_Especialidade.value.length < 5 ||
-        !validaTextoSemCaracteresEspeciais.test(nome_Especialidade.value)
+        nome_Consulta.value.length < 5 ||
+        !validaTextoSemCaracteresEspeciais.test(nome_Consulta.value)
     ) {
-        setError(nome_Especialidade, "nomeAviso");
+        setError(nome_Consulta, "nomeAviso");
         return false;
     } else {
-        removeError(nome_Especialidade, "nomeAviso");
+        removeError(nome_Consulta, "nomeAviso");
     }
 
-    // Validação do campo descricao_Especialidade
+    // Validação do campo descricao_Consulta
     if (
-        descricao_Especialidade.value.length < 5 ||
-        !validaTextoSemCaracteresEspeciais.test(descricao_Especialidade.value)
+        descricao_Consulta.value.length < 5 ||
+        !validaTextoSemCaracteresEspeciais.test(descricao_Consulta.value)
     ) {
-        setError(descricao_Especialidade, "descricaoAviso");
+        setError(descricao_Consulta, "descricaoAviso");
         return false;
     } else {
-        removeError(descricao_Especialidade, "descricaoAviso");
+        removeError(descricao_Consulta, "descricaoAviso");
     }
 
     return true;

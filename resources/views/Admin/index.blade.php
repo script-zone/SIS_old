@@ -212,7 +212,7 @@
                                             <img class="avatar rounded-circle" src="{{asset('Style/images/profile_av.png')}}" alt="perfil">
                                             <div class="flex-fill ms-3">
                                                 <p class="mb-0"><span class="font-weight-bold">{{ auth()->user()->nome }} {{ auth()->user()->sobreNome }}</span></p>
-                                                <small class="">{{ auth()->user()->id }}</small>
+                                                <small class="">{{ auth()->user()->email }}</small>
                                             </div>
                                         </div>
                                         
