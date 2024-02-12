@@ -22,8 +22,8 @@
                             <div class="row g-3 align-items-center">
                                 <div class="col-md-6">
                                     <label  class="form-label">Paciente</label>
-                                    <select class="form-select" name="paciente" aria-label="Default select example">
-                                        <option selected>Selecione o Paciente</option>
+                                    <select class="form-select" name="paciente" aria-label="Default select example" required>
+                                        <option selected disabled value="">Selecione o Paciente</option>
                                         @foreach ($pacientes as $paciente)
                                         <option value="{{ $paciente->id }}">{{ $paciente->nome }} {{ $paciente->sobreNome }}</option>
                                         @endforeach
@@ -52,12 +52,12 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="data_agendada" class="form-label">Data</label>
-                                    <input type="date" name="data_agendada" class="form-control" id="data_agendada">
+                                    <input type="date" min="<?php echo date('Y-m-d'); ?>"  name="data_agendada" class="form-control" id="data_agendada" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Hora</label>
-                                    <select class="form-select" name="hora" aria-label="Default select example">
-                                        <option selected>Selecione um horário</option>
+                                    <select class="form-select" name="hora" aria-label="Default select example" required>
+                                        <option selected disabled value="">Selecione um horário</option>
                                         <option value="08:30">08:30</option>
                                         <option value="09:30">09:30</option>
                                         <option value="10:30">10:30</option>
@@ -75,8 +75,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label  class="form-label">Tipo de Consulta</label>
-                                    <select class="form-select" name="tipo" aria-label="Default select example">
-                                        <option selected>Selecione o tipo de Procedimento</option>
+                                    <select class="form-select" name="tipo" aria-label="Default select example" required>
+                                        <option selected disabled value="">Selecione o tipo de Procedimento</option>
                                         @foreach ($tipoConsultas as $tc)
                                         <option value="{{ $tc->id }}">{{ $tc->nome }}</option>
                                         @endforeach
@@ -84,8 +84,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label  class="form-label">Doctor</label>
-                                    <select class="form-select" name="p_clinic" aria-label="Default select example">
-                                        <option selected>Selecione o Doctor</option>
+                                    <select class="form-select" name="p_clinic" aria-label="Default select example" required>
+                                        <option selected disabled value="">Selecione o Doctor</option>
                                         @foreach ($doctores as $doctor)
                                         <option value="{{ $doctor->id }}">{{ $doctor->nome }} {{ $doctor->sobreNome }}</option>
                                         @endforeach
