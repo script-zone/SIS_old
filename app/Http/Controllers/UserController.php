@@ -56,10 +56,7 @@ class UserController extends Controller
 
             DB::commit();
 
-            $retorno['dadosValidos'] = [
-                'numero_user' => $user->numero_user,
-                'password' => $user->password,
-            ];
+            $retorno['estado'] = true;
 
         } catch (Exception $th) {
             DB::rollBack();
@@ -72,12 +69,13 @@ class UserController extends Controller
 
             $retorno['error_sql'] = $th->getMessage();
             $retorno['estado'] = false;
-            return redirect()->back()->withErrors([
+
+            return response([
                 'retorno' => $retorno,
             ]);
         }
 
-        return redirect()->back()->with([
+        return response([
             'retorno' => $retorno,
         ]);
 

@@ -53,7 +53,7 @@
                     <div class="col-lg-6 d-flex justify-content-center align-items-center border-0 rounded-lg auth-h100">
                         <div class="w-100 p-3 p-md-5 card border-0 bg-dark text-light" style="max-width: 32rem;">
                             <!-- Form -->
-                            <form action="{{route('paciente.criar_conta')}}" method="POST" id="signup-form" class="row g-1 p-3 p-md-4">
+                            <form id="form_store_full_paciente_site" class="row g-1 p-3 p-md-4">
                                 @csrf
                                 <div class="col-12 text-center mb-5">
                                     <h3>Caro PACIENTE</h3>
@@ -63,43 +63,41 @@
                                 <div class="col-6">
                                     <div class="mb-2">
                                         <label class="form-label">Nome</label>
-                                        <input type="text" name="nome" class="form-control form-control-lg" placeholder="Ex: Fridson">
+                                        <input type="text" name="nome" id="nome" class="form-control form-control-lg" placeholder="Ex: Fridson" required>
+                                        <span id="nomeAviso" class="text-danger d-none">Por favor informe um nome válido... </span>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="mb-2">
                                         <label class="form-label">Sobrenome</label>
-                                        <input type="text" name="sobreNome" class="form-control form-control-lg" placeholder="Ex: Firmino">
+                                        <input type="text" name="sobreNome" id="sobreNome" class="form-control form-control-lg" placeholder="Ex: Firmino" required>
+                                        <span id="sobrenomeAviso" class="text-danger d-none">Por favor informe um nome válido... </span>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="mb-2">
                                         <label class="form-label">E-mail</label>
-                                        <input type="email" name="email" class="form-control form-control-lg" placeholder="name@example.com">
-                                        @error('email')
-                                            <span id="erro_email">{{ message }}</span>
-                                        @enderror
+                                        <input type="email" name="email" id="email" class="form-control form-control-lg" placeholder="name@example.com" required>
+                                        <span id="emailAviso" class="text-danger d-none">Por favor informe um email válido... </span>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="mb-2">
                                         <label class="form-label">Senha</label>
-                                        <input type="password" name="password" id="password" class="form-control form-control-lg" placeholder="8+ characters required">
-                                        @error('password')
-                                            <span id="erro_psw">{{ message }}</span>
-                                        @enderror
+                                        <input type="password" name="password" id="password" class="form-control form-control-lg" placeholder="8+ characters required" required>
+                                        <span id="passwordAviso" class="text-danger d-none">Por favor informe uma senha válida, tamanho minimo 8...</span>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="mb-2">
                                         <label class="form-label">Confirmar Senha</label>
-                                        <input type="password" name="re_password" id="re_password" class="form-control form-control-lg" placeholder="8+ characters required">
-                                        <span id="fb"><i class="fab fa-instagram"></i></span>
+                                        <input type="password" name="re_password" id="re_password" class="form-control form-control-lg" placeholder="8+ characters required" required>
+                                        <span id="re_passwordAviso" class="text-danger d-none">Por favor, as senhas devem ser iguais...</span>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="flexCheckDefault">
+                                        <input class="form-check-input" id="confirmo" type="checkbox" id="flexCheckDefault" required>
                                         <label class="form-check-label" for="flexCheckDefault">
                                             Eu aceito os <a href="#" title="Termos e as Condições">Termos e as Condições</a>
                                         </label>
@@ -127,7 +125,7 @@
 
 <!-- Jquery Core Js -->
 <script src="{{asset('Style/bundles/libscripts.bundle.js')}}"></script>
-<script src="{{asset('js/Site/login.js')}}"></script>
+<script src="{{asset('js/Site/criar_conta.js')}}"></script>
 
 </body>
 
