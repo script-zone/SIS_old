@@ -71,7 +71,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                            <a href="{{route('admin.marcacao.reagendarExame')}}" class="btn btn-outline-secondary" alt="Reagendar"><i class="icofont-edit text-success"></i></a>
+                                                            <a href="{{route('admin.marcacao.reagendarExame', Crypt::encryptString($exame->id))}}" class="btn btn-outline-secondary" alt="Reagendar"><i class="icofont-edit text-success"></i></a>
                                                             <a href="#" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#cancelarExame"><i class="icofont-ui-delete text-danger"></i></a>
                                                         </div>
                                                     </td>
@@ -134,7 +134,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                            <a href="{{route('admin.marcacao.reagendarConsulta')}}" class="btn btn-outline-secondary" alt="Reagendar"><i class="icofont-edit text-success"></i></a>
+                                                            <a href="{{ route('admin.marcacao.reagendarConsulta', Crypt::encryptString($consulta->id)) }}" class="btn btn-outline-secondary" alt="Reagendar"><i class="icofont-edit text-success"></i></a>
                                                             <a href="#" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#cancelarConsulta"><i class="icofont-ui-delete text-danger"></i></a>
 
                                                         </div>
@@ -194,7 +194,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                            <a href="{{route('admin.marcacao.reagendarProcedimento')}}" class="btn btn-outline-secondary" alt="Reagendar"><i class="icofont-edit text-success"></i></a>
+                                                            <a href="{{route('admin.marcacao.reagendarProcedimento', Crypt::encryptString($procedimento->id))}}" class="btn btn-outline-secondary" alt="Reagendar"><i class="icofont-edit text-success"></i></a>
                                                             <a href="#" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#cancelarProcedi"><i class="icofont-ui-delete text-danger"></i></a>
                                                         </div>
                                                     </td>

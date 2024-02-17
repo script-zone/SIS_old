@@ -44,5 +44,29 @@ class Consulta extends Model
         return DB::select("SELECT *  FROM consulta_especialidade WHERE especialidade_id = $espec_id");
     }
 
+    public static function getPaciente ($id_consulta) {
+        return DB::select("
+            SELECT u.nome, u.sobreNome, p.id FROM consultas c 
+            INNER JOIN pacientes p ON (c.paciente_id=p.id)
+            INNER JOIN users u ON (p.user_id=u.id)
+            WHERE c.id = $id_consulta
+        ")[0];
+    }
+
+    public static function getMedico ($id_consulta) {
+        return DB::select("
+            SELECT u.nome, u.sobreNome, p.id FROM consultas c 
+            INNER JOIN p_clinics p ON (c.paciente_id=p.id)
+            INNER JOIN users u ON (p.user_id=u.id)
+            WHERE c.id = $id_consulta
+        ")[0];
+    }
+
+    public static function getDadosConsulta ($id_consulta) {
+        return DB::select("
+            SELECT * FROM consultas WHERE id = $id_consulta
+        ")[0];
+    }
+
 
 }

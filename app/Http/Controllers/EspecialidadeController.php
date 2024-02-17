@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use App\Models\Especialidade;
 use App\Models\Exame;
 use DB;
@@ -54,6 +55,45 @@ class EspecialidadeController extends Controller
         return response([
             'retorno' => $retorno,
         ]);
+
+    }
+
+    public function editarEspecialidade ($id_especialidade) {
+
+        $dados = [
+            'especialidade' => Especialidade::getDadosEspecialidade(Crypt::decryptString($id_especialidade)),
+        ];
+
+        return view('Admin.Cadastro.editarEspec')->with($dados);
+    }
+
+    public function updateEspecialidade (Request $request, $id_especialidade) {
+
+        // dd($id_especialidade);
+
+        try {
+            DB::beginTransaction();
+
+            // registrando uma especialidade
+            $especialidade = Especialidade::find(Crypt::decryptString($id_especialidade));
+            $especialidade->nome = filter_var($request['nome'], FILTER_SANITIZE_STRING);
+            $especialidade->descricao = filter_var($request['descricao'], FILTER_SANITIZE_STRING);
+            $especialidade->save();
+
+            DB::commit();
+
+        } catch (Exception $th) {
+            DB::rollBack();
+
+            DB::beginTransaction(false);
+
+            $retorno['error_sql'] = $th->getMessage();
+            $retorno['estado'] = false;
+
+            return redirect()->back()->withErrors($retorno);
+        }
+        
+        return redirect()->back()->with('mgs', 'Dados Atualizado Com sucesso.');
 
     }
 

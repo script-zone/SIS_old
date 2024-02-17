@@ -52,6 +52,30 @@ class Exame extends Model
         return DB::select("SELECT *  FROM exame_especialidade WHERE especialidade_id = $espec_id");
     }
 
+    public static function getPaciente ($id_exame) {
+        return DB::select("
+            SELECT u.nome, u.sobreNome, p.id FROM exames c 
+            INNER JOIN pacientes p ON (c.paciente_id=p.id)
+            INNER JOIN users u ON (p.user_id=u.id)
+            WHERE c.id = $id_exame
+        ")[0];
+    }
+
+    public static function getMedico ($id_exame) {
+        return DB::select("
+            SELECT u.nome, u.sobreNome, p.id FROM exames c 
+            INNER JOIN p_clinics p ON (c.paciente_id=p.id)
+            INNER JOIN users u ON (p.user_id=u.id)
+            WHERE c.id = $id_exame
+        ")[0];
+    }
+
+    public static function getDadosConsulta ($id_exame) {
+        return DB::select("
+            SELECT * FROM exames WHERE id = $id_exame
+        ")[0];
+    }
+
 
 
 }

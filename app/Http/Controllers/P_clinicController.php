@@ -28,7 +28,6 @@ class P_clinicController extends Controller
         return view('Admin.Cadastro.cadastroDoctor')->with($dados);
     }
 
-
     public function createAccountUserP_clinic (Request $request) {
 
         // dd($request);
@@ -124,19 +123,78 @@ class P_clinicController extends Controller
         ]);
 
     }
-    
-    public function showP_clinic () {
-
-        $doctores = P_clinic::getAllDoctores();
-
-        return view('Admin.Listagem.todosDotores')->with(['doctores' => $doctores]);
-    }
 
     public function showP_clinic_Perfil () {
 
         
 
         return view('Admin.Doctor.perfil');
+    }
+
+    public function editarPerfilDoctor ($id_user_doctor) {
+
+        $dados = [
+            'doctor' => P_clinic::getDadosDoctor(Crypt::decryptString($id_user_doctor)),
+            'especialidades' => Especialidade::all(),
+        ];
+
+        return view('Admin.Doctor.edit_Perfil')->with($dados);
+    }
+    
+    public function UpdateAccountUserDoctor ($id_user_doctor, Request $request) {
+
+        $retorno['estado'] = true;
+
+        // dd(Crypt::decryptString($id_user_doctor),Crypt::decryptString($id_rcp),);
+
+        try {
+            DB::beginTransaction();
+
+            // registrando o paciente como user
+            $user = User::find(Crypt::decryptString($id_user_doctor));
+            $user->nome = filter_var($request['nome'], FILTER_SANITIZE_STRING);
+            $user->sobreNome = filter_var($request['sobreNome'], FILTER_SANITIZE_STRING);
+            $user->data_nascimento= filter_var($request['dataNascimento'], FILTER_SANITIZE_STRING);
+            $user->email        = filter_var($request['email'], FILTER_SANITIZE_STRING);
+            $user->codigoPostal= filter_var($request['codigoPostal'], FILTER_SANITIZE_STRING);
+            $user->localidade= filter_var($request['localidade'], FILTER_SANITIZE_STRING);
+            $user->telefone= filter_var($request['telefone'], FILTER_SANITIZE_NUMBER_INT);
+            $user->morada= filter_var($request['morada'], FILTER_SANITIZE_STRING);
+            $user->sexo= filter_var($request['Sexo'], FILTER_SANITIZE_STRING);
+            $user->bi= filter_var($request['bi'], FILTER_SANITIZE_STRING);
+            $user->save();
+
+            // registrando-o como paciente
+
+            $id_doctor = P_clinic::getIdP_clinic(Crypt::decryptString($id_user_doctor))->id;
+
+            $doctor = P_clinic::find($id_doctor);
+            $doctor->CRM = filter_var($request['CRM'], FILTER_SANITIZE_STRING);
+            $doctor->especialidade = $request['especialidade'];
+            $doctor->save();
+
+            DB::commit();
+
+        } catch (Exception $th) {
+            DB::rollBack();
+
+            // DB::beginTransaction(false);
+
+            $retorno['error_sql'] = $th->getMessage();
+            $retorno['estado'] = false;
+
+            return redirect()->back()->withErrors($retorno);
+        }
+        
+        return redirect()->back()->with('mgs', 'Dados Atualizado Com sucesso.'); // redirect(route(''))->with($retorno);
+
+    }
+    
+    public function showP_clinic () {
+
+        $doctores = P_clinic::getAllDoctores();
+
+        return view('Admin.Listagem.todosDotores')->with(['doctores' => $doctores]);
     }
 
     public function getAgendaMedica ($id_medico) {

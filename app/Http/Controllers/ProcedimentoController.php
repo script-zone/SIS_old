@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 use App\Models\Paciente;
 use App\Models\Especialidade;
@@ -99,6 +100,60 @@ class ProcedimentoController extends Controller
         return response([
             'retorno' => $retorno,
         ]);
+
+    }
+    
+    public function reagendarProcedimento ($id_procedimento) {
+
+        $dados = [
+            'paciente' => Procedimento::getPaciente(Crypt::decryptString($id_procedimento)),
+            'dadosProcedimento' => Procedimento::getDadosProcedimento(Crypt::decryptString($id_procedimento)),
+            'tipoProcedimentos' => Procedimento::getAllTipoProcedimentos(),
+            'doctores' => P_clinic::getP_clinic(),
+        ];
+
+        return view('Admin.Marcacao.reagendarProcedimento')->with($dados);
+    }
+
+    public function updateMarcacaoPrecedimento (Request $request, $id_procedimento, $rcp) {
+
+        $retorno['estado'] = true;
+
+        try {
+
+            DB::beginTransaction();
+
+            // registrando uma consulta
+            $consulta = Procedimento::find(Crypt::decryptString($id_procedimento));
+            $consulta->estado       = 0;
+            $consulta->data         = $request['data_agendada'];
+            $consulta->hora         = filter_var($request['hora'], FILTER_SANITIZE_STRING);
+            $consulta->paciente_id  = $request['paciente'];
+            $consulta->medico_id    = $request['p_clinic'];
+            $consulta->tipo         = $request['tipo'];
+            $consulta->rcp_id       = filter_var(Crypt::decryptString($rcp), FILTER_SANITIZE_STRING);
+            $consulta->save();
+
+            DB::commit();
+
+            $retorno['estado'] = true;
+
+        } catch (Exception $th) {
+            DB::rollBack();
+
+            DB::beginTransaction(false);
+
+            $retorno['error_sql'] = $th->getMessage();
+            $retorno['estado'] = false;
+
+            return redirect()->back()->withErrors($retorno);
+        }
+
+        $retorno['erros_validacao_user'] = [];
+        $retorno['erros_validacao_paciente'] = [];
+        $retorno['erros_validacao_rcp'] = [];
+        
+        return redirect()->back()->with('mgs', 'Dados Atualizados Com sucesso.');
 
     }
 

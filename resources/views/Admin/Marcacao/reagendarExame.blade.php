@@ -1,6 +1,23 @@
 @extends('Admin.index')
 
 @section('conteudo')
+
+@if (session('mgs'))
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading font-weight-semi-bold">Sucesso!</h4>
+        <p>{{ session('mgs') }}</p>
+    </div>
+@endif
+
+@if ($errors->all())
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading font-weight-semi-bold">Erros!</h4>
+        @foreach ($errors->all() as $error)
+            <p><i class="fa fa-times-circle"></i> {{ $error }} </p>
+        @endforeach
+    </div>
+@endif
+
 <div class="body d-flex py-3">
     <div class="container-xxl">
         <div class="row align-items-center">
@@ -17,21 +34,18 @@
                         <h6 class="mb-0 fw-bold ">Informações Básicas </h6>
                     </div>
                     <div class="card-body">
-                        <form>
+                    <form action="{{ route('admin.marcacao.updateExame', [Crypt::encryptString($dadosExame->id), Crypt::encryptString($dadosExame->rcp_id)]) }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
                             <div class="row g-3 align-items-center">
                                 <div class="col-md-6">
                                     <label  class="form-label">Paciente</label>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Selecione o Paciente</option>
-                                        <option value="1">Fridson Firmino</option>
-                                        <option value="2">Benvindo Alves</option>
-                                        <option value="3">Joelson Botelho</option>
-                                        <option value="4">Joilson Capemba</option>
-                                        <option value="5">Edvaldo Vitena</option>
+                                    <select class="form-select" name="paciente" aria-label="Default select example">
+                                        <option value="{{ $paciente->id }}" selected>{{ $paciente->nome }} {{ $paciente->sobreNome }}</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6">
-                                    <label  class="form-label">O Exame é Urgente?</label>
+                                    <label  class="form-label">A Consulta é Urgente?</label>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-check">
@@ -53,29 +67,36 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="admitdate" class="form-label">Data</label>
-                                    <input type="date" class="form-control" id="admitdate">
+                                    <input type="date" name="data_agendada" class="form-control" id="admitdate" value="{{ $dadosExame->data }}">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="admittime" class="form-label">Hora</label>
-                                    <input type="time" class="form-control" id="admittime">
+                                    <input type="time" name="hora" class="form-control" id="admittime" value="{{ $dadosExame->hora }}">
                                 </div>
                                 <div class="col-md-6">
-                                    <label  class="form-label">Tipo de Exame</label>
-                                    <select class="form-select" aria-label="Default select example">
+                                    <label  class="form-label">Tipo de Consulta</label>
+                                    <select class="form-select" name="tipo" aria-label="Default select example">
                                         <option selected>Selecione o tipo de Procedimento</option>
-                                        <option value="1">Surgeory</option>
-                                        <option value="2">Dentist Chekup</option>
-                                        <option value="3">Body Chekup</option>
-                                        <option value="4">Gynecologist Chekup</option>
-                                        <option value="5">Other Service</option>
+                                    @foreach ( $tipoExames as $exame )
+                                        @if ( $exame->id == $dadosExame->tipo )
+                                            <option selected value="{{ $exame->id }}">{{ $exame->nome }}</option>
+                                        @else
+                                            <option value="{{ $exame->id }}">{{ $exame->nome }}</option>
+                                        @endif
+                                    @endforeach
                                     </select>
                                 </div>
                                 <div class="col-md-6">
                                     <label  class="form-label">Doctor</label>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Selecione o Doctor</option>
-                                        <option value="1">DR.Fridson</option>
-                                        <option value="2">DR.Firmino</option>
+                                    <select class="form-select" name="p_clinic" aria-label="Default select example">
+                                        <option selected disabled>Selecione o Doctor</option>
+                                    @foreach ( $doctores as $doctor )
+                                        @if ( $doctor->id == $dadosExame->medico_id )
+                                            <option selected value="{{ $doctor->id }}">{{ $doctor->nome }} {{ $doctor->sobreNome }}</option>
+                                        @else
+                                            <option value="{{ $doctor->id }}">{{ $doctor->nome }} {{ $doctor->sobreNome }}</option>
+                                        @endif
+                                    @endforeach
                                     </select>
                                 </div>
                             </div>

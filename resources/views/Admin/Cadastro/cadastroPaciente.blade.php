@@ -104,10 +104,11 @@
                                     <label  class="form-label">Tem uma deficiencia?</label>
                                     <select class="form-control" name="deficiencia" id="deficiencia" aria-label="Default select example" required>
                                         <option selected disabled value="">Seleccione uma</option>
-                                        <option value="1">Deficiencia Visual</option>
-                                        <option value="1">Deficiência Auditiva</option>
-                                        <option value="2">Fisico Motor</option>
-                                        <option value="3">Outro</option>
+                                        <option value="Deficiencia Visual">Deficiencia Visual</option>
+                                        <option value="Deficiência Auditiva">Deficiência Auditiva</option>
+                                        <option value="Fisico Motor">Fisico Motor</option>
+                                        <option value="Outra">Outra</option>
+                                        <option value="Nenhuma">Nenhuma</option>
                                     </select>
                                     <span id="deficienciaAviso" class="text-danger d-none">Seleccione uma opção...</span>
                                 </div>
@@ -115,15 +116,15 @@
                                     <label  class="form-label">Grupo Sanguineo</label>
                                     <select class="form-control" name="grupo_sanguineo" id="grupo_sanguineo" aria-label="Default select example" required>
                                         <option selected disabled value="">Seleccione o Grupo Sanguineo</option>
-                                        <option value="1">O+</option>
-                                        <option value="2">O-</option>
-                                        <option value="3">A-</option>
-                                        <option value="4">A+</option>
-                                        <option value="5">B-</option>
-                                        <option value="6">B+</option>
-                                        <option value="7">AB-</option>
-                                        <option value="8">AB+</option>
-                                        <option value="9">Desconhecido</option>
+                                        <option value="O+">O+</option>
+                                        <option value="O-">O-</option>
+                                        <option value="A-">A-</option>
+                                        <option value="A+">A+</option>
+                                        <option value="B-">B-</option>
+                                        <option value="B+">B+</option>
+                                        <option value="AB-">AB-</option>
+                                        <option value="AB+">AB+</option>
+                                        <option value="Desconhecido">Desconhecido</option>
                                     </select>
                                     <span id="grupo_sanguineoAviso" class="text-danger d-none">Seleccione uma opção...</span>
                                 </div>
@@ -132,8 +133,11 @@
                                     <select class="form-control" name="alergia" id="alergia" aria-label="Default select example" required>
                                         <option selected disabled value="">Seleccione uma</option>
                                         <option value="1">Lactose</option>
-                                        <option value="2">Outro</option>
-                                        <option value="3">Desconhecido</option>
+                                        <option value="Alzaimer">Alzaimer</option>
+                                        <option value="Diabete">Diabete</option>
+                                        <option value="Ataque Cardio Vascular">Ataque Cardio Vascular</option>
+                                        <option value="Desconhecida">Desconhecida</option>
+                                        <option value="Nenhuma">Nenhuma</option>
                                     </select>
                                     <span id="alergiaAviso" class="text-danger d-none">Seleccione uma opção...</span>
                                 </div>

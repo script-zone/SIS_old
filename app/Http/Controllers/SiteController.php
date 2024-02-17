@@ -6,20 +6,36 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use App\Models\Validacao;
+use App\Models\P_clinic;
+use App\Models\Especialidade;
+use App\Models\Paciente;
+use App\Models\Exame;
+use App\Models\Consulta;
 
 class SiteController extends Controller
 {
     //
     public function index () {
-        return view('Site.index');
+
+        $dados = [
+            'especialidades' => Especialidade::all(),
+            'profissionais' => P_clinic::getProfissionais(),
+            'preco' => 2000,
+        ];
+
+        return view('Site.index')->with($dados);
     }
 
     public function getDashAdmin () {
 
-        
+        $dados = [
+            'totDoctores' => P_clinic::count(),
+            'totPacientes' => Paciente::count(),
+            'totExames' => Exame::count(),
+            'totConsultas' => Consulta::count(),
+        ];
 
-        return view('Admin.dashboard');
+        return view('Admin.dashboard')->with($dados);
     }
 
     public function login () {
@@ -31,10 +47,6 @@ class SiteController extends Controller
     }
 
     public function authLogin (Request $request) {
-        //dd($request);
-        //$retorno = Validacao::validarDadosLogin($request);
-        //dd($request['email']); 
-        //if($retorno['estado'] == true){}
 
         $request->validate([
             //validando

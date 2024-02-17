@@ -16,7 +16,7 @@
                                 <span class="fw-bold small-14">PACIENTE</span>
                                 <div class="btn-group" role="group" aria-label="Basic outlined example">
                                     <a href="#"  class="btn btn-outline-secondary text-danger">Eliminar</a>
-                                    <a href="{{route('admin.paciente.edit_Perfil')}}"  class="btn btn-outline-secondary text-success">Editar</a>
+                                    <a href="{{ route('admin.paciente.edit_Perfil', Crypt::encryptString(auth()->user()->id)) }}"  class="btn btn-outline-secondary text-success">Editar</a>
                                 </div>
                             </div>
                         </div>
@@ -374,4 +374,12 @@
         
     </div>
 </div>
+
+<script>
+
+    location.href = 
+
+</script>
+
+
 @endsection

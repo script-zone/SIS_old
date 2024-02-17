@@ -33,7 +33,7 @@
                                                 @foreach ($especialidades as $especialidade)
                                                 <tr>
                                                     <td>
-                                                        <span class="fw-bold">{{ $count++ }}</span>
+                                                        <span class="fw-bold">{{ ++$count }}</span>
                                                     </td>
                                                     <td>
                                                        {{ $especialidade->nome }}
@@ -43,7 +43,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                            <a href="{{route('admin.cadastro.editarEspec')}}" class="btn btn-outline-secondary" alt="Reagendar"><i class="icofont-edit text-success"></i></a>
+                                                            <a href="{{ route('admin.cadastro.editarEspec', Crypt::encryptString($especialidade->id)) }}" class="btn btn-outline-secondary" alt="Reagendar"><i class="icofont-edit text-success"></i></a>
                                                             <a href="#" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#"><i class="icofont-ui-delete text-danger"></i></a>
 
                                                         </div>

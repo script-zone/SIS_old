@@ -37,9 +37,9 @@
             <div class="row">
                 <div class="col-md-6 text-center text-lg-start mb-2 mb-lg-0">
                     <div class="d-inline-flex align-items-center">
-                        <a class="text-decoration-none text-body pe-3" href=""><i class="bi bi-telephone me-2"></i>244 943603570</a>
+                        <a class="text-decoration-none text-body pe-3" href=""><i class="bi bi-telephone me-2"></i>+244 922 229 992</a>
                         <span class="text-body">|</span>
-                        <a class="text-decoration-none text-body px-3" href=""><i class="bi bi-envelope me-2"></i>fridsoncmfgmail.com</a>
+                        <a class="text-decoration-none text-body px-3" href=""><i class="bi bi-envelope me-2"></i>script-zone@sz-corp.com</a>
                     </div>
                 </div>
                 <div class="col-md-6 text-center text-lg-end">
@@ -148,7 +148,7 @@
                         <div class="col-sm-3 col-6">
                             <div class="bg-light text-center rounded-circle py-4">
                                 <i class="fa fa-3x fa-ambulance text-primary mb-3"></i>
-                                <h6 class="mb-0">Ambuláncia<small class="d-block text-primary">Grátis</small></h6>
+                                <h6 class="mb-0">Ambulância<small class="d-block text-primary">Grátis</small></h6>
                             </div>
                         </div>
                     </div>
@@ -172,7 +172,7 @@
                         <div class="service-icon mb-4">
                             <i class="fa fa-2x fa-user-md text-white"></i>
                         </div>
-                        <h4 class="mb-3">Emergency Care</h4>
+                        <h4 class="mb-3">Pré-Natal</h4>
                         <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo elitr dolor amet sit</p>
                         <a class="btn btn-lg btn-primary rounded-pill" href="">
                             <i class="bi bi-arrow-right"></i>
@@ -184,7 +184,7 @@
                         <div class="service-icon mb-4">
                             <i class="fa fa-2x fa-procedures text-white"></i>
                         </div>
-                        <h4 class="mb-3">Operation & Surgery</h4>
+                        <h4 class="mb-3">Operacões & Cirurgias</h4>
                         <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo elitr dolor amet sit</p>
                         <a class="btn btn-lg btn-primary rounded-pill" href="">
                             <i class="bi bi-arrow-right"></i>
@@ -196,7 +196,7 @@
                         <div class="service-icon mb-4">
                             <i class="fa fa-2x fa-stethoscope text-white"></i>
                         </div>
-                        <h4 class="mb-3">Outdoor Checkup</h4>
+                        <h4 class="mb-3">Checkup</h4>
                         <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo elitr dolor amet sit</p>
                         <a class="btn btn-lg btn-primary rounded-pill" href="">
                             <i class="bi bi-arrow-right"></i>
@@ -208,7 +208,7 @@
                         <div class="service-icon mb-4">
                             <i class="fa fa-2x fa-ambulance text-white"></i>
                         </div>
-                        <h4 class="mb-3">Ambulance Service</h4>
+                        <h4 class="mb-3">Serviço de Ambulância</h4>
                         <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo elitr dolor amet sit</p>
                         <a class="btn btn-lg btn-primary rounded-pill" href="">
                             <i class="bi bi-arrow-right"></i>
@@ -220,7 +220,7 @@
                         <div class="service-icon mb-4">
                             <i class="fa fa-2x fa-pills text-white"></i>
                         </div>
-                        <h4 class="mb-3">Medicine & Pharmacy</h4>
+                        <h4 class="mb-3">Medicina & Farmácia</h4>
                         <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo elitr dolor amet sit</p>
                         <a class="btn btn-lg btn-primary rounded-pill" href="">
                             <i class="bi bi-arrow-right"></i>
@@ -232,7 +232,7 @@
                         <div class="service-icon mb-4">
                             <i class="fa fa-2x fa-microscope text-white"></i>
                         </div>
-                        <h4 class="mb-3">Blood Testing</h4>
+                        <h4 class="mb-3">Testes de Sangue</h4>
                         <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo elitr dolor amet sit</p>
                         <a class="btn btn-lg btn-primary rounded-pill" href="">
                             <i class="bi bi-arrow-right"></i>
@@ -258,78 +258,23 @@
                 <h1 class="display-4">Especialidades Médicas Incríveis</h1>
             </div>
             <div class="owl-carousel price-carousel position-relative" style="padding: 0 45px 45px 45px;">
+                @foreach ($especialidades as $e)
                 <div class="bg-light rounded text-center">
                     <div class="position-relative">
-                        <img class="img-fluid rounded-top" src="img/price-1.jpg" alt="">
+                        <img class="img-fluid rounded-top" src="{{ asset('img/price-1.jpg') }}" alt="">
                         <div class="position-absolute w-100 h-100 top-50 start-50 translate-middle rounded-top d-flex flex-column align-items-center justify-content-center" style="background: rgba(29, 42, 77, .8);">
-                            <h3 class="text-white">Pregnancy Care</h3>
+                            <h3 class="text-white">{{ $e->nome }}</h3>
                             <h1 class="display-4 text-white mb-0">
-                                <small class="align-top fw-normal" style="font-size: 22px; line-height: 45px;">$</small>49<small class="align-bottom fw-normal" style="font-size: 16px; line-height: 40px;">/ Year</small>
+                                <small class="align-top fw-normal" style="font-size: 22px; line-height: 45px;">Kz</small>{{ $preco * $e->id }}<small class="align-bottom fw-normal" style="font-size: 16px; line-height: 40px;">/ Mês</small>
                             </h1>
                         </div>
                     </div>
                     <div class="text-center py-5">
-                        <p>Emergency Medical Treatment</p>
-                        <p>Highly Experienced Doctors</p>
-                        <p>Highest Success Rate</p>
-                        <p>Telephone Service</p>
-                        <a href="" class="btn btn-primary rounded-pill py-3 px-5 my-2">Apply Now</a>
+                        <p>{{ $e->descricao }}</p>
+                        <a href="" class="btn btn-primary rounded-pill py-3 px-5 my-2">Solicitar Serviço</a>
                     </div>
                 </div>
-                <div class="bg-light rounded text-center">
-                    <div class="position-relative">
-                        <img class="img-fluid rounded-top" src="img/price-2.jpg" alt="">
-                        <div class="position-absolute w-100 h-100 top-50 start-50 translate-middle rounded-top d-flex flex-column align-items-center justify-content-center" style="background: rgba(29, 42, 77, .8);">
-                            <h3 class="text-white">Health Checkup</h3>
-                            <h1 class="display-4 text-white mb-0">
-                                <small class="align-top fw-normal" style="font-size: 22px; line-height: 45px;">$</small>99<small class="align-bottom fw-normal" style="font-size: 16px; line-height: 40px;">/ Year</small>
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="text-center py-5">
-                        <p>Emergency Medical Treatment</p>
-                        <p>Highly Experienced Doctors</p>
-                        <p>Highest Success Rate</p>
-                        <p>Telephone Service</p>
-                        <a href="" class="btn btn-primary rounded-pill py-3 px-5 my-2">Apply Now</a>
-                    </div>
-                </div>
-                <div class="bg-light rounded text-center">
-                    <div class="position-relative">
-                        <img class="img-fluid rounded-top" src="img/price-3.jpg" alt="">
-                        <div class="position-absolute w-100 h-100 top-50 start-50 translate-middle rounded-top d-flex flex-column align-items-center justify-content-center" style="background: rgba(29, 42, 77, .8);">
-                            <h3 class="text-white">Dental Care</h3>
-                            <h1 class="display-4 text-white mb-0">
-                                <small class="align-top fw-normal" style="font-size: 22px; line-height: 45px;">$</small>149<small class="align-bottom fw-normal" style="font-size: 16px; line-height: 40px;">/ Year</small>
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="text-center py-5">
-                        <p>Emergency Medical Treatment</p>
-                        <p>Highly Experienced Doctors</p>
-                        <p>Highest Success Rate</p>
-                        <p>Telephone Service</p>
-                        <a href="" class="btn btn-primary rounded-pill py-3 px-5 my-2">Apply Now</a>
-                    </div>
-                </div>
-                <div class="bg-light rounded text-center">
-                    <div class="position-relative">
-                        <img class="img-fluid rounded-top" src="img/price-4.jpg" alt="">
-                        <div class="position-absolute w-100 h-100 top-50 start-50 translate-middle rounded-top d-flex flex-column align-items-center justify-content-center" style="background: rgba(29, 42, 77, .8);">
-                            <h3 class="text-white">Operation & Surgery</h3>
-                            <h1 class="display-4 text-white mb-0">
-                                <small class="align-top fw-normal" style="font-size: 22px; line-height: 45px;">$</small>199<small class="align-bottom fw-normal" style="font-size: 16px; line-height: 40px;">/ Year</small>
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="text-center py-5">
-                        <p>Emergency Medical Treatment</p>
-                        <p>Highly Experienced Doctors</p>
-                        <p>Highest Success Rate</p>
-                        <p>Telephone Service</p>
-                        <a href="" class="btn btn-primary rounded-pill py-3 px-5 my-2">Apply Now</a>
-                    </div>
-                </div>
+                @endforeach  
             </div>
         </div>
     </div>
@@ -344,25 +289,7 @@
                 <h1 class="display-4">Profissionais de Saúde Qualificados</h1>
             </div>
             <div class="owl-carousel team-carousel position-relative">
-                <div class="team-item">
-                    <div class="row g-0 bg-light rounded overflow-hidden">
-                        <div class="col-12 col-sm-5 h-100">
-                            <img class="img-fluid h-100" src="img/team-1.jpg" style="object-fit: cover;">
-                        </div>
-                        <div class="col-12 col-sm-7 h-100 d-flex flex-column">
-                            <div class="mt-auto p-4">
-                                <h3>Doctor Name</h3>
-                                <h6 class="fw-normal fst-italic text-primary mb-4">Cardiology Specialist</h6>
-                                <p class="m-0">Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor</p>
-                            </div>
-                            <div class="d-flex mt-auto border-top p-4">
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="#"><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @foreach ($profissionais as $p)
                 <div class="team-item">
                     <div class="row g-0 bg-light rounded overflow-hidden">
                         <div class="col-12 col-sm-5 h-100">
@@ -370,9 +297,9 @@
                         </div>
                         <div class="col-12 col-sm-7 h-100 d-flex flex-column">
                             <div class="mt-auto p-4">
-                                <h3>Doctor Name</h3>
-                                <h6 class="fw-normal fst-italic text-primary mb-4">Cardiology Specialist</h6>
-                                <p class="m-0">Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor</p>
+                                <h3>{{ $p->nome }} {{ $p->sobreNome }}</h3>
+                                <h6 class="fw-normal fst-italic text-primary mb-4">Especialista em {{ $p->especialidade }}</h6>
+                                <!-- <p class="m-0">Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor</p> -->
                             </div>
                             <div class="d-flex mt-auto border-top p-4">
                                 <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="#"><i class="fab fa-twitter"></i></a>
@@ -382,25 +309,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="team-item">
-                    <div class="row g-0 bg-light rounded overflow-hidden">
-                        <div class="col-12 col-sm-5 h-100">
-                            <img class="img-fluid h-100" src="img/team-3.jpg" style="object-fit: cover;">
-                        </div>
-                        <div class="col-12 col-sm-7 h-100 d-flex flex-column">
-                            <div class="mt-auto p-4">
-                                <h3>Doctor Name</h3>
-                                <h6 class="fw-normal fst-italic text-primary mb-4">Cardiology Specialist</h6>
-                                <p class="m-0">Dolor lorem eos dolor duo eirmod sea. Dolor sit magna rebum clita rebum dolor</p>
-                            </div>
-                            <div class="d-flex mt-auto border-top p-4">
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="#"><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

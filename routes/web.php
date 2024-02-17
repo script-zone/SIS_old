@@ -37,31 +37,19 @@ Route::group(['middleware' => ['auth']], function () {
 
     ////////// dOCTORES //////////////
     Route::get('/admin/user/doctor/listar-doctores', [P_clinicController::class, 'showP_clinic'])->name('admin.doctor.todosDoctores');
-
     Route::get('/admin/user/doctor/perfil-Doctor', [P_clinicController::class, 'showP_clinic_Perfil'])->name('admin.doctor.pefil');
-
-    Route::get('/admin/user/doctor/perfil/editar-perfil', function () {
-        return view('Admin.Doctor.edit_Perfil');
-    })->name('admin.doctor.edit_Perfil');
-
     Route::get('/admin/user/doctor/agenda-medica/{id_medico}', [P_clinicController::class, 'getAgendaMedica'])->name('admin.doctor.agendaMedica');
 
     ////////// PACIENTE //////////////
     Route::get('/admin/user/doctor/listar-pacientes', [PacienteController::class, 'showPaciente'])->name('admin.listarPaciente');
-    
     Route::get('/admin/user/paciente/perfil-paciente', [PacienteController::class, 'showPacientePerfil'])->name('admin.paciente.perfil');
-
-    Route::get('/admin/user/paciente/perfil/editar-perfil', function () {
-        return view('Admin.Paciente.edit_Perfil');
-    })->name('admin.paciente.edit_Perfil');
-
     Route::get('/admin/user/paciente/agenda/agenda-medica/{id_paciente}', [PacienteController::class, 'getAgendaMedica'])->name('admin.paciente.minhaAgenda');
 
 
     ////////// Laboratorio //////////////
     Route::get('/admin/user/tecnico_lab/resultados/pendentes',[P_clinicController::class, 'listarExameslab'])->name('admin.lab.listaDeExameEmEspera');
 
-    Route::get('/admin/user/tecnico_lab/resultados/lancar-resulado', function () {
+    Route::get('/admin/user/tecnico_lab/resultados/lancar-resultado', function () {
         return view('Admin.Lab.resultadoExame');
     })->name('admin.lab.resultadoExame');
 
@@ -70,23 +58,27 @@ Route::group(['middleware' => ['auth']], function () {
     // pacientes
     Route::get('/admin/cadastro/paciente', [PacienteController::class, 'formAccountUserPaciente'])->name('admin.cadastro.cadastroPaciente');
     Route::post('/admin/store/paciente', [PacienteController::class, 'createAccountUserPaciente'])->name('admin.store.paciente');
+    Route::get('/admin/user/paciente/perfil/editar-perfil/{id_paciente}', [PacienteController::class, 'editarPerfilPaciente'])->name('admin.paciente.edit_Perfil');
+    Route::put('/admin/user/paciente/perfil/editar-perfil/update/{id_user_paciente}/{id_rcp}', [PacienteController::class, 'UpdateAccountUserPaciente'])->name('admin.paciente.update_Perfil');
 
     // pessoal clinico
     Route::get('/admin/cadastro/p_clinic', [P_clinicController::class, 'formCreateAccountP_clinic'])->name('admin.cadastro.p_clinic');
     Route::post('/admin/store/p_clinic', [P_clinicController::class, 'createAccountUserP_clinic'])->name('admin.cadastro.store.p_clinic');
+    Route::get('/admin/user/doctor/perfil/editar-perfil/{id_user_doctor}', [P_clinicController::class, 'editarPerfilDoctor'])->name('admin.doctor.edit_Perfil');
+    Route::put('/admin/user/doctor/perfil/editar-perfil/update/{id_user_doctor}', [P_clinicController::class, 'UpdateAccountUserDoctor'])->name('admin.doctor.update_Perfil');
 
     // Especialidades
     Route::get('/admin/especialidade/listar', [EspecialidadeController::class, 'showAllEspecialidades'])->name('admin.listagem.todasEspec');
     Route::get('/admin/cadastro/especialidade', [EspecialidadeController::class, 'formCreateEspecialidade'])->name('admin.cadastro.cadastroEspecialidade');
     Route::post('/admin/store/especialidade', [EspecialidadeController::class, 'createEspecialidade'])->name('admin.store.especialidade');
+    Route::get('/admin/especialidade/editar/{id_especialidade}', [EspecialidadeController::class, 'editarEspecialidade'])->name('admin.cadastro.editarEspec');
+    Route::put('/admin/especialidade/update/{id_especialidade}', [EspecialidadeController::class, 'updateEspecialidade'])->name('admin.cadastro.updateEspec');
+
     Route::get('/admin/cadastro/exame', [EspecialidadeController::class, 'formCreateExame'])->name('admin.cadastro.exame');
     Route::post('/admin/store/exame_especialidade', [EspecialidadeController::class, 'storeTipoExame'])->name('admin.store.exame_especialidade');
     Route::get('/admin/cadastro/consulta', [EspecialidadeController::class, 'formCreateConsulta'])->name('admin.cadastro.consulta');
     Route::post('/admin/store/consulta_especialidade', [EspecialidadeController::class, 'storeTipoConsulta'])->name('admin.store.consulta_especialidade');
 
-    Route::get('/admin/especialidade/editar', function () {
-        return view('Admin.Cadastro.editarEspec');
-    })->name('admin.cadastro.editarEspec');
 
 
 
@@ -101,17 +93,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/admin/store/procedimento/marcar', [ProcedimentoController::class, 'storeMarcacaoProcedimento'])->name('admin.store.marcacao.procedimento');
 
     ////////////// REAGENDAR OU EDITAR Marcação ////////////////////
-    Route::get('/admin/user/doctor/procedimento/reagendar-procedimento', function () {
-        return view('Admin.Doctor.reagendarProcedimento');
-    })->name('admin.marcacao.reagendarProcedimento');
+    Route::get('/admin/consulta/reagendar-consulta/{id_consulta}', [ConsultaController::class, 'reagendarConsulta'])->name('admin.marcacao.reagendarConsulta');
+    Route::put('/admin/consulta/update-consulta/{id_consulta}/{rcp}', [ConsultaController::class, 'updateMarcacaoConsulta'])->name('admin.marcacao.updateConsulta');
 
-    Route::get('/admin/user/doctor/exame/reagendar-exame', function () {
-        return view('Admin.Marcacao.reagendarExame');
-    })->name('admin.marcacao.reagendarExame');
+    Route::get('/admin/exame/reagendar-exame/{id_exame}', [ExameController::class, 'reagendarExame'])->name('admin.marcacao.reagendarExame');
+    Route::put('/admin/exame/update-exame/{id_exame}/{rcp}', [ExameController::class, 'updateMarcacaoExame'])->name('admin.marcacao.updateExame');
 
-    Route::get('/admin/user/doctor/consulta/reagendar-consulta', function () {
-        return view('Admin.Marcacao.reagendarConsulta');
-    })->name('admin.marcacao.reagendarConsulta');
+    Route::get('/admin/procedimento/reagendar-procedimento/{id_procedimento}', [ProcedimentoController::class, 'reagendarProcedimento'])->name('admin.marcacao.reagendarProcedimento');
+    Route::put('/admin/procedimento/update-procedimento/{id_procedimento}/{rcp}', [ProcedimentoController::class, 'updateMarcacaoPrecedimento'])->name('admin.marcacao.updateProcedimento');
+
+
 
 
     ////////// CONFIG //////////////

@@ -16,7 +16,7 @@
 									<div class="card-body ">
 										<i class="icofont-patient-file fs-3 text-secondary"></i>
 										<h6 class="mt-3 mb-0 fw-bold small-14">Total Exames</h6>
-										<span class="text-muted">400</span>
+										<span class="text-muted">{{ $totExames }}</span>
 									</div>
 								</div>
 							</div>
@@ -25,7 +25,7 @@
 									<div class="card-body ">
 										<i class="icofont-patient-file fs-3 text-secondary"></i>
 										<h6 class="mt-3 mb-0 fw-bold small-14">Total Consultas</h6>
-										<span class="text-muted">400</span>
+										<span class="text-muted">{{ $totConsultas }}</span>
 									</div>
 								</div>
 							</div>
@@ -34,7 +34,7 @@
 									<div class="card-body ">
 										<i class="icofont-crutch fs-3 color-lightblue"></i>
 										<h6 class="mt-3 mb-0 fw-bold small-14">Total de Pacientes</h6>
-										<span class="text-muted">117</span>
+										<span class="text-muted">{{ $totPacientes }}</span>
 									</div>
 								</div>
 							</div>
@@ -43,7 +43,7 @@
 									<div class="card-body ">
 										<i class="icofont-doctor fs-3 color-light-orange"></i>
 										<h6 class="mt-3 mb-0 fw-bold small-14">Pacientes por Doctor</h6>
-										<span class="text-muted">16</span>
+										<span class="text-muted">{{ 0 }}</span>
 									</div>
 								</div>
 							</div>
@@ -52,7 +52,7 @@
 									<div class="card-body ">
 										<i class="icofont-king-monster fs-3 color-careys-pink"></i>
 										<h6 class="mt-3 mb-0 fw-bold small-14">Pacientes Mortos</h6>
-										<span class="text-muted">144</span> 
+										<span class="text-muted">{{ 0 }}</span> 
 									</div>
 								</div>
 							</div>
@@ -61,7 +61,7 @@
 									<div class="card-body ">
 										<i class="icofont-doctor-alt fs-3 color-lavender-purple"></i>
 										<h6 class="mt-3 mb-0 fw-bold small-14">Total Doctores</h6>
-										<span class="text-muted">200</span>
+										<span class="text-muted">{{ $totDoctores }}</span>
 									</div>
 								</div>
 							</div>
@@ -70,7 +70,7 @@
 									<div class="card-body ">
 										<i class="icofont-nurse-alt fs-3 color-light-success"></i>
 										<h6 class="mt-3 mb-0 fw-bold small-14">Total Enfermeiras</h6>
-										<span class="text-muted">84</span> 
+										<span class="text-muted">{{ 0 }}</span> 
 									</div>
 								</div>
 							</div>
@@ -79,7 +79,7 @@
 									<div class="card-body ">
 										<i class="icofont-nurse-alt fs-3 color-light-success"></i>
 										<h6 class="mt-3 mb-0 fw-bold small-14">Total Altas</h6>
-										<span class="text-muted">84</span> 
+										<span class="text-muted">{{ 0 }}</span> 
 									</div>
 								</div>
 							</div>
