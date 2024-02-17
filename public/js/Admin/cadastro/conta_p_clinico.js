@@ -81,11 +81,11 @@ form_store_full_p_clinico.addEventListener("submit", function (e) {
             document.getElementById("password").value = "";
             document.getElementById("re_password").value = "";
             document
-                .getElementById("alerta-sucesso")
+                .getElementById("alerta-problema")
                 .classList.remove("d-none");
-            document.getElementById("alerta-sucesso").innerHTML =
+            document.getElementById("alerta-problema").innerHTML =
                 "Falha ao cadastrar a Especialidade...";
-            document.getElementById("alerta-sucesso").classList.add("d-flex");
+            document.getElementById("alerta-problema").classList.add("d-flex");
         },
         beforeSend: function () {},
         complete: function () {},
