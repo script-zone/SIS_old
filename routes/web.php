@@ -37,7 +37,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     ////////// dOCTORES //////////////
     Route::get('/admin/user/doctor/listar-doctores', [P_clinicController::class, 'showP_clinic'])->name('admin.doctor.todosDoctores');
-    Route::get('/admin/user/doctor/perfil-Doctor', [P_clinicController::class, 'showP_clinic_Perfil'])->name('admin.doctor.pefil');
+    Route::get('/admin/user/doctor/perfil-Doctor/{id_user_doctor}', [P_clinicController::class, 'showP_clinic_Perfil'])->name('admin.doctor.perfil');
     Route::get('/admin/user/doctor/agenda-medica/{id_medico}', [P_clinicController::class, 'getAgendaMedica'])->name('admin.doctor.agendaMedica');
 
     ////////// PACIENTE //////////////

@@ -51,7 +51,7 @@
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-Doctor">
                         <li><a class="ms-link" href="{{route('admin.doctor.agendaMedica', Crypt::encryptString(auth()->user()->id))}}">Agenda Médica</a></li>
-                        <li><a class="ms-link" href="{{route('admin.doctor.pefil')}}">Meu Perfil</a></li>
+                        <li><a class="ms-link" href="{{route('admin.doctor.perfil', Crypt::encryptString(auth()->user()->id))}}">Meu Perfil</a></li>
                     </ul>
                 </li>
                 <li class="collapsed">

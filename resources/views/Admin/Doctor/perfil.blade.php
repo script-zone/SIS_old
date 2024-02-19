@@ -12,7 +12,7 @@
                                 <img src="assets/images/lg/avatar3.jpg" alt="" class="avatar xl rounded-circle img-thumbnail shadow-sm">
                             </a>
                             <div class="about-info d-flex align-items-center mt-3 justify-content-center flex-column">
-                                <span class="fw-bold small">PEDIATRIA</span>
+                                <span class="fw-bold small">{{ $doctor->especialidade }}</span>
                                 <div class="btn-group" role="group" aria-label="Basic outlined example">
                                     <a href="#"  class="btn btn-outline-secondary text-danger">Eliminar</a>
                                     <a href="{{ route('admin.doctor.edit_Perfil', Crypt::encryptString(auth()->user()->id)) }}"  class="btn btn-outline-secondary text-success">Editar</a>
@@ -20,32 +20,32 @@
                             </div>
                         </div>
                         <div class="teacher-info border-start ps-xl-4 ps-md-4 ps-sm-4 ps-4 w-100">
-                            <h6  class="mb-0 mt-2  fw-bold d-block fs-6">Dr. Doctor Teste</h6>
-                            <span class="py-1 fw-bold small-11 mb-0 mt-1 text-muted">Vila de Viana, Angola/Luanda</span>
+                            <h6  class="mb-0 mt-2  fw-bold d-block fs-6">{{ $doctor->nome }} {{ $doctor->sobreNome }}</h6>
+                            <span class="py-1 fw-bold small-11 mb-0 mt-1 text-muted">{{ $doctor->localidade }}</span>
                             <p class="mt-2">No bio yet.</p>
                             <div class="row g-2 pt-2">
                                 <div class="col-xl-5">
                                     <div class="d-flex align-items-center">
                                         <i class="icofont-ui-touch-phone"></i>
-                                        <span class="ms-2">924145786</span>
+                                        <span class="ms-2">{{ $doctor->telefone }}</span>
                                     </div>
                                 </div>
                                 <div class="col-xl-5">
                                     <div class="d-flex align-items-center">
                                         <i class="icofont-email"></i>
-                                        <span class="ms-2">doctorteste@gmail.com</span>
+                                        <span class="ms-2">{{ $doctor->email }}</span>
                                     </div>
                                 </div>
                                 <div class="col-xl-5">
                                     <div class="d-flex align-items-center">
                                         <i class="icofont-birthday-cake"></i>
-                                        <span class="ms-2">DD/MM/YYYY</span>
+                                        <span class="ms-2">{{ $doctor->data_nascimento }}</span>
                                     </div>
                                 </div>
                                 <div class="col-xl-5">
                                     <div class="d-flex align-items-center">
                                         <i class="icofont-address-book"></i>
-                                        <span class="ms-2">Casa S/N</span>
+                                        <span class="ms-2">{{ $doctor->morada }}</span>
                                     </div>
                                 </div>
                             </div>
