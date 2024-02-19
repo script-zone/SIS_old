@@ -126,7 +126,9 @@ class P_clinicController extends Controller
 
     public function showP_clinic_Perfil () {
 
-        
+        $dados = [
+            'doctor' => P_clinic::getDadosDoctor(Crypt::decrypt($id_user_doctor)),
+        ];
 
         return view('Admin.Doctor.perfil');
     }

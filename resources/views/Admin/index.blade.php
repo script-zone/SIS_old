@@ -51,7 +51,7 @@
                     <!-- Menu: Sub menu ul -->
                     <ul class="sub-menu collapse" id="menu-Doctor">
                         <li><a class="ms-link" href="{{route('admin.doctor.agendaMedica', Crypt::encryptString(auth()->user()->id))}}">Agenda Médica</a></li>
-                        <li><a class="ms-link" href="{{route('admin.doctor.pefil')}}">Meu Perfil</a></li>
+                        <li><a class="ms-link" href="{{route('admin.doctor.perfil', Crypt::encryptString(auth()->user()->id))}}">Meu Perfil</a></li>
                     </ul>
                 </li>
                 <li class="collapsed">
@@ -62,7 +62,7 @@
                         <li><a class="ms-link" href="{{route('admin.paciente.minhaAgenda', Crypt::encryptString(auth()->user()->id))}}">Minha Agenda</a></li>
                         <li><a class="ms-link" href="#">Minhas Facturas</a></li>
                         <li><a class="ms-link" href="#">Mensagens</a></li>
-                        <li><a class="ms-link" href="{{route('admin.paciente.perfil')}}">Meu Perfil</a></li>
+                        <li><a class="ms-link" href="{{route('admin.paciente.perfil', Crypt::encryptString(auth()->user()->id))}}">Meu Perfil</a></li>
                     </ul>
                 </li>
                 <li class="collapsed">

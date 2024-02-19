@@ -37,12 +37,12 @@ Route::group(['middleware' => ['auth']], function () {
 
     ////////// dOCTORES //////////////
     Route::get('/admin/user/doctor/listar-doctores', [P_clinicController::class, 'showP_clinic'])->name('admin.doctor.todosDoctores');
-    Route::get('/admin/user/doctor/perfil-Doctor', [P_clinicController::class, 'showP_clinic_Perfil'])->name('admin.doctor.pefil');
+    Route::get('/admin/user/doctor/perfil-Doctor/{id_user_doctor}', [P_clinicController::class, 'showP_clinic_Perfil'])->name('admin.doctor.perfil');
     Route::get('/admin/user/doctor/agenda-medica/{id_medico}', [P_clinicController::class, 'getAgendaMedica'])->name('admin.doctor.agendaMedica');
 
     ////////// PACIENTE //////////////
     Route::get('/admin/user/doctor/listar-pacientes', [PacienteController::class, 'showPaciente'])->name('admin.listarPaciente');
-    Route::get('/admin/user/paciente/perfil-paciente', [PacienteController::class, 'showPacientePerfil'])->name('admin.paciente.perfil');
+    Route::get('/admin/user/paciente/perfil-paciente/{id_paciente}', [PacienteController::class, 'showPacientePerfil'])->name('admin.paciente.perfil');
     Route::get('/admin/user/paciente/agenda/agenda-medica/{id_paciente}', [PacienteController::class, 'getAgendaMedica'])->name('admin.paciente.minhaAgenda');
 
 

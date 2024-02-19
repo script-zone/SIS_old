@@ -21,32 +21,32 @@
                             </div>
                         </div>
                         <div class="teacher-info border-start ps-xl-4 ps-md-4 ps-sm-4 ps-4 w-100">
-                            <h6  class="mb-0 mt-2  fw-bold d-block fs-6">Utilizador Teste</h6>
-                            <span class="py-1 fw-bold small-11 mb-0 mt-1 text-muted">Vila de Viana, Angola/Luanda</span>
-                            <p class="mt-2">No bio yet.</p>
+                            <h6  class="mb-0 mt-2  fw-bold d-block fs-6">{{$paciente->nome}} {{$paciente->sobreNome}}</h6>
+                            <span class="py-1 fw-bold small-11 mb-0 mt-1 text-muted">{{ $paciente->localidade}}</span>
+                            <p class="mt-2">{{ $paciente->terapeutica }}</p>
                             <div class="row g-2 pt-2">
                                 <div class="col-xl-5">
                                     <div class="d-flex align-items-center">
                                         <i class="icofont-ui-touch-phone"></i>
-                                        <span class="ms-2">924145786</span>
+                                        <span class="ms-2">{{ $paciente->telefone }}</span>
                                     </div>
                                 </div>
                                 <div class="col-xl-5">
                                     <div class="d-flex align-items-center">
                                         <i class="icofont-email"></i>
-                                        <span class="ms-2">doctorteste@gmail.com</span>
+                                        <span class="ms-2">{{ $paciente->email }}</span>
                                     </div>
                                 </div>
                                 <div class="col-xl-5">
                                     <div class="d-flex align-items-center">
                                         <i class="icofont-birthday-cake"></i>
-                                        <span class="ms-2">DD/MM/YYYY</span>
+                                        <span class="ms-2">{{ $paciente->data_nascimento }}</span>
                                     </div>
                                 </div>
                                 <div class="col-xl-5">
                                     <div class="d-flex align-items-center">
                                         <i class="icofont-address-book"></i>
-                                        <span class="ms-2">Casa S/N</span>
+                                        <span class="ms-2">{{ $paciente->morada }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
                         <div class="d-flex align-items-center justify-content-between shadow-sm p-3">
                             <div class="left-info">
                                 <span class="text-muted">Grupo Sanguenio</span>
-                                <h5 class="fw-bold my-2">0+</h5>
+                                <h5 class="fw-bold my-2">{{ $paciente->grupo_sanguineo }}</h5>
                                 <span class="text-muted">Eaten</span>
                             </div>
                             <div class="right-info">
@@ -78,7 +78,7 @@
                         <div class="d-flex align-items-center justify-content-between shadow-sm p-3">
                             <div class="left-info">
                                 <span class="text-muted">Alergias</span>
-                                <h5 class="fw-bold my-2">Lactose</h5>
+                                <h5 class="fw-bold my-2">{{ $paciente->alergias }}</h5>
                                 <span class="text-muted">Eaten</span>
                             </div>
                             <div class="right-info">
@@ -90,7 +90,7 @@
                         <div class="d-flex align-items-center justify-content-between shadow-sm p-3">
                             <div class="left-info">
                                 <span class="text-muted">Deficiencia</span>
-                                <h5 class="fw-bold my-2">Fisico Motor</h5>
+                                <h5 class="fw-bold my-2">{{ $paciente->deficiencia }}</h5>
                                 <span class="text-muted">Recommended</span>
                             </div>
                             <div class="right-info">
@@ -102,7 +102,7 @@
                         <div class="d-flex align-items-center justify-content-between shadow-sm p-3">
                             <div class="left-info">
                                 <span class="text-muted">Historico Familiar</span>
-                                <h5 class="fw-bold my-2">Auzaimer</h5>
+                                <h5 class="fw-bold my-2">{{ $paciente->historico_familiar }}</h5>
                                 <span class="text-muted">Recommended</span>
                             </div>
                             <div class="right-info">
@@ -114,7 +114,7 @@
                         <div class="d-flex align-items-center justify-content-between shadow-sm p-3">
                             <div class="left-info">
                                 <span class="text-muted">Terapeutica</span>
-                                <h5 class="fw-bold my-2">Alguma coisa</h5>
+                                <h5 class="fw-bold my-2">{{ $paciente->terapeutica }}</h5>
                                 <span class="text-muted">Recommended</span>
                             </div>
                             <div class="right-info">
