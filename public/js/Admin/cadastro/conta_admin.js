@@ -110,13 +110,14 @@ telefoneEmergencia.onkeyup = function () {
     }
 };
 
+/*
 dataNascimento.onkeyup = function () {
     if (!verificarIdade(dataNascimento.value)) {
         setError(dataNascimento, "dataNascimentoAviso");
     } else {
         removeError(dataNascimento, "dataNascimentoAviso");
     }
-};
+};*/
 bi.onkeyup = function () {
     bi.value = bi.value.toUpperCase();
     if (bi.value.length != 14 || !validaNumeroDoBIAngolano.test(bi.value)) {
@@ -222,13 +223,13 @@ function validarFormularioCadastroUtilizador() {
         removeError(telefoneEmergencia, "telefoneEmergenciaAviso");
     }
 
-    // Validação do campo dataNascimento
+    /*// Validação do campo dataNascimento
     if (!verificarIdade(dataNascimento.value) || dataNascimento.value == "") {
         setError(dataNascimento, "dataNascimentoAviso");
         return false;
     } else {
         removeError(dataNascimento, "dataNascimentoAviso");
-    }
+    }*/
 
     // Validação do campo bi
     if (!validaNumeroDoBIAngolano.test(bi.value) || bi.value == "") {
@@ -260,14 +261,6 @@ function validarFormularioCadastroUtilizador() {
         return false;
     } else {
         removeError(localidade, "localidadeAviso");
-    }
-
-    // Validação do campo fileFoto (adicionado tipo file)
-    if (!fileFoto.value || fileFoto.value == "") {
-        setError(fileFoto, "fileFotoAviso");
-        return false;
-    } else {
-        removeError(fileFoto, "fileFotoAviso");
     }
 
     // Validação do campo email
@@ -304,17 +297,19 @@ function validarFormularioCadastroUtilizador() {
 
 function verificarIdade(dataNascimento) {
     // Dividir a string da data de nascimento em dia, mês e ano
-    const partes = dataNascimento.split("/");
-    const dia = parseInt(partes[0], 10);
+    const partes = dataNascimento.split("-");
+    const ano = parseInt(partes[0], 10);
+
     const mes = parseInt(partes[1], 10);
-    const ano = parseInt(partes[2], 10);
+    const dia = parseInt(partes[2], 10);
 
     // Criar um objeto Date com a data de nascimento
     const dataNasc = new Date(ano, mes - 1, dia);
 
     // Calcular a idade atual
     const hoje = new Date();
-    const idade = hoje.getFullYear() - dataNasc.getFullYear();
+    const idade = hoje.getFullYear() - dataNascimento.getFullYear();
+    alert(idade);
 
     // Verificar se a pessoa tem mais de 18 anos e menos de 90 anos
     if (idade >= 18 && idade < 90) {

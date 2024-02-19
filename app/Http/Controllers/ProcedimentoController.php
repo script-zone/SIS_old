@@ -25,7 +25,7 @@ class ProcedimentoController extends Controller
             'doctores' => P_clinic::getP_clinic(),
         ];
 
-        return view('Admin.Doctor.agendarProcedimento')->with($dados);
+        return view('Admin.Marcacao.agendarProcedimento')->with($dados);
     }
 
     public function storeMarcacaoProcedimento (Request $request) {

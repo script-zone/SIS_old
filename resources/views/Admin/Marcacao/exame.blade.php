@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="data_agendada" class="form-label">Data</label>
-                                    <input type="date" name="data_agendada" class="form-control" id="data_agendada">
+                                    <input type="date" name="data_agendada" min="<?php echo date('Y-m-d'); ?>" class="form-control" id="data_agendada">
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Hora</label>
