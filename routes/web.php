@@ -42,7 +42,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     ////////// PACIENTE //////////////
     Route::get('/admin/user/doctor/listar-pacientes', [PacienteController::class, 'showPaciente'])->name('admin.listarPaciente');
-    Route::get('/admin/user/paciente/perfil-paciente', [PacienteController::class, 'showPacientePerfil'])->name('admin.paciente.perfil');
+    Route::get('/admin/user/paciente/perfil-paciente/{id_paciente}', [PacienteController::class, 'showPacientePerfil'])->name('admin.paciente.perfil');
     Route::get('/admin/user/paciente/agenda/agenda-medica/{id_paciente}', [PacienteController::class, 'getAgendaMedica'])->name('admin.paciente.minhaAgenda');
 
 

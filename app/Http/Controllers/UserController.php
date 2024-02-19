@@ -30,7 +30,7 @@ class UserController extends Controller
         // }
             
         
-        //dd($request);
+        // dd($request);
 
         $totalUsers = User::getTotalUser();
 
