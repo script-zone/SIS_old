@@ -126,11 +126,9 @@ class PacienteController extends Controller
 
     }
 
-    public function showPacientePerfil ($id_paciente) {
+    public function showPacientePerfil () {
         
-        $dados = [
-            'paciente' => Paciente::getDadosPaciente(Crypt::decryptString($id_paciente))[0],
-        ];
+        $dados = [];
 
         return view('Admin.Paciente.perfil')->with($dados);
     }
